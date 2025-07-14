@@ -1,0 +1,28 @@
+#root {
+  display: flex;
+  justify-content: space-around;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+button, input {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.container {
+  max-width: 698px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.main {
+  display: flex;
+  max-width: 1440px;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}

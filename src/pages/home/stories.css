@@ -1,0 +1,58 @@
+.stories__wrapper {
+    position: relative;
+    max-width: 696px;
+    margin: 24px auto;
+}
+
+.scroll__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.scroll__btn.left {
+    left: 10px;
+}
+
+.scroll__btn.right {
+    right: 10px;
+}
+
+.home__stories {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 128px;
+    margin: 24px auto;
+    flex-wrap: nowrap;
+
+    background-color: #fff;
+    max-width: 696px;
+    border-radius: 40px;
+    box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+.home__stories::before,
+.home__stories::after {
+    content: "";
+    flex: 0 0 10px;
+}
+
+.home__stories::-webkit-scrollbar {
+  display: none;
+}
