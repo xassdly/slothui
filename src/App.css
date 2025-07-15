@@ -1,6 +1,7 @@
-#root {
-  display: flex;
-  justify-content: space-around;
+
+
+p {
+  margin: 0;
 }
 
 body {
@@ -21,8 +22,7 @@ button, input {
 
 .main {
   display: flex;
-  max-width: 1440px;
+  
   width: 100%;
-  justify-content: space-evenly;
-  align-items: flex-start;
+
 }

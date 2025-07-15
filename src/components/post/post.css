@@ -1,4 +1,148 @@
 
 .post {
+    margin: 16px 0;
+    box-sizing: border-box;
     width: 100%;
+    background-color: #fff;
+    max-width: 696px;
+    border-radius: 40px;
+    box-shadow: 3px 2px 9px -2px rgba(0, 0, 0, 0.3);
+}
+
+
+
+/* POST HEADER */
+.post__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid rgb(228, 221, 221);
+}
+
+.user__info {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.username__and__location {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.username__and__location h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.username__and__location p {    
+    font-size: 14px;
+    font-weight: 200;
+    margin: 0;
+    
+}
+.user__info img {
+    width: 45px;
+    height: 45px;
+    
+}
+
+.button__more {
+    margin: 5px 5px 0 0;
+}
+
+
+
+/* POST FOOTER */
+.post__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-top: 1px solid rgb(228, 221, 221);
+}
+
+.post__footer img {
+    width: 45px;
+    height: 45px;
+}
+
+.post__footer__left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.post__footer__left input {
+    border-radius: 30px;
+    border: 1px solid rgb(228, 221, 221);
+    padding: 13px 170px 13px 13px;
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.post__footer__right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.post__footer__right div {
+    border: 1px solid rgb(228, 221, 221);
+    border-radius: 50%;
+    padding: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .2s ease;
+}
+.post__footer__right div:hover {
+    background-color: #ececec;
+}
+
+.post__footer__right img {
+    width: 24px;
+    height: 24px;
+}
+
+
+
+/* POST FACE */
+.post__face {
+    padding: 20px;
+}
+
+.post__face__p {
+    margin: 0 0 17px;
+    font-size: 14px;
+}
+
+.post__face__img {
+    border-radius: 16px;
+}
+
+.post__face__buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 13px;
+    gap: 17px;
+    font-size: 14px;
+}
+
+.post__face__buttons > :last-child{
+    margin-left: auto;
+}
+
+.post__item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.post__item img {
+    cursor: pointer;
 }

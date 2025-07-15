@@ -21,7 +21,7 @@
 }
 .story__avatar img {
     border-radius: 50%;
-    width: 70px;
-    height: 70px;
+    width: 64px;
+    height: 64px;
     object-fit: cover;
 }

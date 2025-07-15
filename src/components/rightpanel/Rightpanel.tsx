@@ -1,7 +1,8 @@
+import './rightpanel.css'
 
 const Rightpanel = () => {
     return (
-        <>Right panel</>
+        <div className="rightpanel">Right panel</div>
     )
 }
 
