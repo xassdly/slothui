@@ -1,4 +1,128 @@
 .navbar {
     max-width: 400px;
     width: 100%;
+    padding: 32px 16px;
+
+}
+
+.navbar__search{
+    border: 1px solid #CBD5E1;
+    border-radius: 30px;
+    display: flex;
+    margin-top: 15px;
+    padding-left: 10px;
+}
+.navbar__search input {
+    border: none;
+    outline: none;
+    padding: 10px;
+}
+.navbar__search input::placeholder{
+    color: #475569;
+    font-size: 16px;
+}
+
+.navbar__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    margin: 40px 0 90px 10px;
+}
+.navbar__nav__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .1s ease;
+}
+.navbar__nav__item:hover {
+    background-color: #f5f4f4;
+}
+
+.navbar__pro {
+    background-color: #F8FAFC;
+    padding: 16px;
+    border-radius: 20px;
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.navbar__pro__close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    cursor: pointer;
+}
+
+.navbar__pro__img {
+    margin: 9px 0 0 9px;
+}
+
+.navbar__pro p {
+    margin-top: 20px;
+    color: #475569;
+    font-size: 14px;
+}
+
+.dismiss__or__no {
+    display: flex;
+    gap: 14px;
+    margin: 15px;
+}
+.dismiss__or__no button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-weight: bold;
+    font-size: 14px;
+    color: #475569;
+}
+.dismiss__or__no button:last-child {
+    color: #4F46E5;
+}
+
+.navbar__account {
+    padding: 25px 0 32px 0;
+    border-top: 1px solid #cfcfcf;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar__account__info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.navbar__account__info img {
+    width: 43px;
+    height: 43px;
+}
+
+.navbar__account__info p {
+    color: #475569;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.navbar__account__info h3 {
+    font-size: 16px;
+    color: #1E293B;
+    font-weight: bold;
+}
+
+.username__and__userinfo {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.navbar__account__logout {
+    margin-right: 5px;
+    cursor: pointer;
 }

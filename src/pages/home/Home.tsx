@@ -46,15 +46,21 @@ const Home = () => {
 
     return (
         <div className="home">
+
             <div className="home__header">
-                <div className="home__header__search">
-                    <input type="text" placeholder='Search for friends, groups, pages'/>
-                    <img src={searchicon} alt='search'/>
-                </div>
-                <div className="home__header__button">
-                    <button>Add New Post<img src={plussvg} alt='+'/></button>
+                <div className="container">
+                    <div className="home__header__content">
+                        <div className="home__header__search">
+                            <input type="text" placeholder='Search for friends, groups, pages'/>
+                            <img src={searchicon} alt='search'/>
+                        </div>
+                        <div className="home__header__button">
+                            <button>Add New Post<img src={plussvg} alt='+'/></button>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
             <div className="container">
                 <div className="home__content">
                     <div className="stories__wrapper">

@@ -13,11 +13,16 @@
 .home__header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 25px;
+
     height: 88px;
     background-color: #fff;
     border-bottom: 1px solid #d4ddeb;
+}
+
+.home__header__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .home__header__search {
@@ -36,7 +41,6 @@
     flex: 1;
     outline: none;
     width: 270px;
-    font-size: 16px;
 }
 
 .home__header__search img {
@@ -44,6 +48,7 @@
 }
 
 .home__header__search input::placeholder {
+    font-size: 16px;
     color: #000;
 }
 
