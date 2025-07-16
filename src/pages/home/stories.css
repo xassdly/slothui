@@ -35,6 +35,7 @@
     align-items: center;
     gap: 15px;
     padding-left: 20px;
+    padding-right: 20px;
     overflow-x: auto;
     overflow-y: hidden;
     height: 128px;

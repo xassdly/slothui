@@ -1,0 +1,51 @@
+.rightpanel__events {
+    padding: 0 24px;
+
+}
+
+.events__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #d4ddeb;
+}
+
+.event__item {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #d4ddeb;
+}
+
+.event__content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.event__icon {
+    background-color: #EEF2FF;
+    padding: 12px;
+    border-radius: 50%;
+    display: flex;
+}
+
+.event__info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.event__info h3 {
+    color: #475569;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.event__info p {
+    color: #475569;
+    font-size: 14px;
+}

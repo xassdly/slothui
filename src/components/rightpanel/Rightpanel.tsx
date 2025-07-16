@@ -1,5 +1,9 @@
-import './rightpanel.css'
-import avatar_indicator from './../../assets/rightside_icons/avatar_indicator.svg';
+import './styles/rightpanel.css';
+import './styles/rp_activity.css';
+import './styles/rp_events.css';
+import './styles/rp_suggestions.css';
+
+/*import avatar_indicator from './../../assets/rightside_icons/avatar_indicator.svg';*/
 import messicon from './../../assets/rightside_icons/mess.svg';
 import notsdarkicon from './../../assets/rightside_icons/nots.svg'
 import seeallicon from './../../assets/rightside_icons/seeall.svg';
@@ -7,7 +11,7 @@ import setticon from './../../assets/rightside_icons/sett.svg';
 import trendicon from './../../assets/rightside_icons/TrendUp.svg';
 import avataricon from './../../assets/avatars/a2.png';
 import avataricon2 from './../../assets/avatars/a1.png';
-import moreicon from './../../assets/more.svg';
+import moreicon from './../../assets/main_icons/more.svg';
 import Suggestion from './Suggestion';
 import Event from './Event';
 

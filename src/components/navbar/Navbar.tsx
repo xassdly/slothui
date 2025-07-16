@@ -1,6 +1,8 @@
 import './navbar.css';
+import {useState} from 'react';
+
 import logo from './../../assets/Logo.svg';
-import searchicon from './../../assets/searchicon.svg';
+import searchicon from './../../assets/main_icons/searchicon.svg';
 import feedicon from './../../assets/leftside_icons/feed.svg';
 import storiesicon from './../../assets/leftside_icons/stories.svg';
 import friendsicon from './../../assets/leftside_icons/friends.svg';
@@ -14,6 +16,8 @@ import closeicon from './../../assets/leftside_icons/close.svg';
 import avatar from './../../assets/avatars/a2.png';
 
 const Navbar = () => {
+    const [isProOpen, setIsProOpen] = useState(true);
+
     return (
         <div className="navbar">
             <div className="navbar__logo">
@@ -52,15 +56,19 @@ const Navbar = () => {
                     <p>Help & Support</p>
                 </div>
             </div>
-            <div className="navbar__pro">
-                <img className='navbar__pro__close' src={closeicon} alt="close" />
-                <img className='navbar__pro__img' src={limiticon} alt="limit" />
-                <p>Enjoy unlimited access to our app with only a small price monthly.</p>
-                <div className="dismiss__or__no">
-                    <button>Dismiss</button>
-                    <button>Go Pro</button>
+
+            {isProOpen && (
+                <div className="navbar__pro">
+                    <img onClick={() => setIsProOpen(false)} className='navbar__pro__close' src={closeicon} alt="close" />
+                    <img className='navbar__pro__img' src={limiticon} alt="limit" />
+                    <p>Enjoy unlimited access to our app with only a small price monthly.</p>
+                    <div className="dismiss__or__no">
+                        <button onClick={() => setIsProOpen(false)}>Dismiss</button>
+                        <button>Go Pro</button>
+                    </div>
                 </div>
-            </div>
+            )}
+            
             <div className="navbar__account">
                 <div className="navbar__account__info">
                     <img src={avatar} alt="user" />

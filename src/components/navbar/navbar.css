@@ -19,7 +19,7 @@
 }
 .navbar__search input::placeholder{
     color: #475569;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .navbar__nav {
@@ -63,7 +63,7 @@
 .navbar__pro p {
     margin-top: 20px;
     color: #475569;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .dismiss__or__no {
@@ -106,12 +106,12 @@
 
 .navbar__account__info p {
     color: #475569;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 400;
 }
 
 .navbar__account__info h3 {
-    font-size: 16px;
+    font-size: 1rem;
     color: #1E293B;
     font-weight: bold;
 }

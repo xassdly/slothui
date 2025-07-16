@@ -1,13 +1,25 @@
-import Post from '../../components/post/Post';
 import './home.css';
 import './stories.css'
-import plussvg from './../../assets/plus.svg';
-import searchicon from './../../assets/searchicon.svg';
-import Story from '../../components/story/Story';
-import { useRef, useState, useEffect } from 'react';
-import arrowleft from './../../assets/arrowleft.svg';
-import arrowright from './../../assets/arrowright.svg';
 
+import Post from '../../components/post/Post';
+import Story from '../../components/story/Story';
+
+import plussvg from './../../assets/main_icons/plus.svg';
+import searchicon from './../../assets/main_icons/searchicon.svg';
+import arrowleft from './../../assets/main_icons/arrowleft.svg';
+import arrowright from './../../assets/main_icons/arrowright.svg';
+
+import ava5 from './../../assets/avatars/a5.png';
+import ava4 from './../../assets/avatars/a4.png';
+import ava3 from './../../assets/avatars/a3.png';
+import ava1 from './../../assets/avatars/a1.png';
+import ava8 from './../../assets/avatars/a8.png';
+import ava7 from './../../assets/avatars/a7.png';
+import ava6 from './../../assets/avatars/a6.png';
+
+import story1 from './../../assets/stories_content/story1.jpg';
+
+import { useRef, useState, useEffect } from 'react';
 
 const Home = () => {
 
@@ -69,18 +81,18 @@ const Home = () => {
                             <button className="scroll__btn left" onClick={() => scrollStories(-200)}><img src={arrowleft} alt="<"/></button>
                         )}
                         <div className="home__stories" ref={storiesRef}>
-                            <Story />
-                            <Story />
-                            <Story />
-                            <Story />
-                            <Story />
-                            <Story />
-                            <Story />
-                            <Story />
-                            <Story />
-                            <Story />
-                            <Story />
-                            <Story />
+
+                            <Story username={'Mary'} avatar={ava1} content={story1}/>
+                            <Story username={'Katya'} avatar={ava3} content={story1}/>
+                            <Story username={'Artur'} avatar={ava8} content={story1}/>
+                            <Story username={'Ira'} avatar={ava4} content={story1}/>
+                            <Story username={'Robert'} avatar={ava5} content={story1}/>
+                            <Story username={'Taylor'} avatar={ava6} content={story1}/>
+                            <Story username={'Gaga'} avatar={ava7} content={story1}/>
+                            <Story username={'Sasha'} avatar={ava8} content={story1}/>
+                            <Story username={'repeat'} avatar={ava1} content={story1}/>
+                            <Story username={'one more'} avatar={ava1} content={story1}/>
+                            
                         </div>
                         {showRight && (
                             <button className="scroll__btn right" onClick={() => scrollStories(200)}><img src={arrowright} alt=">"/></button>

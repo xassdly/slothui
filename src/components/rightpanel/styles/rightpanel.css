@@ -1,0 +1,39 @@
+
+.rightpanel {
+    max-width: 400px;
+    width: 100%;
+}
+
+.rightpanel__header {
+    height: 89px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    
+    border-bottom: 1px solid #d4ddeb;
+}
+.rightpanel__header__avatar img {
+    display: flex;
+    width: 48px;
+    height: 48px;
+}
+
+.rightpanel__header__buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+.header__icon__block {
+    display: flex;
+    border: 1px solid #CBD5E1;
+    border-radius: 50%;
+    padding: 12px;
+    transition: .2s ease;
+    cursor: pointer;
+}
+.header__icon__block:hover {
+    background-color: #ececec;
+}

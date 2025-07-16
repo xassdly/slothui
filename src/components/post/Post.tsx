@@ -1,17 +1,16 @@
-import './post.css'
+import './post.css';
+
 import postimg1 from './../../assets/post_imgs/postimg1.png';
-import more from './../../assets/more.svg';
+import more from './../../assets/main_icons/more.svg';
 import avatar from './../../assets/avatars/a1.png';
 import avatar2 from './../../assets/avatars/a2.png';
-
-import like from './../../assets/like.svg';
-import comment from './../../assets/comment.svg';
-import share from './../../assets/share.svg';
-import save from './../../assets/save.svg';
-
-import note from './../../assets/note.svg';
-import smile from './../../assets/smile.svg';
-import  send from './../../assets/send.svg';
+import like from './../../assets/main_icons/like.svg';
+import comment from './../../assets/main_icons/comment.svg';
+import share from './../../assets/main_icons/share.svg';
+import save from './../../assets/main_icons/save.svg';
+import note from './../../assets/main_icons/note.svg';
+import smile from './../../assets/main_icons/smile.svg';
+import  send from './../../assets/main_icons/send.svg';
 
 const Post = () => {
     return (

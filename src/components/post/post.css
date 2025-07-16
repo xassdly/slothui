@@ -32,13 +32,13 @@
 }
 
 .username__and__location h3 {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: bold;
     margin: 0;
 }
 
 .username__and__location p {    
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 200;
     margin: 0;
     
@@ -80,7 +80,7 @@
     border: 1px solid rgb(228, 221, 221);
     padding: 13px 170px 13px 13px;
     outline: none;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 500;
 }
 
@@ -118,7 +118,7 @@
 
 .post__face__p {
     margin: 0 0 17px;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .post__face__img {
@@ -130,7 +130,7 @@
     align-items: center;
     margin-top: 13px;
     gap: 17px;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .post__face__buttons > :last-child{
