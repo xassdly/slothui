@@ -3,7 +3,7 @@ import { PostModel } from '../../models/PostModel';
 import { useState } from 'react';
 
 import more from './../../assets/main_icons/more.svg';
-import avatar2 from './../../assets/avatars/a2.png';
+import avatar from './../../assets/avatars/a10.png';
 import like from './../../assets/main_icons/like.svg';
 import liked from './../../assets/main_icons/liked.svg';
 import comment from './../../assets/main_icons/comment.svg';
@@ -13,6 +13,7 @@ import saved from './../../assets/main_icons/saved.svg';
 import note from './../../assets/main_icons/note.svg';
 import smile from './../../assets/main_icons/smile.svg';
 import send from './../../assets/main_icons/send.svg';
+import emoji from './../../assets/main_icons/emojis.svg';
 
 type PostProps = {
     post: PostModel;
@@ -24,6 +25,8 @@ const Post = ( {post}: PostProps ) => {
     const [isLiked, setIsLiked] = useState(false);
     const [likes, setLikes] = useState(post.likes);
     const [showHeart, setShowHeart] = useState(false);
+
+    const [isCommWindowOpen, setIsCommWindowOpen] = useState(false);
 
     const handleSaveClick = () => {
         setIsSaved(prev => !prev);
@@ -73,10 +76,33 @@ const Post = ( {post}: PostProps ) => {
                                 <p>{likes}</p>
                             </div>
 
-                            <div className="post__item">
+                            <div onClick={() => setIsCommWindowOpen(true)} className="post__item">
                                 <img src={comment} alt="comment" />
                                 <p>{post.comments.length}</p>
                             </div>
+
+                            {isCommWindowOpen && (
+                                <div className="modal-overlay" onClick={() => setIsCommWindowOpen(false)}>
+                                    <div className="comments-modal-content" onClick={e => e.stopPropagation()}>
+                                        <div className="comments__header">
+                                            <h3>Comments</h3>
+                                        </div>
+                                        <div className="comments__content">
+                                            
+                                        </div>
+                                        <div className="coments__footer">
+                                            <img src="" alt="" />
+                                            <div className="comments__footer__input">
+                                                <input type="text" />
+                                                <div className="comment__footer__input__emoji">
+                                                    <img src={emoji} alt="emoji" />
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
 
                             <div className="post__item">
                                 <img src={share} alt="share" />
@@ -92,7 +118,7 @@ const Post = ( {post}: PostProps ) => {
 
                     <div className="post__footer">
                         <div className="post__footer__left">
-                            <img src={avatar2} alt="avatar" />
+                            <img src={avatar} alt="avatar" />
                             <input type="text" placeholder='Write your comment..'/>
                         </div>
                         <div className="post__footer__right">

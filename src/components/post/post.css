@@ -149,7 +149,12 @@
 .post__item img {
     cursor: pointer;
 }
+.post__item p {
+    cursor: default;
+}
 
+
+/* LIKES */
 .post__image__wrapper {
     position: relative;
     display: flex;
@@ -179,4 +184,13 @@
         transform: scale(1);
         opacity: 0;
     }
+}
+
+
+/* COMMENTS*/
+.comments-modal-content {
+    width: 60vw;
+    height: 70vh;
+    background-color: #ffffff;
+    border-radius: 50px;
 }

@@ -74,6 +74,8 @@
     object-fit: cover;
     margin-left: -10px;
     transition: all 0.2s;
+    border-radius: 50%;
+    border: 1px solid #fff;
 }
 .activity__avatars img:first-child {
     margin-left: 0;

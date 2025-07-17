@@ -13,7 +13,7 @@ import helpicon from './../../assets/leftside_icons/help.svg';
 import limiticon from './../../assets/leftside_icons/limit.svg';
 import leaveicon from './../../assets/leftside_icons/leave.svg';
 import closeicon from './../../assets/leftside_icons/close.svg';
-import avatar from './../../assets/avatars/a2.png';
+import avatar from './../../assets/avatars/a10.png';
 
 const Navbar = () => {
     const [isProOpen, setIsProOpen] = useState(true);

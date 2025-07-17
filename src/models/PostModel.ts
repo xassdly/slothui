@@ -1,16 +1,16 @@
-import { User } from "./User";
-import { Comment } from "./Comment";
+import { UserModel } from "./UserModel";
+import { CommentModel } from "./CommentModel";
 
 export class PostModel {
-    user: User;
+    user: UserModel;
     location: string;
     content: string;
     image: string;
     likes: number;
-    comments: Comment[];
+    comments: CommentModel[];
     reposts: number;
 
-    constructor(user: User, location: string, content: string, image: string, likes: number, comments: Comment[] = [], reposts: number){
+    constructor(user: UserModel, location: string, content: string, image: string, likes: number, comments: CommentModel[] = [], reposts: number){
         this.user = user;
         this.location = location;
         this.content = content;

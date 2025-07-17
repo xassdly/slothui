@@ -1,21 +1,21 @@
 import notsicon from './../../assets/rightside_icons/notsicon.svg';
-import moonicon from './../../assets/rightside_icons/moonicon.svg';
-import gifticon from './../../assets/rightside_icons/gifticon.svg';
-import gradicon from './../../assets/rightside_icons/gradicon.svg';
-import groupicon from './../../assets/rightside_icons/groupicon.svg';
+import { EventModel } from '../../models/EventModel';
 
+type EventProps = {
+    event: EventModel;
+}
 
-const Event = () => {
+const Event = ({event}: EventProps) => {
     return (
         <div className="event__item">
 
             <div className="event__content">
                 <div className="event__icon">
-                    <img src={gradicon} alt="grad" />
+                    <img src={event.icon} alt="icon" />
                 </div>
                 <div className="event__info">
-                    <h3>Graduation</h3>
-                    <p>Dec 22, 2028</p>
+                    <h3>{event.title}</h3>
+                    <p>{event.date.toDateString()}</p>
                 </div>
             </div>
             <div className="event__notification">

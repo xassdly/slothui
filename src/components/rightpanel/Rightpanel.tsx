@@ -3,25 +3,44 @@ import './styles/rp_activity.css';
 import './styles/rp_events.css';
 import './styles/rp_suggestions.css';
 
-/*import avatar_indicator from './../../assets/rightside_icons/avatar_indicator.svg';*/
+import avatar_indicator from './../../assets/rightside_icons/avatar_indicator.svg';
 import messicon from './../../assets/rightside_icons/mess.svg';
 import notsdarkicon from './../../assets/rightside_icons/nots.svg'
 import seeallicon from './../../assets/rightside_icons/seeall.svg';
 import setticon from './../../assets/rightside_icons/sett.svg';
 import trendicon from './../../assets/rightside_icons/TrendUp.svg';
-import avataricon from './../../assets/avatars/a2.png';
-import avataricon2 from './../../assets/avatars/a1.png';
+import avatar from './../../assets/avatars/a10.png';
 import moreicon from './../../assets/main_icons/more.svg';
 import Suggestion from './Suggestion';
 import Event from './Event';
 
+import moonicon from './../../assets/rightside_icons/moonicon.svg';
+import gifticon from './../../assets/rightside_icons/gifticon.svg';
+import gradicon from './../../assets/rightside_icons/gradicon.svg';
+import groupicon from './../../assets/rightside_icons/groupicon.svg';
+
+import { user1, user2, user3, user4, user5, user6, user7, user8, user9 } from '../../mock/users';
+import { EventModel } from '../../models/EventModel';
+import { useState } from 'react';
+
+const event1 = new EventModel("Friend's birthday", new Date(2026, 6, 17), gifticon);
+const event2 = new EventModel("Graduation", new Date(2028, 4, 21), gradicon);
+const event3 = new EventModel("Group Meetup", new Date(2025, 11, 1), groupicon);
+const event4 = new EventModel("Holiday", new Date(2029, 9, 7), moonicon);
+
+
 const Rightpanel = () => {
+    const [isUserActive] = useState(true);
+
     return (
         <div className="rightpanel">
 
             <div className="rightpanel__header">
-                <div className="rightpanel__header__avatar">
-                    <img src={avataricon} alt="avatar" />
+                <div className="rightpanel__header__avatar__wrapper">
+                    <img className="rightpanel__header__avatar" src={avatar} alt="avatar" />
+                    {isUserActive && (
+                        <img className="avatar__indicator" src={avatar_indicator} alt="indicator" />
+                    )}
                 </div>
                 <div className="rightpanel__header__buttons">
                     <div className="header__icon__block"><img src={messicon} alt="messages" /></div>
@@ -39,11 +58,11 @@ const Rightpanel = () => {
                     </div>
                 </div>
                 <div className="friends__content">
-                    <Suggestion />
-                    <Suggestion />
-                    <Suggestion />
-                    <Suggestion />
-                    <Suggestion />
+                    <Suggestion user={user3}/>
+                    <Suggestion user={user5}/>
+                    <Suggestion user={user6}/>
+                    <Suggestion user={user9}/>
+                    <Suggestion user={user1}/>
                 </div>
             </div>
 
@@ -54,13 +73,13 @@ const Rightpanel = () => {
                 </div>
                 <div className="activity__content">
                     <div className="activity__avatars">
-                        <img src={avataricon2} alt="user" />
-                        <img src={avataricon2} alt="user" />
-                        <img src={avataricon2} alt="user" />
-                        <img src={avataricon2} alt="user" />
-                        <img src={avataricon2} alt="user" />
-                        <img src={avataricon2} alt="user" />
-                        <img src={avataricon2} alt="user" />
+                        <img src={user7.avatar} alt="user" />
+                        <img src={user4.avatar} alt="user" />
+                        <img src={user9.avatar} alt="user" />
+                        <img src={user1.avatar} alt="user" />
+                        <img src={user4.avatar} alt="user" />
+                        <img src={user8.avatar} alt="user" />
+                        <img src={user2.avatar} alt="user" />
                     </div>
                     <div className="activity__stats">
                         <div className="followers__count"><h3>+1,158</h3><p>Followers</p></div>
@@ -78,10 +97,10 @@ const Rightpanel = () => {
                     <div className="events__header__button"><img src={moreicon} alt="more" /></div>
                 </div>
                 <div className="events__content">
-                    <Event />
-                    <Event />
-                    <Event />
-                    <Event />
+                    <Event event={event1}/>
+                    <Event event={event2}/>
+                    <Event event={event3}/>
+                    <Event event={event4}/>
                 </div>
             </div>
 
