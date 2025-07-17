@@ -1,5 +1,8 @@
 import './post.css';
+import './comments.css';
 import { PostModel } from '../../models/PostModel';
+import Comment from './Comment';
+import { CommentModel } from '../../models/CommentModel';
 import { useState } from 'react';
 
 import more from './../../assets/main_icons/more.svg';
@@ -13,7 +16,11 @@ import saved from './../../assets/main_icons/saved.svg';
 import note from './../../assets/main_icons/note.svg';
 import smile from './../../assets/main_icons/smile.svg';
 import send from './../../assets/main_icons/send.svg';
-import emoji from './../../assets/main_icons/emojis.svg';
+import sendnb from './../../assets/main_icons/send_notblue.svg';
+
+import { user1, user2, user3, user4, user5, user6, user7, user8, user9 } from '../../mock/users';
+
+const comm1 = new CommentModel(user1, "Hello world, sdfwghrentrsgfaretwrehtnymnfgfdsfaetwyehrjyngdfsfawrtweyhtrfgdfwrtethgfeHello rect, I love you so much, I love META, but facebook is peace of sheet", new Date(2025, 3, 14), 167);
 
 type PostProps = {
     post: PostModel;
@@ -84,22 +91,30 @@ const Post = ( {post}: PostProps ) => {
                             {isCommWindowOpen && (
                                 <div className="modal-overlay" onClick={() => setIsCommWindowOpen(false)}>
                                     <div className="comments-modal-content" onClick={e => e.stopPropagation()}>
+
                                         <div className="comments__header">
                                             <h3>Comments</h3>
                                         </div>
-                                        <div className="comments__content">
-                                            
+
+                                        <div className="comments">
+                                            <Comment comment={comm1}/>
+                                            <Comment comment={comm1}/>
+                                            <Comment comment={comm1}/>
+                                            <Comment comment={comm1}/>
                                         </div>
-                                        <div className="coments__footer">
-                                            <img src="" alt="" />
+
+                                        <div className="comments__footer">
+                                            <img className='comments__footer__avatar' src={avatar} alt="user" />
                                             <div className="comments__footer__input">
-                                                <input type="text" />
+                                                <input type="text" placeholder='Write your comment..'/>
                                                 <div className="comment__footer__input__emoji">
-                                                    <img src={emoji} alt="emoji" />
+                                                    <img src={smile} alt="emoji" />
                                                 </div>
                                             </div>
+                                            <img className='comments__footer__send' src={sendnb} alt="send" />
                                             
                                         </div>
+
                                     </div>
                                 </div>
                             )}

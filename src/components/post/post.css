@@ -185,12 +185,3 @@
         opacity: 0;
     }
 }
-
-
-/* COMMENTS*/
-.comments-modal-content {
-    width: 60vw;
-    height: 70vh;
-    background-color: #ffffff;
-    border-radius: 50px;
-}
