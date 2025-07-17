@@ -1,5 +1,8 @@
 import './home.css';
-import './stories.css'
+import './../../components/story/stories.css';
+
+import { User } from '../../models/User';
+import { PostModel } from '../../models/PostModel';
 
 import Post from '../../components/post/Post';
 import Story from '../../components/story/Story';
@@ -17,12 +20,37 @@ import ava8 from './../../assets/avatars/a8.png';
 import ava7 from './../../assets/avatars/a7.png';
 import ava6 from './../../assets/avatars/a6.png';
 
+import postimg1 from './../../assets/post_imgs/postimg1.png';
+import postimg2 from './../../assets/post_imgs/postimg2.png';
+import postimg3 from './../../assets/post_imgs/postimg3.png';
+import postimg4 from './../../assets/post_imgs/postimg4.png';
+import postimg5 from './../../assets/post_imgs/postimg5.png';
+import postimg6 from './../../assets/post_imgs/postimg6.png';
+
+
 import story1 from './../../assets/stories_content/story1.jpg';
 
 import { useRef, useState, useEffect } from 'react';
 
-const Home = () => {
 
+const user1 = new User("Mary", ava1);
+const user2 = new User("Katya", ava3);
+const user3 = new User("Ira", ava4);
+const user4 = new User("Viktor", ava5);
+const user5 = new User("Taylor", ava6);
+const user6 = new User("Gaga", ava7);
+const user7 = new User("Sasha", ava8);
+
+const post1 = new PostModel(user1, "USA, Boston", "Here must be content", postimg1, 9001, [], 1);
+const post2 = new PostModel(user2, "USA, New-York", "Here must be content", postimg2, 3654, [],2);
+const post3 = new PostModel(user3, "Austria, Wien", "Here must be content", postimg6, 56735, [],3);
+const post4 = new PostModel(user4, "Canada, Toronto", "Here must be content", postimg4, 385, [],4);
+const post5 = new PostModel(user5, "Japan, Tokyo", "Here must be content", postimg5, 946, [],5);
+const post6 = new PostModel(user6, "Australia, Melburn", "Here must be content", postimg1, 83, [],6);
+const post7 = new PostModel(user7, "Germany, Berlin", "Here must be content", postimg3, 190, [],7);
+
+
+const Home = () => {
     const storiesRef = useRef<HTMLDivElement>(null);
 
     const [showLeft, setShowLeft] = useState(false);
@@ -82,16 +110,16 @@ const Home = () => {
                         )}
                         <div className="home__stories" ref={storiesRef}>
 
-                            <Story username={'Mary'} avatar={ava1} content={story1}/>
-                            <Story username={'Katya'} avatar={ava3} content={story1}/>
-                            <Story username={'Artur'} avatar={ava8} content={story1}/>
-                            <Story username={'Ira'} avatar={ava4} content={story1}/>
-                            <Story username={'Robert'} avatar={ava5} content={story1}/>
-                            <Story username={'Taylor'} avatar={ava6} content={story1}/>
-                            <Story username={'Gaga'} avatar={ava7} content={story1}/>
-                            <Story username={'Sasha'} avatar={ava8} content={story1}/>
-                            <Story username={'repeat'} avatar={ava1} content={story1}/>
-                            <Story username={'one more'} avatar={ava1} content={story1}/>
+                            <Story user={user1} content={story1}/>
+                            <Story user={user2} content={story1}/>
+                            <Story user={user3} content={story1}/>
+                            <Story user={user4} content={story1}/>
+                            <Story user={user5} content={story1}/>
+                            <Story user={user6} content={story1}/>
+                            <Story user={user3} content={story1}/>
+                            <Story user={user7} content={story1}/>
+                            <Story user={user4} content={story1}/>
+                            <Story user={user1} content={story1}/>
                             
                         </div>
                         {showRight && (
@@ -101,15 +129,13 @@ const Home = () => {
                     
                     
                     <div className="home__posts">
-                        <Post />
-                        <Post />
-                        <Post />
-                        <Post />
-                        <Post />
-                        <Post />
-                        <Post />
-                        <Post />
-                        <Post />
+                        <Post post={post1}/>
+                        <Post post={post2}/>
+                        <Post post={post3}/>
+                        <Post post={post4}/>
+                        <Post post={post5}/>
+                        <Post post={post6}/>
+                        <Post post={post7}/>
                     </div>
                     
                 </div>
