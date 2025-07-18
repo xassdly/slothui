@@ -1,16 +1,16 @@
 import './story.css'
 import {useState} from 'react';
-import { UserModel } from '../../models/UserModel';
+
+import { StoryModel } from '../../models/StoryModel';
 
 import close from './../../assets/main_icons/close.svg';
 import send from './../../assets/main_icons/send_story_comment.svg';
 
 type StoryProps = {
-    user: UserModel;
-    content: string;
+    story: StoryModel;
 }
 
-const Story = ({ user, content }: StoryProps) => {
+const Story = ({ story }: StoryProps) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isStoryRevised, setIsStoryRevised] = useState(false);
 
@@ -19,18 +19,18 @@ const Story = ({ user, content }: StoryProps) => {
             <div className="story__avatar" onClick={() => setIsModalOpen(true)} 
                 style={ isStoryRevised ? { background: "#B5B5B5"} : { background: "linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4)" }}>
                 
-                <img src={user.avatar} alt="a" />
+                <img src={story.user.avatar} alt="a" />
             </div>
             <div className="story__username">
-                {user.username}
+                {story.user.username}
             </div>
 
             {isModalOpen && (
                 <div className="modal-overlay" onClick={() => {setIsModalOpen(false); setIsStoryRevised(true)}}>
                     <div className="modal-content" onClick={e => e.stopPropagation()}>
-                        <img src={content} alt="as"/>
+                        <img src={story.content} alt="as"/>
                         <div className="story__header">
-                            <div><img src={user.avatar} alt="avatar" />{user.username}</div>
+                            <div><img src={story.user.avatar} alt="avatar" />{story.user.username}</div>
                             <img src={close} alt="close" onClick={() => setIsModalOpen(false)}/>
                         </div>
                         <div className="story__footer">

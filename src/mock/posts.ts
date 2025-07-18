@@ -8,6 +8,9 @@ import postimg3 from './../assets/post_imgs/postimg3.png';
 import postimg4 from './../assets/post_imgs/postimg4.png';
 import postimg5 from './../assets/post_imgs/postimg5.png';
 import postimg6 from './../assets/post_imgs/postimg6.png';
+import postimg7 from './../assets/post_imgs/postimg7.jpg';
+import postimg8 from './../assets/post_imgs/postimg8.jpg';
+import postimg9 from './../assets/post_imgs/postimg9.jpg';
 
 export const posts_array: PostModel[] = [];
 
@@ -17,5 +20,8 @@ const post3 = new PostModel(user3, "Somewhere over the rainbow", "Look at my new
 const post4 = new PostModel(user6, "Somewhere over the rainbow", "Look at my new car", postimg4, 3567, [comm7], 234);
 const post5 = new PostModel(user7, "Somewhere over the rainbow", "Look at my new car", postimg5, 2174, [comm8, comm11], 357);
 const post6 = new PostModel(user8, "Somewhere over the rainbow", "Look at my new car", postimg6, 124, [comm9, comm10], 99);
+const post7 = new PostModel(user1, "Somewhere over the rainbow", "Look at my new car", postimg7, 235, [comm9, comm10], 1847);
+const post8 = new PostModel(user4, "Somewhere over the rainbow", "Look at my new car", postimg8, 8463, [comm9, comm10], 438);
+const post9 = new PostModel(user9, "Somewhere over the rainbow", "Look at my new car", postimg9, 756, [comm9, comm10], 378);
 
-posts_array.push(post1, post2, post3, post4, post5, post6);
+posts_array.push(post1, post2, post3, post4, post5, post6, post7, post8, post9);

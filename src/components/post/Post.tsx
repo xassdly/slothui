@@ -16,6 +16,7 @@ import note from './../../assets/main_icons/note.svg';
 import smile from './../../assets/main_icons/smile.svg';
 import send from './../../assets/main_icons/send.svg';
 import sendnb from './../../assets/main_icons/send_notblue.svg';
+
 import type { UserModel } from '../../models/UserModel';
 import { CommentModel } from '../../models/CommentModel';
 

@@ -13,9 +13,7 @@ import arrowright from './../../assets/main_icons/arrowright.svg';
 import header_menu from './../../assets/main_icons/header_menu.svg';
 import logomark from './../../assets/logovector.svg';
 
-import { user1, user2, user3, user4, user5, user6, user7, user8, user9 } from '../../mock/users';
-
-import story1 from './../../assets/stories_content/story1.jpg';
+import { story_array } from '../../mock/stories';
 
 import { useRef, useState, useEffect } from 'react';
 import type { UserModel } from '../../models/UserModel';
@@ -104,16 +102,9 @@ const Home = ( {mainUser, openRightPanel, openLeftMenu}: HomeProps) => {
                         )}
                         <div className="home__stories" ref={storiesRef}>
 
-                            <Story user={user1} content={story1}/>
-                            <Story user={user2} content={story1}/>
-                            <Story user={user3} content={story1}/>
-                            <Story user={user4} content={story1}/>
-                            <Story user={user5} content={story1}/>
-                            <Story user={user6} content={story1}/>
-                            <Story user={user7} content={story1}/>
-                            <Story user={user8} content={story1}/>
-                            <Story user={user9} content={story1}/>
-                            <Story user={user3} content={story1}/>
+                            {story_array.map((story, index) => (
+                                <Story key={index} story={story} />
+                            ))}
                             
                         </div>
                         {showRight && (
