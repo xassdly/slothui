@@ -72,12 +72,14 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 60%;
 }
 
 .post__footer__left input {
     border-radius: 30px;
     border: 1px solid rgb(228, 221, 221);
-    padding: 13px 170px 13px 13px;
+    padding: 13px;
+    width: 100%;
     outline: none;
     font-size: 0.875rem;
     font-weight: 500;

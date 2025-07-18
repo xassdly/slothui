@@ -10,6 +10,7 @@ import plussvg from './../../assets/main_icons/plus.svg';
 import searchicon from './../../assets/main_icons/searchicon.svg';
 import arrowleft from './../../assets/main_icons/arrowleft.svg';
 import arrowright from './../../assets/main_icons/arrowright.svg';
+import header_menu from './../../assets/main_icons/header_menu.svg';
 
 import { user1, user2, user3, user4, user5, user6, user7, user8, user9 } from '../../mock/users';
 
@@ -33,8 +34,11 @@ const post5 = new PostModel(user5, "Japan, Tokyo", "Here must be content", posti
 const post6 = new PostModel(user6, "Australia, Melburn", "Here must be content", postimg1, 83, [],6);
 const post7 = new PostModel(user7, "Germany, Berlin", "Here must be content", postimg3, 190, [],7);
 
+type HomeProps = {
+    openRightPanel: () => void;
+};
 
-const Home = () => {
+const Home = ( {openRightPanel}: HomeProps) => {
     const storiesRef = useRef<HTMLDivElement>(null);
 
     const [showLeft, setShowLeft] = useState(false);
@@ -68,6 +72,18 @@ const Home = () => {
         }
     }
 
+    const [showPostButtonText, setShowPostButtonText] = useState(window.innerWidth < 1000);
+
+    useEffect(() => {
+        const handleResize = () => {
+        setShowPostButtonText(window.innerWidth < 1000);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    
+
     return (
         <div className="home">
 
@@ -79,8 +95,13 @@ const Home = () => {
                             <img src={searchicon} alt='search'/>
                         </div>
                         <div className="home__header__button">
-                            <button>Add New Post<img src={plussvg} alt='+'/></button>
+                            <button>{showPostButtonText ? "" : "Add New Post"}<img src={plussvg} alt='+'/></button>
                         </div>
+
+                        <div className="home__header__menu__button" onClick={openRightPanel}>
+                            <img src={header_menu} alt="menu" />
+                        </div>
+
                     </div>
                 </div>
             </div>

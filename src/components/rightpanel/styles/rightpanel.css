@@ -1,9 +1,4 @@
 
-.rightpanel {
-    max-width: 400px;
-    width: 100%;
-}
-
 .rightpanel__header {
     height: 89px;
     display: flex;
@@ -48,3 +43,4 @@
 .header__icon__block:hover {
     background-color: #ececec;
 }
+

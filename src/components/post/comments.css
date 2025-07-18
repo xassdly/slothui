@@ -39,8 +39,7 @@
     border-radius: 30px;
     padding: 10px 15px;
     font-size: 1rem;
-    width: 100%;
-    max-width: 400px;
+    width: 60%;
 }
 .comments__footer__input>input {
     border: none;
@@ -100,4 +99,35 @@
     align-items: center;
     font-size: 0.8rem;
     gap: 3px;
+}
+
+.comment__content>p {
+    overflow-wrap: break-word;
+}
+
+@media(max-width: 1200px) {
+    .comments-modal-content {
+        width: 70vw;
+    }
+}
+@media(max-width: 1000px) {
+    .comments-modal-content {
+        width: 80vw;
+    }
+    
+}
+@media(max-width: 600px) {
+    .comments-modal-content {
+        width: 90vw;
+    }
+    .comments__footer__avatar {
+        width: 50px;
+        height: 50px;
+    }
+    .comments__footer__send {
+        display: none;
+    }
+    .comments__footer__input {
+        width: 100%;
+    }
 }

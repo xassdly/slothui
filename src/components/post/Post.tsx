@@ -20,7 +20,7 @@ import sendnb from './../../assets/main_icons/send_notblue.svg';
 
 import { user1, user2, user3, user4, user5, user6, user7, user8, user9 } from '../../mock/users';
 
-const comm1 = new CommentModel(user1, "Hello world, sdfwghrentrsgfaretwrehtnymnfgfdsfaetwyehrjyngdfsfawrtweyhtrfgdfwrtethgfeHello rect, I love you so much, I love META, but facebook is peace of sheet", new Date(2025, 3, 14), 167);
+const comm1 = new CommentModel(user1, "Hello world,  rect, I love you so much, I love META, but facebook is peace of sheet", new Date(2025, 3, 14), 167);
 
 type PostProps = {
     post: PostModel;
@@ -99,8 +99,7 @@ const Post = ( {post}: PostProps ) => {
                                         <div className="comments">
                                             <Comment comment={comm1}/>
                                             <Comment comment={comm1}/>
-                                            <Comment comment={comm1}/>
-                                            <Comment comment={comm1}/>
+                                            
                                         </div>
 
                                         <div className="comments__footer">
