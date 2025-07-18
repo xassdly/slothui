@@ -1,9 +1,8 @@
 import './post.css';
 import './comments.css';
 import { PostModel } from '../../models/PostModel';
-import Comment from './Comment';
-import { CommentModel } from '../../models/CommentModel';
 import { useState } from 'react';
+import Comment from './Comment';
 
 import more from './../../assets/main_icons/more.svg';
 import avatar from './../../assets/avatars/a10.png';
@@ -17,16 +16,15 @@ import note from './../../assets/main_icons/note.svg';
 import smile from './../../assets/main_icons/smile.svg';
 import send from './../../assets/main_icons/send.svg';
 import sendnb from './../../assets/main_icons/send_notblue.svg';
-
-import { user1, user2, user3, user4, user5, user6, user7, user8, user9 } from '../../mock/users';
-
-const comm1 = new CommentModel(user1, "Hello world,  rect, I love you so much, I love META, but facebook is peace of sheet", new Date(2025, 3, 14), 167);
+import type { UserModel } from '../../models/UserModel';
+import { CommentModel } from '../../models/CommentModel';
 
 type PostProps = {
+    mainUser: UserModel;
     post: PostModel;
 }
 
-const Post = ( {post}: PostProps ) => {
+const Post = ( {mainUser, post}: PostProps ) => {
     const [isSaved, setIsSaved] = useState(false);
 
     const [isLiked, setIsLiked] = useState(false);
@@ -34,6 +32,18 @@ const Post = ( {post}: PostProps ) => {
     const [showHeart, setShowHeart] = useState(false);
 
     const [isCommWindowOpen, setIsCommWindowOpen] = useState(false);
+
+    const [comments, setComments] = useState<CommentModel[]>(post.comments);
+    const [text, setText] = useState('');
+
+    const handleCommentSend = () => {
+        if (text.trim() === '') return;
+
+        const newComment = new CommentModel(mainUser, text, new Date(), 0);
+
+        setComments([...comments, newComment]);
+        setText('');
+    }
 
     const handleSaveClick = () => {
         setIsSaved(prev => !prev);
@@ -67,7 +77,7 @@ const Post = ( {post}: PostProps ) => {
                     </div>
 
                     <div className="post__face">
-                        <p className='post__face__p'>Here must be some description</p>
+                        <p className='post__face__p'>{post.content}</p>
                         <div className="post__image__wrapper">
                             <img onDoubleClick={handleLikeClick} className='post__face__img' src={post.image} alt='img'/>
                             {showHeart && (
@@ -85,7 +95,7 @@ const Post = ( {post}: PostProps ) => {
 
                             <div onClick={() => setIsCommWindowOpen(true)} className="post__item">
                                 <img src={comment} alt="comment" />
-                                <p>{post.comments.length}</p>
+                                <p>{comments.length}</p>
                             </div>
 
                             {isCommWindowOpen && (
@@ -97,20 +107,20 @@ const Post = ( {post}: PostProps ) => {
                                         </div>
 
                                         <div className="comments">
-                                            <Comment comment={comm1}/>
-                                            <Comment comment={comm1}/>
-                                            
+                                            {comments.map((comment, index) => (
+                                                <Comment key={index} comment={comment}/>
+                                            ))}
                                         </div>
 
                                         <div className="comments__footer">
                                             <img className='comments__footer__avatar' src={avatar} alt="user" />
                                             <div className="comments__footer__input">
-                                                <input type="text" placeholder='Write your comment..'/>
+                                                <input type="text" placeholder='Write your comment..' value={text} onChange={(e) => setText(e.target.value)} />
                                                 <div className="comment__footer__input__emoji">
                                                     <img src={smile} alt="emoji" />
                                                 </div>
                                             </div>
-                                            <img className='comments__footer__send' src={sendnb} alt="send" />
+                                            <img className='comments__footer__send' src={sendnb} alt="send" onClick={handleCommentSend}/>
                                             
                                         </div>
 
@@ -133,12 +143,12 @@ const Post = ( {post}: PostProps ) => {
                     <div className="post__footer">
                         <div className="post__footer__left">
                             <img src={avatar} alt="avatar" />
-                            <input type="text" placeholder='Write your comment..'/>
+                            <input type="text" placeholder='Write your comment..' value={text} onChange={(e) => setText(e.target.value)}/>
                         </div>
                         <div className="post__footer__right">
                             <div><img src={note} alt="note" /></div>
                             <div><img src={smile} alt="smile" /></div>
-                            <div><img src={send} alt="send" /></div>
+                            <div><img src={send} alt="send" onClick={handleCommentSend}/></div>
                         </div>
                     </div>
 

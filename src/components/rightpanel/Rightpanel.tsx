@@ -9,7 +9,6 @@ import notsdarkicon from './../../assets/rightside_icons/nots.svg'
 import seeallicon from './../../assets/rightside_icons/seeall.svg';
 import setticon from './../../assets/rightside_icons/sett.svg';
 import trendicon from './../../assets/rightside_icons/TrendUp.svg';
-import avatar from './../../assets/avatars/a10.png';
 import moreicon from './../../assets/main_icons/more.svg';
 import Suggestion from './Suggestion';
 import Event from './Event';
@@ -21,6 +20,7 @@ import groupicon from './../../assets/rightside_icons/groupicon.svg';
 
 import { user1, user2, user3, user4, user5, user6, user7, user8, user9 } from '../../mock/users';
 import { EventModel } from '../../models/EventModel';
+import { UserModel } from '../../models/UserModel';
 import { useState, useEffect } from 'react';
 
 const event1 = new EventModel("Friend's birthday", new Date(2026, 6, 17), gifticon);
@@ -29,26 +29,18 @@ const event3 = new EventModel("Group Meetup", new Date(2025, 11, 1), groupicon);
 const event4 = new EventModel("Holiday", new Date(2029, 9, 7), moonicon);
 
 type RightpanelProps = {
+    mainUser: UserModel;
     isOpen: boolean;
     onClose: () => void;
 }
 
-const Rightpanel = ( {isOpen, onClose }: RightpanelProps) => {
+const Rightpanel = ( {mainUser, isOpen, onClose }: RightpanelProps) => {
     const [isUserActive] = useState(true);
-
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
-    useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth < 1000);
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
-
 
     useEffect(() => {
         const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 
-        if (isOpen && isMobile) {
+        if (isOpen) {
             document.body.style.overflow = 'hidden';
             document.body.style.paddingRight = `${scrollbarWidth}px`;
         } else {
@@ -60,13 +52,12 @@ const Rightpanel = ( {isOpen, onClose }: RightpanelProps) => {
             document.body.style.overflow = '';
             document.body.style.paddingRight = '';
         };
-    }, [isOpen, isMobile]);
+    }, [isOpen]);
     
-
 
     return (
         <>
-            {isOpen && isMobile && (
+            {isOpen && (
                 <div className="overlay" onClick={onClose}></div>
             )}
         
@@ -74,7 +65,7 @@ const Rightpanel = ( {isOpen, onClose }: RightpanelProps) => {
 
                 <div className="rightpanel__header">
                     <div className="rightpanel__header__avatar__wrapper">
-                        <img className="rightpanel__header__avatar" src={avatar} alt="avatar" />
+                        <img className="rightpanel__header__avatar" src={mainUser.avatar} alt="avatar" />
                         {isUserActive && (
                             <img className="avatar__indicator" src={avatar_indicator} alt="indicator" />
                         )}

@@ -29,7 +29,6 @@ button, input {
 
 .main {
   display: flex;
-
   width: 100%;
 }
 
@@ -50,8 +49,26 @@ button, input {
 
 @media (max-width: 1000px) {
   .navbar {
-    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 75%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1001;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: .3s ease-in-out;
   }
+  .navbar.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+  }
+
   .rightpanel {
     position: fixed;
     top: 0;
@@ -71,7 +88,7 @@ button, input {
   .rightpanel.active {
     opacity: 1;
     transform: translateX(0);
-    pointer-events: auto;
+    pointer-events: all;
   }
 
   .overlay {
