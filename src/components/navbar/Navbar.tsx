@@ -20,9 +20,10 @@ type NavbarProps = {
     mainUser: UserModel;
     isOpen: boolean;
     onClose: () => void;
+    handleLogout: () => void;
 }
 
-const Navbar = ( {mainUser, isOpen, onClose }: NavbarProps) => {
+const Navbar = ( {mainUser, isOpen, onClose, handleLogout }: NavbarProps) => {
     const [isProOpen, setIsProOpen] = useState(true);
 
     useEffect(() => {
@@ -41,6 +42,11 @@ const Navbar = ( {mainUser, isOpen, onClose }: NavbarProps) => {
             document.body.style.paddingRight = '';
         };
     }, [isOpen]);
+
+
+    const [isLogoutOpen, setIsLogoutOpen] = useState(false);
+
+
 
     return (
         <>
@@ -106,9 +112,19 @@ const Navbar = ( {mainUser, isOpen, onClose }: NavbarProps) => {
                             <p>@{mainUser.username.toLowerCase()}</p>
                         </div>
                     </div>
-                    <div className="navbar__account__logout">
+                    <div className="navbar__account__logout" onClick={() => setIsLogoutOpen(true)}>
                         <img src={leaveicon} alt="logout" />
                     </div>
+
+                    {isLogoutOpen && (
+                        <div className='modal-overlay' onClick={() => setIsLogoutOpen(false)}>
+                            <div className="logout__content" onClick={e => e.stopPropagation()}>
+                                <h3>You sure to logout?</h3>
+                                <div onClick={handleLogout}>Yes</div>
+                                <div onClick={() => setIsLogoutOpen(false)}>No</div>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </>
