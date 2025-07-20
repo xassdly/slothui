@@ -116,7 +116,7 @@ const Post = ( {mainUser, post}: PostProps ) => {
                                         <div className="comments__footer">
                                             <img className='comments__footer__avatar' src={avatar} alt="user" />
                                             <div className="comments__footer__input">
-                                                <input type="text" placeholder='Write your comment..' value={text} onChange={(e) => setText(e.target.value)} />
+                                                <input name='any' type="text" placeholder='Write your comment..' value={text} onChange={(e) => setText(e.target.value)} />
                                                 <div className="comment__footer__input__emoji">
                                                     <img src={smile} alt="emoji" />
                                                 </div>

@@ -14,14 +14,14 @@ import postimg9 from './../assets/post_imgs/postimg9.jpg';
 
 export const posts_array: PostModel[] = [];
 
-const post1 = new PostModel(user5, "Somewhere over the rainbow", "Look at my new car", postimg1, 504, [comm1], 19);
-const post2 = new PostModel(user2, "Somewhere over the rainbow", "Look at my new car", postimg2, 567, [comm2, comm3], 124);
-const post3 = new PostModel(user3, "Somewhere over the rainbow", "Look at my new car", postimg3, 156, [comm4, comm5, comm6], 643);
-const post4 = new PostModel(user6, "Somewhere over the rainbow", "Look at my new car", postimg4, 3567, [comm7], 234);
-const post5 = new PostModel(user7, "Somewhere over the rainbow", "Look at my new car", postimg5, 2174, [comm8, comm11], 357);
-const post6 = new PostModel(user8, "Somewhere over the rainbow", "Look at my new car", postimg6, 124, [comm9, comm10], 99);
-const post7 = new PostModel(user1, "Somewhere over the rainbow", "Look at my new car", postimg7, 235, [comm9, comm10], 1847);
-const post8 = new PostModel(user4, "Somewhere over the rainbow", "Look at my new car", postimg8, 8463, [comm9, comm10], 438);
-const post9 = new PostModel(user9, "Somewhere over the rainbow", "Look at my new car", postimg9, 756, [comm9, comm10], 378);
+const post1 = new PostModel(1, user5, "Somewhere over the rainbow", "Look at my new car", postimg1, 504, [comm1], 19);
+const post2 = new PostModel(2, user2, "Somewhere over the rainbow", "Look at my new car", postimg2, 567, [comm2, comm3], 124);
+const post3 = new PostModel(3, user3, "Somewhere over the rainbow", "Look at my new car", postimg3, 156, [comm4, comm5, comm6], 643);
+const post4 = new PostModel(4, user6, "Somewhere over the rainbow", "Look at my new car", postimg4, 3567, [comm7], 234);
+const post5 = new PostModel(5, user7, "Somewhere over the rainbow", "Look at my new car", postimg5, 2174, [comm8, comm11], 357);
+const post6 = new PostModel(6, user8, "Somewhere over the rainbow", "Look at my new car", postimg6, 124, [comm9, comm10], 99);
+const post7 = new PostModel(7, user1, "Somewhere over the rainbow", "Look at my new car", postimg7, 235, [comm9, comm10], 1847);
+const post8 = new PostModel(8, user4, "Somewhere over the rainbow", "Look at my new car", postimg8, 8463, [comm9, comm10], 438);
+const post9 = new PostModel(9, user9, "Somewhere over the rainbow", "Look at my new car", postimg9, 756, [comm9, comm10], 378);
 
 posts_array.push(post1, post2, post3, post4, post5, post6, post7, post8, post9);

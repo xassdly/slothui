@@ -23,10 +23,11 @@ import { EventModel } from '../../models/EventModel';
 import { UserModel } from '../../models/UserModel';
 import { useState, useEffect } from 'react';
 
-const event1 = new EventModel("Friend's birthday", new Date(2026, 6, 17), gifticon);
-const event2 = new EventModel("Graduation", new Date(2028, 4, 21), gradicon);
-const event3 = new EventModel("Group Meetup", new Date(2025, 11, 1), groupicon);
-const event4 = new EventModel("Holiday", new Date(2029, 9, 7), moonicon);
+const events:EventModel[] = [];
+events.push(new EventModel(1, "Friend's birthday", new Date(2026, 6, 17), gifticon));
+events.push(new EventModel(2, "Graduation", new Date(2028, 4, 21), gradicon));
+events.push(new EventModel(3, "Group Meetup", new Date(2025, 11, 1), groupicon));
+events.push(new EventModel(4, "Holiday", new Date(2029, 9, 7), moonicon));
 
 type RightpanelProps = {
     mainUser: UserModel;
@@ -125,10 +126,9 @@ const Rightpanel = ( {mainUser, isOpen, onClose }: RightpanelProps) => {
                         <div className="events__header__button"><img src={moreicon} alt="more" /></div>
                     </div>
                     <div className="events__content">
-                        <Event event={event1}/>
-                        <Event event={event2}/>
-                        <Event event={event3}/>
-                        <Event event={event4}/>
+                        {events.map((event) => (
+                            <Event key={event.id} event={event} />
+                        ))}
                     </div>
                 </div>
 

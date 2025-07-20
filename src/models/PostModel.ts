@@ -2,6 +2,7 @@ import { UserModel } from "./UserModel";
 import { CommentModel } from "./CommentModel";
 
 export class PostModel {
+    id: number;
     user: UserModel;
     location: string;
     content: string;
@@ -10,7 +11,8 @@ export class PostModel {
     comments: CommentModel[];
     reposts: number;
 
-    constructor(user: UserModel, location: string, content: string, image: string, likes: number, comments: CommentModel[] = [], reposts: number){
+    constructor(id: number, user: UserModel, location: string, content: string, image: string, likes: number, comments: CommentModel[] = [], reposts: number){
+        this.id = id;
         this.user = user;
         this.location = location;
         this.content = content;

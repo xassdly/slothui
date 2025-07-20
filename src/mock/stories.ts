@@ -14,14 +14,14 @@ import { user1, user2, user3, user4, user5, user6, user7, user8, user9  } from "
 
 export const story_array: StoryModel[] = [];
 
-const story1 = new StoryModel(user1, storyimg1);
-const story2 = new StoryModel(user2, storyimg2);
-const story3 = new StoryModel(user3, storyimg3);
-const story4 = new StoryModel(user4, storyimg4);
-const story5 = new StoryModel(user5, storyimg5);
-const story6 = new StoryModel(user6, storyimg6);
-const story7 = new StoryModel(user7, storyimg7);
-const story8 = new StoryModel(user8, storyimg8);
-const story9 = new StoryModel(user9, storyimg9);
+const story1 = new StoryModel(1, user1, storyimg1);
+const story2 = new StoryModel(2, user2, storyimg2);
+const story3 = new StoryModel(3, user3, storyimg3);
+const story4 = new StoryModel(4, user4, storyimg4);
+const story5 = new StoryModel(5, user5, storyimg5);
+const story6 = new StoryModel(6, user6, storyimg6);
+const story7 = new StoryModel(7, user7, storyimg7);
+const story8 = new StoryModel(8, user8, storyimg8);
+const story9 = new StoryModel(9, user9, storyimg9);
 
 story_array.push(story1,story2,story3,story4,story5,story6,story7,story8,story9);

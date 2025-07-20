@@ -13,7 +13,7 @@ function App() {
   const [isRightOpen, setIsRightOpen] = useState(false);
   const [isLeftOpen, setIsLeftOpen] = useState(false);
 
-  const mainUser = new UserModel("Anya", avatar)
+  const mainUser = new UserModel(0, "Anya", avatar)
 
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 

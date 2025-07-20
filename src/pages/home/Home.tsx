@@ -102,8 +102,8 @@ const Home = ( {mainUser, openRightPanel, openLeftMenu}: HomeProps) => {
                         )}
                         <div className="home__stories" ref={storiesRef}>
 
-                            {story_array.map((story, index) => (
-                                <Story key={index} story={story} />
+                            {story_array.map((story) => (
+                                <Story key={story.id} story={story} />
                             ))}
                             
                         </div>
@@ -114,8 +114,8 @@ const Home = ( {mainUser, openRightPanel, openLeftMenu}: HomeProps) => {
                     
                     
                     <div className="home__posts">
-                        {posts_array.map((post, index) => (
-                            <Post key={index} mainUser={mainUser} post={post}/>
+                        {posts_array.map((post) => (
+                            <Post key={post.id} mainUser={mainUser} post={post}/>
                         ))}
                     </div>
                     
