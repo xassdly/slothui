@@ -4,7 +4,7 @@ import { UserModel } from './models/UserModel';
 import Navbar from './components/navbar/Navbar';
 import Rightpanel from './components/rightpanel/Rightpanel';
 import Home from './pages/home/Home';
-import Auth from './pages/auth/Auth';
+import Signin from './pages/auth/Signin';
 
 import avatar from './assets/avatars/a10.png';
 
@@ -26,7 +26,7 @@ function App() {
           <Rightpanel mainUser={mainUser} isOpen={isRightOpen} onClose={() => setIsRightOpen(false)}/>
         </div>
       ) : (
-        <Auth setIsLoggedIn={setIsLoggedIn}/>
+        <Signin />
       )}  
     </>
   )
