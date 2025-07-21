@@ -1,0 +1,36 @@
+.signup__password__strength {
+    width: 100%;
+    margin: 8px 0 24px 0;
+    color: #475569;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.password__strengthbar {
+    display: flex;
+    gap: 4px;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.strengthbar__div {
+    background-color: #CBD5E1;
+    height: 4px;
+    width: 100%;
+    border-radius: 123px;
+    transition: background-color .2s ease;
+}
+
+.strengthbar__div.active {
+    background-color: #22C55E;
+}
+
+.signup__google__button {
+    margin-top: 32px;
+}
+
+.toast {
+    background-color: #e63636;
+    color: #fff;
+}
