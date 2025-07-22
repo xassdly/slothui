@@ -49,3 +49,7 @@
     color: #475569;
     font-size: 14px;
 }
+
+.event__notification {
+    cursor: pointer;
+}

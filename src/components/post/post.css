@@ -120,6 +120,8 @@
 .post__face__p {
     margin: 0 0 17px;
     font-size: 0.875rem;
+    color: #1E293B;
+    line-height: 160%;
 }
 
 .post__face__img {

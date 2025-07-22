@@ -7,6 +7,8 @@ import arrowleft from './../../assets/main_icons/arrowleft.svg';
 import arrowright from './../../assets/main_icons/arrowright.svg';
 import header_menu from './../../assets/main_icons/header_menu.svg';
 import logomark from './../../assets/F.svg';
+import close from './../../assets/main_icons/close.svg';
+import send from './../../assets/main_icons/send_story_comment.svg';
 
 import Post from '../../components/post/Post';
 import Story from '../../components/story/Story';
@@ -14,7 +16,6 @@ import { story_array } from '../../mock/stories';
 import { posts_array } from '../../mock/posts';
 
 import { useRef, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 type HomeProps = {
     openRightPanel: () => void;
@@ -23,7 +24,6 @@ type HomeProps = {
 
 const Home = ( { openRightPanel, openLeftMenu}: HomeProps) => {
     const storiesRef = useRef<HTMLDivElement>(null);
-    const navigate = useNavigate();
 
     const [showLeft, setShowLeft] = useState(false);
     const [showRight, setShowRight] = useState(false);
@@ -66,6 +66,81 @@ const Home = ( { openRightPanel, openLeftMenu}: HomeProps) => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+
+    // STORIES LOGIC
+    const [activeStoryIndex, setActiveStoryIndex] = useState<number | null>(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [progress, setProgress] = useState(0);
+    const [viewedStories, setViewedStories] = useState<number[]>([]);
+
+    const [paused, setPaused] = useState(false);
+    const [elapsedTime, setElapsedTime] = useState(0);
+
+
+    const goToNextStory = () => {
+        if (activeStoryIndex === null) return;
+        setViewedStories((prev) => [...new Set([...prev, activeStoryIndex])]);
+        setElapsedTime(0);
+        setProgress(0);
+
+        const nextIndex = activeStoryIndex + 1;
+        if (nextIndex < story_array.length) {
+            setViewedStories((prev) => [...new Set([...prev, nextIndex])]);
+            setActiveStoryIndex(nextIndex);
+        } else {
+            setIsModalOpen(false);
+            setActiveStoryIndex(null)
+        }
+    }
+
+    const closeStory = () => {
+        setProgress(0);
+        setElapsedTime(0);
+        if (activeStoryIndex !== null) {
+            setViewedStories((prev) => [...new Set([...prev, activeStoryIndex])]);
+        }
+        setIsModalOpen(false);
+        setActiveStoryIndex(null);
+    };
+
+    const goToPrevStory = () => {
+        if (activeStoryIndex === null) return;
+        const prevIndex = activeStoryIndex - 1;
+
+        if (prevIndex >= 0) {
+            setElapsedTime(0);
+            setProgress(0);
+            setActiveStoryIndex(prevIndex);
+        }
+    }
+
+    useEffect(() => {
+        if (!isModalOpen || activeStoryIndex === null) return;
+
+        const start = Date.now() - elapsedTime;
+
+        const interval = setInterval(() => {
+            if (paused) return;
+
+            const newElapsed = Date.now() - start;
+            const percent = Math.min((newElapsed / 3000) * 100, 100);
+
+            setProgress(percent);
+            setElapsedTime(newElapsed);
+
+            if (percent >= 100) {
+            clearInterval(interval);
+            setElapsedTime(0);
+            goToNextStory();
+            }
+        }, 50);
+
+        return () => clearInterval(interval);
+        }, [isModalOpen, activeStoryIndex, paused]);
+
+
+
+
     return (
         <div className="home">
 
@@ -100,8 +175,16 @@ const Home = ( { openRightPanel, openLeftMenu}: HomeProps) => {
                         )}
                         <div className="home__stories" ref={storiesRef}>
 
-                            {story_array.map((story) => (
-                                <Story key={story.id} story={story} />
+                            {story_array.map((story, index) => (
+                                <Story 
+                                    key={story.id} 
+                                    story={story} 
+                                    isViewed={viewedStories.includes(index)}
+                                    onClick={() => {
+                                        setActiveStoryIndex(index);
+                                        setIsModalOpen(true);
+                                    }}
+                                />
                             ))}
                             
                         </div>
@@ -116,6 +199,63 @@ const Home = ( { openRightPanel, openLeftMenu}: HomeProps) => {
                             <Post key={post.id} post={post}/>
                         ))}
                     </div>
+
+
+                    {isModalOpen && activeStoryIndex !== null && (
+                        <div className="modal-overlay" onClick={closeStory}>
+                            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                                <div className="story__progress__bar">
+                                    <div
+                                    className="story__progress__fill"
+                                    style={{ width: `${progress}%` }}
+                                    ></div>
+                                </div>
+
+                                <div 
+                                    className="story__wrapper"
+                                    onMouseDown={() => setPaused(true)}
+                                    onMouseUp={() => setPaused(false)}
+                                    onMouseLeave={() => setPaused(false)}>
+                                    <img src={story_array[activeStoryIndex].content} alt="story content" className='story__image'/>
+                                </div>
+                                <div className="story__header">
+                                    <div>
+                                        <img
+                                            src={story_array[activeStoryIndex].user.avatar}
+                                            alt="avatar"
+                                        />
+                                        {story_array[activeStoryIndex].user.username}
+                                    </div>
+                                    <img src={close} alt="close" onClick={() => {setIsModalOpen(false); setActiveStoryIndex(null)}}/>
+                                </div>
+
+                                <div className="story__footer">
+                                    <div className="story__footer__input">
+                                        <input type="text" placeholder="Type your comment..." />
+                                    </div>
+                                    <div className="story__footer__button">
+                                        <button>
+                                            <img src={send} alt="send" />
+                                        </button>
+                                    </div>
+                                </div>
+
+                                {activeStoryIndex < story_array.length - 1 && (
+                                    <div className="scroll__btn right" onClick={(e) => {e.stopPropagation(); goToNextStory()}}>
+                                        <img src={arrowright} alt="next story" />
+                                    </div>
+                                )}
+
+                                {activeStoryIndex > 0 && (
+                                    <div className="scroll__btn left" onClick={(e) => {e.stopPropagation(); goToPrevStory()}}>
+                                        <img src={arrowleft} alt="previous story" />
+                                    </div>
+                                )}
+
+                            </div>
+                        </div>
+                    )}
+
                     
                 </div>
             </div>

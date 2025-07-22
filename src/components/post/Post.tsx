@@ -10,6 +10,7 @@ import like from './../../assets/main_icons/like.svg';
 import liked from './../../assets/main_icons/liked.svg';
 import comment from './../../assets/main_icons/comment.svg';
 import share from './../../assets/main_icons/share.svg';
+import share_active from './../../assets/main_icons/share_active.svg';
 import save from './../../assets/main_icons/save.svg';
 import saved from './../../assets/main_icons/saved.svg';
 import note from './../../assets/main_icons/note.svg';
@@ -26,6 +27,9 @@ type PostProps = {
 
 const Post = ( {post}: PostProps ) => {
     const [isSaved, setIsSaved] = useState(false);
+    const [isShared, setIsShared] = useState(false);
+    const [shares, setShares] = useState(post.reposts);
+
     const {user} = useUser();
 
     const [isLiked, setIsLiked] = useState(false);
@@ -61,6 +65,15 @@ const Post = ( {post}: PostProps ) => {
         setIsLiked(prev => !prev);
     };
 
+    const handleShareClick = () => {
+        if (isShared) {
+            setShares(prev => prev - 1);
+        } else {
+            setShares(prev => prev + 1);
+        }
+        setIsShared(prev => !prev);
+    };
+
     return (
         <div className="post">
             <div className="container">
@@ -80,7 +93,7 @@ const Post = ( {post}: PostProps ) => {
                     <div className="post__face">
                         <p className='post__face__p'>{post.content}</p>
                         <div className="post__image__wrapper">
-                            <img onDoubleClick={handleLikeClick} className='post__face__img' src={post.image} alt='img'/>
+                            {post.image && <img onDoubleClick={handleLikeClick} className='post__face__img' src={post.image} alt='img'/>}
                             {showHeart && (
                                 <img src={liked} alt="liked" className='like__animation' />
                             )}
@@ -129,9 +142,9 @@ const Post = ( {post}: PostProps ) => {
                                 </div>
                             )}
 
-                            <div className="post__item">
-                                <img src={share} alt="share" />
-                                <p>{post.reposts}</p>
+                            <div className="post__item" onClick={handleShareClick}>
+                                <img src={isShared ? share_active : share} alt="share" />
+                                <p>{shares}</p>
                             </div>
                             
                             <div onClick={handleSaveClick} className="post__item">

@@ -6,12 +6,12 @@ export class PostModel {
     user: UserModel;
     location: string;
     content: string;
-    image: string;
+    image: string | null;
     likes: number;
     comments: CommentModel[];
     reposts: number;
 
-    constructor(id: number, user: UserModel, location: string, content: string, image: string, likes: number, comments: CommentModel[] = [], reposts: number){
+    constructor(id: number, user: UserModel, location: string, content: string, image: string | null, likes: number, comments: CommentModel[] = [], reposts: number){
         this.id = id;
         this.user = user;
         this.location = location;
