@@ -1,5 +1,5 @@
 import './reset.css';
-import logo from './../../../assets/Logo.svg';
+import logo from './../../../assets/logo.svg';
 import password_icon_white from './../../../assets/auth_icons/password_icon_white.svg';
 import mail_icon from './../../../assets/auth_icons/mail_icon.svg';
 import back_icon from './../../../assets/auth_icons/back_icon.svg';
@@ -39,7 +39,7 @@ const Reset = () => {
 
                 <div className="auth__title reset__title">
                     <h3>Reset Your Password</h3>
-                    <p>Forgot your password? No worries, then let’s submit password reset. It will be send to your email.</p>
+                    <p>Forgot your password? No worries, then let’s submit password reset. It will be sent to your email.</p>
                 </div>
 
                 <div className="signin__input__field">

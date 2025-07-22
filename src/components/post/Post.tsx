@@ -17,16 +17,16 @@ import smile from './../../assets/main_icons/smile.svg';
 import send from './../../assets/main_icons/send.svg';
 import sendnb from './../../assets/main_icons/send_notblue.svg';
 
-import type { UserModel } from '../../models/UserModel';
 import { CommentModel } from '../../models/CommentModel';
+import { useUser } from '../../contexts/UserContext';
 
 type PostProps = {
-    mainUser: UserModel;
     post: PostModel;
 }
 
-const Post = ( {mainUser, post}: PostProps ) => {
+const Post = ( {post}: PostProps ) => {
     const [isSaved, setIsSaved] = useState(false);
+    const {user} = useUser();
 
     const [isLiked, setIsLiked] = useState(false);
     const [likes, setLikes] = useState(post.likes);
@@ -38,9 +38,9 @@ const Post = ( {mainUser, post}: PostProps ) => {
     const [text, setText] = useState('');
 
     const handleCommentSend = () => {
-        if (text.trim() === '') return;
+        if (text.trim() === '' || !user) return;
 
-        const newComment = new CommentModel(mainUser, text, new Date(), 0);
+        const newComment = new CommentModel(0, user, text, new Date(), 0);
 
         setComments([...comments, newComment]);
         setText('');

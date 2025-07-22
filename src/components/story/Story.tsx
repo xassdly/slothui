@@ -14,6 +14,11 @@ const Story = ({ story }: StoryProps) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isStoryRevised, setIsStoryRevised] = useState(false);
 
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setIsStoryRevised(true);
+    }
+
     return (
         <div  className="story__item">
             <div className="story__avatar" onClick={() => setIsModalOpen(true)} 
@@ -26,12 +31,12 @@ const Story = ({ story }: StoryProps) => {
             </div>
 
             {isModalOpen && (
-                <div className="modal-overlay" onClick={() => {setIsModalOpen(false); setIsStoryRevised(true)}}>
+                <div className="modal-overlay" onClick={closeModal}>
                     <div className="modal-content" onClick={e => e.stopPropagation()}>
-                        <img src={story.content} alt="as"/>
+                        <img src={story.content} alt="story content"/>
                         <div className="story__header">
-                            <div><img src={story.user.avatar} alt="avatar" />{story.user.username}</div>
-                            <img src={close} alt="close" onClick={() => setIsModalOpen(false)}/>
+                            <div><img src={story.user.avatar} alt="user avatar" />{story.user.username}</div>
+                            <img src={close} alt="close" onClick={closeModal}/>
                         </div>
                         <div className="story__footer">
                             <div className="story__footer__input">

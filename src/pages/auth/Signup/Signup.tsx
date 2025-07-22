@@ -1,6 +1,6 @@
 import './signup.css';
 
-import logo from './../../../assets/Logo.svg';
+import logo from './../../../assets/logo.svg';
 import google_icon from './../../../assets/auth_icons/google_icon.svg';
 import name_icon from './../../../assets/auth_icons/name_icon.svg';
 import mail_icon from './../../../assets/auth_icons/mail_icon.svg';
@@ -47,6 +47,7 @@ const Signup = ( {setIsLoggedIn}: SingupProps) => {
     const [showErrorMessage, setShowErrorMessage] = useState(false);
     const [errorText, setErrorText] = useState('');
 
+    
     const handleSignupButton = () => {
         const nameIsEmpty = nameText.trim() === '';
         const nameIsTaken = takenNamesList.includes(nameText.trim());
@@ -57,40 +58,28 @@ const Signup = ( {setIsLoggedIn}: SingupProps) => {
         const passwordIsEmpty = passwordText.trim() === '';
         const passwordIsTooShort = passwordText.trim().length < 8;
 
-        const resetInputs = () => {
-            setNameText(''); 
-            setEmailText(''); 
-            setPasswordText('');
+        const showError = (msg: string) => {
+            setIsError(true);
+            setErrorText(msg);
+            setShowErrorMessage(true);
+
+            setTimeout(() => setIsError(false), 1000);
+            setTimeout(() => setShowErrorMessage(false), 3000);
         }
         
         if (nameIsEmpty || nameIsTaken) {
-            setIsError(true);
-            setTimeout(() => setIsError(false), 1000);
-            resetInputs();
-            
-            setErrorText('Name is invalid or already taken');
-            setShowErrorMessage(true);
-            setTimeout(() => setShowErrorMessage(false), 3000);
+            showError("Name is invalid or already taken");
+            setNameText(''); 
             return;
 
         } else if (emailIsEmpty || emailIsInvalid) {
-            setIsError(true);
-            setTimeout(() => setIsError(false), 1000);
-            resetInputs();
-
-            setErrorText('Invalid Email');
-            setShowErrorMessage(true);
-            setTimeout(() => setShowErrorMessage(false), 3000);
+            showError("Invalid email");
+            setEmailText(''); 
             return;
 
         } else if (passwordIsEmpty || passwordIsTooShort) {
-            setIsError(true);
-            setTimeout(() => setIsError(false), 1000);
-            resetInputs();
-
-            setErrorText('Invalid Password');
-            setShowErrorMessage(true);
-            setTimeout(() => setShowErrorMessage(false), 3000);
+            showError("Invalid password");
+            setPasswordText('');
             return;
         }
         else {

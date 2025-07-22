@@ -1,7 +1,7 @@
 import './signin.css';
 import { useState } from 'react';
 
-import logo from './../../../assets/Logo.svg';
+import logo from './../../../assets/logo.svg';
 import facebook_icon from './../../../assets/auth_icons/facebooklogo.svg';
 import twitter_icon from './../../../assets/auth_icons/twitterlogo.svg';
 import mail_icon from './../../../assets/auth_icons/mail_icon.svg';
@@ -16,6 +16,7 @@ type SigninProps = {
 }
 
 const Signin = ( {setIsLoggedIn}: SigninProps) => {
+
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
@@ -23,6 +24,17 @@ const Signin = ( {setIsLoggedIn}: SigninProps) => {
     const [passwordText, setPasswordText] = useState('');
 
     const [isError, setIsError] = useState(false);
+    const [showErrorMessage, setShowErrorMessage] = useState(false);
+    const [errorText, setErrorText] = useState('');
+
+    const showError = (msg: string) => {
+        setIsError(true);
+        setErrorText(msg);
+        setShowErrorMessage(true);
+
+        setTimeout(() => setIsError(false), 1000);
+        setTimeout(() => setShowErrorMessage(false), 3000);
+    }
     
     const handleSigninButton = () => {
         const emailIsEmpty = emailText.trim() === '';
@@ -30,10 +42,16 @@ const Signin = ( {setIsLoggedIn}: SigninProps) => {
         const passwordTooShort = passwordText.length < 8;
         const emailIsInvalid = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailText);
 
-        if (emailIsEmpty || emailIsInvalid || passwordIsEmpty || passwordTooShort) {
-            setIsError(true);
-            setTimeout(() => setIsError(false), 1000);
+        if (emailIsEmpty || emailIsInvalid) {
+            showError('Invalid email');
+            setEmailText('');
             return;
+
+        } else if (passwordIsEmpty || passwordTooShort) { 
+            showError('Invalid password');
+            setPasswordText('');
+            return
+
         } else {
             setIsLoggedIn(true);
             navigate('/');
@@ -42,6 +60,13 @@ const Signin = ( {setIsLoggedIn}: SigninProps) => {
 
     return (
         <div className="auth">
+
+            {showErrorMessage && (
+                <div className="toast">
+                    {errorText}
+                </div>
+            )}
+
             <div className="auth__container">
 
                 <div className="signin__logo">
@@ -88,7 +113,7 @@ const Signin = ( {setIsLoggedIn}: SigninProps) => {
                 </div>
 
                 <div className="signin__button__signup">
-                    <p>Dont't have an account? <span onClick={() => navigate('/signup')}>Sign Up</span></p>
+                    <p>Don't have an account? <span onClick={() => navigate('/signup')}>Sign Up</span></p>
                 </div>
 
                 <div className="signin__or">

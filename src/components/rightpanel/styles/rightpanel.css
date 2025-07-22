@@ -14,6 +14,7 @@
 }
 .rightpanel__header__avatar__wrapper {
     position: relative;
+    cursor: pointer;
 }
 .avatar__indicator {
     position: absolute;

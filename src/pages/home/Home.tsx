@@ -1,31 +1,29 @@
 import './home.css';
 import './../../components/story/stories.css';
 
-import { posts_array } from '../../mock/posts';
-
-import Post from '../../components/post/Post';
-import Story from '../../components/story/Story';
-
 import plussvg from './../../assets/main_icons/plus.svg';
 import searchicon from './../../assets/main_icons/searchicon.svg';
 import arrowleft from './../../assets/main_icons/arrowleft.svg';
 import arrowright from './../../assets/main_icons/arrowright.svg';
 import header_menu from './../../assets/main_icons/header_menu.svg';
-import logomark from './../../assets/logovector.svg';
+import logomark from './../../assets/F.svg';
 
+import Post from '../../components/post/Post';
+import Story from '../../components/story/Story';
 import { story_array } from '../../mock/stories';
+import { posts_array } from '../../mock/posts';
 
 import { useRef, useState, useEffect } from 'react';
-import type { UserModel } from '../../models/UserModel';
+import { useNavigate } from 'react-router-dom';
 
 type HomeProps = {
-    mainUser: UserModel;
     openRightPanel: () => void;
     openLeftMenu: () => void;
 };
 
-const Home = ( {mainUser, openRightPanel, openLeftMenu}: HomeProps) => {
+const Home = ( { openRightPanel, openLeftMenu}: HomeProps) => {
     const storiesRef = useRef<HTMLDivElement>(null);
+    const navigate = useNavigate();
 
     const [showLeft, setShowLeft] = useState(false);
     const [showRight, setShowRight] = useState(false);
@@ -115,7 +113,7 @@ const Home = ( {mainUser, openRightPanel, openLeftMenu}: HomeProps) => {
                     
                     <div className="home__posts">
                         {posts_array.map((post) => (
-                            <Post key={post.id} mainUser={mainUser} post={post}/>
+                            <Post key={post.id} post={post}/>
                         ))}
                     </div>
                     

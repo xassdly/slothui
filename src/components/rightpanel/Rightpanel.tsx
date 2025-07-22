@@ -20,8 +20,9 @@ import groupicon from './../../assets/rightside_icons/groupicon.svg';
 
 import { user1, user2, user3, user4, user5, user6, user7, user8, user9 } from '../../mock/users';
 import { EventModel } from '../../models/EventModel';
-import { UserModel } from '../../models/UserModel';
+import { useUser } from '../../contexts/UserContext';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const events:EventModel[] = [];
 events.push(new EventModel(1, "Friend's birthday", new Date(2026, 6, 17), gifticon));
@@ -30,13 +31,14 @@ events.push(new EventModel(3, "Group Meetup", new Date(2025, 11, 1), groupicon))
 events.push(new EventModel(4, "Holiday", new Date(2029, 9, 7), moonicon));
 
 type RightpanelProps = {
-    mainUser: UserModel;
     isOpen: boolean;
     onClose: () => void;
 }
 
-const Rightpanel = ( {mainUser, isOpen, onClose }: RightpanelProps) => {
+const Rightpanel = ( { isOpen, onClose }: RightpanelProps) => {
     const [isUserActive] = useState(true);
+    const navigate = useNavigate();
+    const {user} = useUser();
 
     useEffect(() => {
         const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
@@ -65,8 +67,8 @@ const Rightpanel = ( {mainUser, isOpen, onClose }: RightpanelProps) => {
             <div className={`rightpanel ${isOpen ? 'active' : ''}`}>
 
                 <div className="rightpanel__header">
-                    <div className="rightpanel__header__avatar__wrapper">
-                        <img className="rightpanel__header__avatar" src={mainUser.avatar} alt="avatar" />
+                    <div className="rightpanel__header__avatar__wrapper" onClick={() => navigate('/profile')}>
+                        <img className="rightpanel__header__avatar" src={user?.avatar} alt="avatar" />
                         {isUserActive && (
                             <img className="avatar__indicator" src={avatar_indicator} alt="indicator" />
                         )}
@@ -74,7 +76,7 @@ const Rightpanel = ( {mainUser, isOpen, onClose }: RightpanelProps) => {
                     <div className="rightpanel__header__buttons">
                         <div className="header__icon__block"><img src={messicon} alt="messages" /></div>
                         <div className="header__icon__block"><img src={notsdarkicon} alt="notifications" /></div>
-                        <div className="header__icon__block"><img src={setticon} alt="settings" /></div>
+                        <div className="header__icon__block" onClick={() => navigate('/settings')}><img src={setticon} alt="settings" /></div>
                     </div>
                 </div>
 
