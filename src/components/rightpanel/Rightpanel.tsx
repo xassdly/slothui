@@ -20,7 +20,7 @@ import groupicon from './../../assets/rightside_icons/groupicon.svg';
 
 import { user1, user2, user3, user4, user5, user6, user7, user8, user9 } from '../../mock/users';
 import { EventModel } from '../../models/EventModel';
-import { useUser } from '../../contexts/UserContext';
+import { useUser } from '../../contexts/UserContext/UserContext';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 

@@ -1,22 +1,20 @@
 import { createContext, useContext, useState } from "react";
 import type { ReactNode } from "react";
-import { UserModel } from "../models/UserModel";
-import avatar from './../assets/avatars/a10.png';
-
-const defaultUser = new UserModel(0, 'Anya', avatar);
+import { UserModel } from "./../../models/UserModel";
+import { defaultUser } from "./defaultUser";
 
 type UserContextType = {
     user: UserModel | null;
     setUser: (user: UserModel | null) => void;
 };
 
-const UserContext = createContext<UserContextType | undefined> (undefined);
+const UserContext = createContext<UserContextType | undefined>(undefined);
 
-export const UserProvider = ({children}: {children: ReactNode}) => {
-    const [user, setUser] = useState<UserModel | null> (defaultUser);
+export const UserProvider = ({ children }: { children: ReactNode }) => {
+    const [user, setUser] = useState<UserModel | null>(defaultUser);
 
     return (
-        <UserContext.Provider value={{user, setUser}}>
+        <UserContext.Provider value={{ user, setUser }}>
             {children}
         </UserContext.Provider>
     );

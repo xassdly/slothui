@@ -19,7 +19,7 @@ import send from './../../assets/main_icons/send.svg';
 import sendnb from './../../assets/main_icons/send_notblue.svg';
 
 import { CommentModel } from '../../models/CommentModel';
-import { useUser } from '../../contexts/UserContext';
+import { useUser } from '../../contexts/UserContext/UserContext';
 import Modal from '../Modal/Modal';
 
 type PostProps = {

@@ -17,6 +17,7 @@ import { posts_array } from '../../mock/posts';
 
 import { useRef, useState, useEffect } from 'react';
 import Modal from '../../components/Modal/Modal';
+import CircularProgressBar from '../../components/CircularProgressBar/CircularProgressBar';
 
 type HomeProps = {
     openRightPanel: () => void;
@@ -203,14 +204,6 @@ const Home = ( { openRightPanel, openLeftMenu}: HomeProps) => {
                     {isModalOpen && activeStoryIndex !== null && (
                         <Modal onClose={closeStory}>
                             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                                <div className="story__progress__bar">
-                                    <div
-                                    key={activeStoryIndex}
-                                    className={"story__progress__fill"}
-                                    style={{ width: `${progress}%` }}
-                                    ></div>
-                                </div>
-
                                 <div 
                                     className="story__wrapper"
                                     onMouseDown={() => setPaused(true)}
@@ -218,11 +211,12 @@ const Home = ( { openRightPanel, openLeftMenu}: HomeProps) => {
                                     <img src={story_array[activeStoryIndex].content} alt="story content" className='story__image'/>
                                 </div>
                                 <div className="story__header">
-                                    <div>
+                                    <div className='circle__avatar__wrapper'>
                                         <img
                                             src={story_array[activeStoryIndex].user.avatar}
                                             alt="avatar"
                                         />
+                                        <CircularProgressBar key={activeStoryIndex} size={51} strokeWidth={5} progress={progress} circleColor='#fff' trackColor='none'/> 
                                         {story_array[activeStoryIndex].user.username}
                                     </div>
                                     <img src={close} alt="close" onClick={() => {setIsModalOpen(false); setActiveStoryIndex(null)}}/>

@@ -11,7 +11,7 @@ import Reset from './pages/auth/Reset/Reset';
 import Signup from './pages/auth/Signup/Signup';
 import Profile from './pages/profile/Profile';
 import Settings from './pages/settings/Settings';
-import { UserProvider } from './contexts/UserContext';
+import { UserProvider } from './contexts/UserContext/UserContext';
 
 
 function App() {

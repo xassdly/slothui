@@ -13,7 +13,7 @@ import limiticon from './../../assets/leftside_icons/limit.svg';
 import leaveicon from './../../assets/leftside_icons/leave.svg';
 import closeicon from './../../assets/leftside_icons/close.svg';
 import { useNavigate } from 'react-router-dom';
-import { useUser } from '../../contexts/UserContext';
+import { useUser } from '../../contexts/UserContext/UserContext';
 import Modal from '../Modal/Modal';
 
 

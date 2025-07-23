@@ -1,0 +1,10 @@
+.circle__svg {
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    z-index: 1;
+}
+
+.circle__avatar__wrapper {
+    position: relative;
+}
