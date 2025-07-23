@@ -20,6 +20,7 @@ import sendnb from './../../assets/main_icons/send_notblue.svg';
 
 import { CommentModel } from '../../models/CommentModel';
 import { useUser } from '../../contexts/UserContext';
+import Modal from '../Modal/Modal';
 
 type PostProps = {
     post: PostModel;
@@ -113,7 +114,7 @@ const Post = ( {post}: PostProps ) => {
                             </div>
 
                             {isCommWindowOpen && (
-                                <div className="modal-overlay" onClick={() => setIsCommWindowOpen(false)}>
+                                <Modal onClose={() => setIsCommWindowOpen(false)}>
                                     <div className="comments-modal-content" onClick={e => e.stopPropagation()}>
 
                                         <div className="comments__header">
@@ -139,7 +140,7 @@ const Post = ( {post}: PostProps ) => {
                                         </div>
 
                                     </div>
-                                </div>
+                                </Modal>
                             )}
 
                             <div className="post__item" onClick={handleShareClick}>

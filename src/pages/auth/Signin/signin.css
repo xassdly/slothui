@@ -263,3 +263,14 @@
     animation: shake 0.2s;
 }
 
+@media (max-width:550px) {
+    .auth__container {
+        padding: 0 12px;
+    }
+
+    .auth__footer {
+        flex-direction: column;
+        padding: 10px;
+    }
+}
+

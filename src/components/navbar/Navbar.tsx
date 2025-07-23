@@ -14,6 +14,7 @@ import leaveicon from './../../assets/leftside_icons/leave.svg';
 import closeicon from './../../assets/leftside_icons/close.svg';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../../contexts/UserContext';
+import Modal from '../Modal/Modal';
 
 
 type NavbarProps = {
@@ -114,16 +115,16 @@ const Navbar = ( { isOpen, onClose, handleLogout }: NavbarProps) => {
                         <img src={leaveicon} alt="logout" />
                     </div>
 
-                    {isLogoutOpen && (
-                        <div className='modal-overlay' onClick={() => setIsLogoutOpen(false)}>
-                            <div className="logout__content" onClick={e => e.stopPropagation()}>
-                                <h3>You sure to logout?</h3>
-                                <div onClick={handleLogout}>Yes</div>
-                                <div onClick={() => setIsLogoutOpen(false)}>No</div>
-                            </div>
-                        </div>
-                    )}
                 </div>
+                {isLogoutOpen && (
+                    <Modal onClose={() => setIsLogoutOpen(false)}>
+                        <div className="logout__content" onClick={e => e.stopPropagation()}>
+                            <h3>You sure to logout?</h3>
+                            <div onClick={handleLogout}>Yes</div>
+                            <div onClick={() => setIsLogoutOpen(false)}>No</div>
+                        </div>
+                    </Modal>
+                )}
             </div>
         </>
         
