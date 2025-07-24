@@ -1,0 +1,252 @@
+.addpost__window {
+    position: relative;
+    width: 100%;
+    max-width: 935px;
+    height: 100%;
+    max-height: 630px;
+    background-color: #fff;
+    border-radius: 45px;
+    padding: 27px 0;
+}
+
+.addpost__container {
+    max-width: 745px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.addpost__close__window {
+    position: absolute;
+    display: flex;
+    top: 27px;
+    right: 27px;
+    cursor: pointer;
+    padding: 9px;
+    border-radius: 123px;
+}
+.addpost__close__window:hover {
+    background-color: #d8d3d3;
+}
+
+.addpost__header {
+    margin-bottom: 46px;
+}
+
+.addpost__header__user {
+    display: flex;
+    gap: 8px;
+    color: #475569;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.addpost__header__username {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+}
+
+.addpost__header__user > img {
+    width: 50px;
+    height: 50px;
+}
+
+.addpost__main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 59px;
+}
+
+.addpost__main input,
+.addpost__main textarea{
+    border: none;
+    background: none;
+    outline: none;
+    width: 100%;
+    overflow: hidden;
+    resize: none;
+    padding: 16px 0;
+}
+
+.addpost__main textarea {
+    height: 162px;
+}
+
+.addpost__left__item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.addpost__left__item > div {
+    width: 100%;
+    border: 1.5px solid #CBD5E1;
+    border-radius: 21px;
+    padding: 0 16px;
+
+}
+
+.addpost__left__item > label {
+    color: #475569;
+    font-size: 1.125rem;
+    font-weight: bold;
+}
+
+.addpost__left__item:last-child > label{
+    font-size: 1rem;
+}
+
+.dropdown {
+    width: 100%;
+    position: relative;
+    font-size: 0.875rem;
+}
+
+.dropdown__header {
+    padding: 15px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dropdown__list {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 5px;
+
+    max-height: 0;
+    overflow: hidden;
+    transform: translateY(8px) scale(0.5);
+    transition: max-height .22s ease, transform .22s ease;
+    pointer-events: none;
+}
+
+.dropdown__list.show {
+    max-height: 240px;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.dropdown__list li {
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 123px;
+
+    background-color: #f3f3f3;
+    margin-bottom: 5px;
+    transition: .1s ease;
+}
+
+.dropdown__list li:hover {
+    background: #e2e2e2;
+}
+
+.addpost__right__upload {
+    position: relative;
+    grid-row: span 2;
+    border-radius: 30px;
+    border: 2px dashed #CBD5E1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addpost__upload__center {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 21px;
+}
+
+.upload__center__img {
+    background-color: #EEF2FF;
+    display: flex;
+    padding: 13px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+}
+
+.upload__center__text {
+    font-size: 0.75rem;
+    color: #475569;
+}
+
+.upload__center__button {
+    font-size: 0.875rem;
+    color: #4F46E5;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.addpost__upload__footer {
+    position: absolute;
+    font-size: 0.625rem;
+    color: #94A3B8;
+    font-weight: 500;
+    bottom: 10px;
+}
+
+.addpost__upload__hint {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 64px;
+    height: 72px;
+    display: grid;
+}
+.addpost__upload__hint > * {
+  grid-area: 1 / 1;
+}
+.icon__cursor {
+    justify-self: start;
+    align-self: start;
+}
+.icon__file {
+    justify-self: end;
+    align-self: end;
+}
+
+.addpost___right__buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+    align-items: end;
+}
+.addpost__right__btn {
+    height: 50px;
+    padding: 10px;
+    background: none;
+    border: 1px solid #CBD5E1;
+    border-radius: 123px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
+    color: #475569;
+    font-size: 0.875rem;
+    font-weight: bold;
+    letter-spacing: -0.6%;
+    cursor: pointer;
+    transition: .1s ease;
+}
+.addpost__right__btn.publish {
+    background-color: #4F46E5;
+    color: #fff;
+}
+.addpost__right__btn.publish:hover {
+    background-color: #443dc0;
+}
+.addpost__right__btn.cancel:hover {
+    background-color: #dddddd;
+}

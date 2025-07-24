@@ -18,6 +18,7 @@ import { posts_array } from '../../mock/posts';
 import { useRef, useState, useEffect } from 'react';
 import Modal from '../../components/Modal/Modal';
 import CircularProgressBar from '../../components/CircularProgressBar/CircularProgressBar';
+import AddNewPost from '../../components/AddNewPost/AddNewPost';
 
 type HomeProps = {
     openRightPanel: () => void;
@@ -58,6 +59,7 @@ const Home = ( { openRightPanel, openLeftMenu}: HomeProps) => {
         }
     }
 
+    const [addNewPostWindow, setAddNewPostWindow] = useState(false);
     const [showPostButtonText, setShowPostButtonText] = useState(window.innerWidth < 1000);
 
     useEffect(() => {
@@ -154,13 +156,19 @@ const Home = ( { openRightPanel, openLeftMenu}: HomeProps) => {
                             <input name="search" type="text" placeholder='Search for friends, groups, pages'/>
                             <img src={searchicon} alt='search'/>
                         </div>
-                        <div className="home__header__button">
+                        <div className="home__header__button" onClick={() => setAddNewPostWindow(true)}>
                             <button>{showPostButtonText ? "" : "Add New Post"}<img src={plussvg} alt='+'/></button>
                         </div>
 
                         <div className="home__header__menu__button" onClick={openRightPanel}>
                             <img src={header_menu} alt="menu" />
                         </div>
+
+                        {addNewPostWindow && (
+                            <Modal onClose={() => setAddNewPostWindow(false)}>
+                                <AddNewPost onClose={() => setAddNewPostWindow(false)}/>
+                            </Modal>
+                        )}
 
                     </div>
                 </div>
