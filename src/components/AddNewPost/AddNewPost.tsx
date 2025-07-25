@@ -1,14 +1,12 @@
 import './addNewPost.css';
 import cancel_icon from './../../assets/addnewpost_icons/cancel.svg';
-import cursor_icon from './../../assets/addnewpost_icons/cursor.svg';
-import pngfile_icon from './../../assets/addnewpost_icons/pngfile.svg';
 import publish_icon from './../../assets/addnewpost_icons/publish.svg';
-import upload_icon from './../../assets/addnewpost_icons/uploadfile.svg';
 
 import { useUser } from '../../contexts/UserContext/UserContext';
 import { useState } from 'react';
 import { PostModel } from '../../models/PostModel';
 import { posts_array } from '../../mock/posts';
+import UploadFile from '../UploadFile/UploadFile';
 
 type AddNewPostProps = {
     onClose: () => void;
@@ -24,12 +22,13 @@ const AddNewPost = ( {onClose}: AddNewPostProps ) => {
 
     const [textLocation, setTextLocation] = useState('');
     const [textDesctiprion, setTextDescription] = useState('');
+    const [file, setFile] = useState<string>();
 
     const handlePublishButton = () => {
         if (textLocation.trim() === '' || textDesctiprion.trim() === '' || !user) {
             return;
         } else {
-            posts_array.unshift( new PostModel(posts_array.length + 1, user, textLocation, textDesctiprion, null, 0 , [], 0));
+            posts_array.unshift( new PostModel(posts_array.length + 1, user, textLocation, textDesctiprion, file ?? null, 0 , [], 0));
             onClose();
         }
     }
@@ -58,26 +57,7 @@ const AddNewPost = ( {onClose}: AddNewPostProps ) => {
                                 </div>
                             </div>
 
-                            <div className="addpost__right__upload">
-                                <div className="addpost__upload__center">
-                                    <div className="upload__center__img">
-                                        <img src={upload_icon} alt="upload image" />
-                                    </div>
-                                    <div className="upload__center__text">
-                                        Drag & drop an image here to upload
-                                    </div>
-                                    <div className="upload__center__button">
-                                        Or click here
-                                    </div>
-                                </div>
-                                <div className="addpost__upload__footer">
-                                    Supported Format: SVG, JPG, PNG (10mb each)
-                                </div>
-                                <div className="addpost__upload__hint">
-                                    <img src={cursor_icon} alt="cursor" className='icon__cursor'/>
-                                    <img src={pngfile_icon} alt="pngfile" className='icon__file'/>
-                                </div>
-                            </div>
+                            <UploadFile setFile={setFile}/>
 
                             <div className="addpost__left__item">
                                 <label htmlFor='addpost__description'>Description</label>

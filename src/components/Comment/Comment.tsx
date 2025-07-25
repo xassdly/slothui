@@ -1,6 +1,7 @@
 import { CommentModel } from "../../models/CommentModel";
 import comm_like0 from './../../assets/main_icons/comm_like0.svg';
 import comm_like1 from './../../assets/main_icons/comm_like1.svg';
+import './comments.css';
 
 import { useState } from "react";
 

@@ -117,7 +117,7 @@ const Navbar = ( { isOpen, onClose, handleLogout }: NavbarProps) => {
 
                 </div>
                 {isLogoutOpen && (
-                    <Modal onClose={() => setIsLogoutOpen(false)}>
+                    <Modal onClose={() => setIsLogoutOpen(false)} isOpen={isLogoutOpen}>
                         <div className="logout__content" onClick={e => e.stopPropagation()}>
                             <h3>You sure to logout?</h3>
                             <div onClick={handleLogout}>Yes</div>

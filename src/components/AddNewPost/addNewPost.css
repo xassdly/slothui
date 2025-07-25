@@ -147,76 +147,6 @@
     background: #e2e2e2;
 }
 
-.addpost__right__upload {
-    position: relative;
-    grid-row: span 2;
-    border-radius: 30px;
-    border: 2px dashed #CBD5E1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.addpost__upload__center {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 21px;
-}
-
-.upload__center__img {
-    background-color: #EEF2FF;
-    display: flex;
-    padding: 13px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-}
-
-.upload__center__text {
-    font-size: 0.75rem;
-    color: #475569;
-}
-
-.upload__center__button {
-    font-size: 0.875rem;
-    color: #4F46E5;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.addpost__upload__footer {
-    position: absolute;
-    font-size: 0.625rem;
-    color: #94A3B8;
-    font-weight: 500;
-    bottom: 10px;
-}
-
-.addpost__upload__hint {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 64px;
-    height: 72px;
-    display: grid;
-}
-.addpost__upload__hint > * {
-  grid-area: 1 / 1;
-}
-.icon__cursor {
-    justify-self: start;
-    align-self: start;
-}
-.icon__file {
-    justify-self: end;
-    align-self: end;
-}
-
 .addpost___right__buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -250,3 +180,5 @@
 .addpost__right__btn.cancel:hover {
     background-color: #dddddd;
 }
+
+

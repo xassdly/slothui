@@ -11,3 +11,12 @@
     align-items: center;
     z-index: 10001;
 }
+
+.modal-content {
+    overscroll-behavior: contain;
+}
+
+body.modal-open {
+    overflow: hidden;
+    padding-right: var(--scrollbar-width, 0px);
+}

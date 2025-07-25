@@ -156,8 +156,8 @@ const Home = ( { openRightPanel, openLeftMenu}: HomeProps) => {
                             <input name="search" type="text" placeholder='Search for friends, groups, pages'/>
                             <img src={searchicon} alt='search'/>
                         </div>
-                        <div className="home__header__button" onClick={() => setAddNewPostWindow(true)}>
-                            <button>{showPostButtonText ? "" : "Add New Post"}<img src={plussvg} alt='+'/></button>
+                        <div className="home__header__button" >
+                            <button onClick={() => setAddNewPostWindow(true)}>{showPostButtonText ? "" : "Add New Post"}<img src={plussvg} alt='+'/></button>
                         </div>
 
                         <div className="home__header__menu__button" onClick={openRightPanel}>
@@ -165,7 +165,7 @@ const Home = ( { openRightPanel, openLeftMenu}: HomeProps) => {
                         </div>
 
                         {addNewPostWindow && (
-                            <Modal onClose={() => setAddNewPostWindow(false)}>
+                            <Modal onClose={() => setAddNewPostWindow(false)} isOpen={addNewPostWindow}>
                                 <AddNewPost onClose={() => setAddNewPostWindow(false)}/>
                             </Modal>
                         )}
@@ -210,7 +210,7 @@ const Home = ( { openRightPanel, openLeftMenu}: HomeProps) => {
 
 
                     {isModalOpen && activeStoryIndex !== null && (
-                        <Modal onClose={closeStory}>
+                        <Modal onClose={closeStory} isOpen={isModalOpen}>
                             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                                 <div 
                                     className="story__wrapper"

@@ -1,8 +1,7 @@
 import './post.css';
-import './comments.css';
 import { PostModel } from '../../models/PostModel';
 import { useState } from 'react';
-import Comment from './Comment';
+import Comment from '../Comment/Comment';
 
 import more from './../../assets/main_icons/more.svg';
 import avatar from './../../assets/avatars/a10.png';
@@ -114,7 +113,7 @@ const Post = ( {post}: PostProps ) => {
                             </div>
 
                             {isCommWindowOpen && (
-                                <Modal onClose={() => setIsCommWindowOpen(false)}>
+                                <Modal onClose={() => setIsCommWindowOpen(false)} isOpen={isCommWindowOpen}>
                                     <div className="comments-modal-content" onClick={e => e.stopPropagation()}>
 
                                         <div className="comments__header">
