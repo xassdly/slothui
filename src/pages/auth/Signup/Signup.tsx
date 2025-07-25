@@ -143,18 +143,18 @@ const Signup = ( {setIsLoggedIn}: SingupProps) => {
                     <p>Password strength: {strengthLabel}</p>
                 </div>
 
-                <div className="auth__main__button" onClick={handleSignupButton}>
+                <button className="auth__main__button" onClick={handleSignupButton}>
                     <p>Sign Up</p><img src={signup_icon} alt="sign up" />
-                </div>
+                </button>
 
                 <div className="signin__button__signup">
                     <p>Already have an account? <span onClick={() => navigate('/signin')}>Sign In</span></p>
                 </div>
 
-                <div className="signin__button__facetwitgoog signup__google__button">
+                <button className="signin__button__facetwitgoog signup__google__button">
                     <img src={google_icon} alt="google" />
                     Sign Up With Google
-                </div>
+                </button>
 
 
             </div>

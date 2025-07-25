@@ -1,4 +1,4 @@
-.signup__back__button {
+.reset__back__button {
     display: flex;
     align-items: center;
     color: #4F46E5;
@@ -9,6 +9,9 @@
     gap: 8px;
     cursor: pointer;
     margin-top: 24px;
+    border: none;
+    background: none;
+    padding: 0;
 }
 
 .reset__main__button {

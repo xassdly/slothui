@@ -15,7 +15,7 @@ const Story = ({ story, onClick, isViewed }: StoryProps) => {
         <div className="story__item" onClick={onClick}>
             <div className="story__avatar"  
                 style={ isViewed ? { background: "#B5B5B5"} : { background: "linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4)" }}>
-                <img src={story.user.avatar} alt="a" />
+                <img src={story.user.avatar} alt="a" draggable="false"/>
             </div>
             <div className="story__username">
                 {story.user.username}

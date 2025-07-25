@@ -86,22 +86,25 @@
 }
 
 .post__footer__right {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.post__footer__right div {
+.post__footer__right button {
     border: 1px solid rgb(228, 221, 221);
     border-radius: 50%;
     padding: 9px;
+    border: none;
+    background: none;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: .2s ease;
 }
-.post__footer__right div:hover {
+.post__footer__right button:hover {
     background-color: #ececec;
 }
 
@@ -110,6 +113,9 @@
     height: 24px;
 }
 
+.post__footer__right__button__emoji__wrapper {
+    position: relative;
+}
 
 
 /* POST FACE */
@@ -136,7 +142,7 @@
     display: flex;
     align-items: center;
     margin-top: 13px;
-    gap: 17px;
+    gap: 10px;
     font-size: 0.875rem;
 }
 
@@ -148,13 +154,11 @@
     display: flex;
     align-items: center;
     gap: 5px;
-}
-
-.post__item img {
     cursor: pointer;
-}
-.post__item p {
-    cursor: default;
+    border: none;
+    background: none;
+    color: #1E293B;
+    font-weight: 500;
 }
 
 

@@ -1,8 +1,8 @@
 import './App.css';
 import { useState } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
-import Navbar from './components/navbar/Navbar';
-import Rightpanel from './components/rightpanel/Rightpanel';
+import Navbar from './components/Navbar/Navbar';
+import Rightpanel from './components/Rightpanel/Rightpanel';
 import Home from './pages/home/Home';
 import Signin from './pages/auth/Signin/Signin';
 

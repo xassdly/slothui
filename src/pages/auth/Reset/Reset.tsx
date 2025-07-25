@@ -60,10 +60,10 @@ const Reset = () => {
                     </div>
                 )}
 
-                <div className="signup__back__button" onClick={() => navigate('/signin')}>
+                <button className="reset__back__button" onClick={() => navigate('/signin')}>
                     <img src={back_icon} alt="back" />
                     <p>Back to login screen</p>
-                </div>
+                </button>
 
             </div>
             <div className="auth__footer">

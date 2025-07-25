@@ -120,8 +120,8 @@ const Navbar = ( { isOpen, onClose, handleLogout }: NavbarProps) => {
                     <Modal onClose={() => setIsLogoutOpen(false)} isOpen={isLogoutOpen}>
                         <div className="logout__content" onClick={e => e.stopPropagation()}>
                             <h3>You sure to logout?</h3>
-                            <div onClick={handleLogout}>Yes</div>
-                            <div onClick={() => setIsLogoutOpen(false)}>No</div>
+                            <button onClick={handleLogout}>Yes</button>
+                            <button onClick={() => setIsLogoutOpen(false)}>No</button>
                         </div>
                     </Modal>
                 )}

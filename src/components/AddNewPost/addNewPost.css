@@ -23,6 +23,8 @@
     cursor: pointer;
     padding: 9px;
     border-radius: 123px;
+    background: none;
+    border: none;
 }
 .addpost__close__window:hover {
     background-color: #d8d3d3;
@@ -109,6 +111,8 @@
     cursor: pointer;
     display: flex;
     justify-content: space-between;
+    border: none;
+    background: none;
 }
 
 .dropdown__list {
@@ -181,4 +185,44 @@
     background-color: #dddddd;
 }
 
+ 
+@media (max-width: 1000px) {
+    .addpost__window {
+        margin: 0 20px;
+    }
+}
 
+@media (max-width: 840px) {
+    .addpost__window {
+        padding: 27px;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+    .addpost__window::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@media (max-width: 730px) {
+    .addpost__main {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 630px) {
+    .addpost__main {
+        grid-template-columns: 1fr;
+    }
+
+    .addpost__window {
+        max-height:max-content;
+    }
+
+    .addpost__right__upload {
+        height: 200px;
+    }
+
+    .addpost__main textarea {
+        height: 130px;
+    }
+}

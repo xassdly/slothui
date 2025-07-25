@@ -1,35 +1,4 @@
-
-.story__item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.story__avatar {
-        
-    aspect-ratio: 1/1;
-    display: flex;
-    border-radius: 50%;
-    padding: 3px;
-    cursor: pointer;
-}
-.story__avatar img {
-    border-radius: 50%;
-    border: 2px solid #fff;
-    width: 64px;
-    height: 64px;
-    object-fit: cover;
-}
-
-.story__username {
-    padding-top: 6px;
-    color: #475569;
-    font-weight: 600;
-    font-size: 0.75rem;
-}
-
-.modal-content {
+.story__modal__content {
     position: relative;
     height: 80vh;
     width: 30%;
@@ -41,15 +10,30 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    user-select: none;
 }
 
-.modal-content>img {
+.story__modal__content>img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     border-radius: 30px;
 }
 
+.story__wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.story__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 .story__header {
     position: absolute;
@@ -74,20 +58,17 @@
     gap: 13px;
 }
 
-/* CLOSE STORY */
-.story__header>img {
+.story__header__close {
     width: 15px;
     height: 15px;
     cursor: pointer;
 }
 
-/* AVATAR */
-.story__header>div>img {
+.story__header__avatar {
     width: 45px;
     height: 45px;
     z-index: 2;
 }
-
 
 .story__footer {
     position: absolute;
@@ -142,45 +123,29 @@
     height: 25px;
 }
 
-.story__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.story__wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-
 @media (max-width: 1200px){
-    .modal-content {
+    .story__modal__content {
         width: 50%;
     }
 }
 @media (max-width: 1000px){
-    .modal-content {
+    .story__modal__content {
         width: 60%;
     }
 }
 @media (max-width: 700px){
-    .modal-content {
+    .story__modal__content {
         width: 70%;
     }
 }
 @media (max-width: 600px){
-    .modal-content {
+    .story__modal__content {
         width: 80%;
         height: 70vh;
     }
 }
 @media (max-width: 500px){
-    .modal-content {
+    .story__modal__content {
         width: 85%;
     }
 }

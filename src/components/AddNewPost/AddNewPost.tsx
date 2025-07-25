@@ -45,7 +45,7 @@ const AddNewPost = ( {onClose}: AddNewPostProps ) => {
                                 <p>@{user?.username.toLowerCase()}</p>
                             </div>
                         </div>
-                        <div onClick={onClose} className='addpost__close__window'><img src={cancel_icon} alt="close window" /></div>
+                        <button onClick={onClose} className='addpost__close__window'><img src={cancel_icon} alt="close window" /></button>
                     </div>
                     <div className="addpost__main">
 
@@ -86,14 +86,14 @@ const AddNewPost = ( {onClose}: AddNewPostProps ) => {
                             </div>
 
                             <div className="addpost___right__buttons">
-                                <div onClick={onClose} className="addpost__right__btn cancel">
+                                <button onClick={onClose} className="addpost__right__btn cancel">
                                     <p>Cancel</p>
                                     <img src={cancel_icon} alt="cancel" />
-                                </div>
-                                <div onClick={handlePublishButton} className="addpost__right__btn publish">
+                                </button>
+                                <button onClick={handlePublishButton} className="addpost__right__btn publish">
                                     <p>Publish</p>
                                     <img src={publish_icon} alt="publish post" />
-                                </div>
+                                </button>
                             </div>
                     </div>
                 </div>

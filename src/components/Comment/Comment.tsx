@@ -1,7 +1,7 @@
 import { CommentModel } from "../../models/CommentModel";
 import comm_like0 from './../../assets/main_icons/comm_like0.svg';
 import comm_like1 from './../../assets/main_icons/comm_like1.svg';
-import './comments.css';
+import './comment.css';
 
 import { useState } from "react";
 
@@ -24,7 +24,7 @@ const Comment = ( {comment}: CommentProps) => {
     }
 
     return (
-        <div className="comments__item">
+        <div className="comment__item">
 
             <div className="comment__info">
                 <div className="comment__user__avatar">
@@ -39,10 +39,10 @@ const Comment = ( {comment}: CommentProps) => {
                 </div>
             </div>
             
-            <div onClick={handleLikeClick} className="comment__like">
+            <button onClick={handleLikeClick} className="comment__like">
                 <img src={isLiked ? comm_like1 : comm_like0} alt="like" />
                 <p>{likes}</p>
-            </div>
+            </button>
 
         </div>
     )

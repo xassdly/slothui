@@ -91,6 +91,7 @@ const Signin = ( {setIsLoggedIn}: SigninProps) => {
                     <div className={`signin__input__field__wrapper ${isError ? 'error' : ''}`}>
                         <img src={password_icon} alt="password" />
                         <input id='password' type={showPassword ? "text" : "password"} placeholder='*****************' value={passwordText} onChange={(e) => setPasswordText(e.target.value)}/>
+                        
                         <img className='signin__input__field__showhidepassword' 
                             src={showPassword ? dontshowpassword : showpassword} alt="show/hide password" 
                             onClick={() => setShowPassword(prev => !prev)}/>
@@ -108,9 +109,9 @@ const Signin = ( {setIsLoggedIn}: SigninProps) => {
                     </div>
                 </div>
 
-                <div className="auth__main__button" onClick={handleSigninButton}>
+                <button className="auth__main__button" onClick={handleSigninButton}>
                     <p>Sign In</p><img src={signin_icon} alt="sign in" />
-                </div>
+                </button>
 
                 <div className="signin__button__signup">
                     <p>Don't have an account? <span onClick={() => navigate('/signup')}>Sign Up</span></p>
@@ -120,15 +121,15 @@ const Signin = ( {setIsLoggedIn}: SigninProps) => {
                     <span>OR</span>
                 </div>
 
-                <div className="signin__button__facetwitgoog">
+                <button className="signin__button__facetwitgoog">
                     <img src={facebook_icon} alt="facebook" />
                     Sign In With Facebook
-                </div>
+                </button>
 
-                <div className="signin__button__facetwitgoog">
+                <button className="signin__button__facetwitgoog">
                     <img src={twitter_icon} alt="twitter" />
                     Sign In With Twitter
-                </div>
+                </button>
 
             </div>
             <div className="auth__footer">
