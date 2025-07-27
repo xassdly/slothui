@@ -1,6 +1,7 @@
 import './post.css';
 import { PostModel } from '../../models/PostModel';
 import { useRef, useState } from 'react';
+import parseHashtags from '../../utils/Hashtags/parseHashtags';
 
 
 import CommentsWindow from '../CommentsWindow/CommentsWindow';
@@ -97,6 +98,8 @@ const Post = ( {post}: PostProps ) => {
         setIsShared(prev => !prev);
     };
 
+    const parsedContent = parseHashtags(post.content);
+
 
     return (
         <div className="post">
@@ -115,7 +118,7 @@ const Post = ( {post}: PostProps ) => {
                     </div>
 
                     <div className="post__face">
-                        <p className='post__face__p'>{post.content}</p>
+                        <p className='post__face__p'>{parsedContent}</p>
                         <div className="post__image__wrapper">
                             {post.image && <img onDoubleClick={handleLikeClick} className='post__face__img' src={post.image} alt='img'/>}
                             {showHeart && post.image &&(

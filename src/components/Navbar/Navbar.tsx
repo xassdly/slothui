@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import logo from './../../assets/logo.svg';
 import searchicon from './../../assets/main_icons/searchicon.svg';
 import feedicon from './../../assets/leftside_icons/feed.svg';
-import storiesicon from './../../assets/leftside_icons/stories.svg';
 import friendsicon from './../../assets/leftside_icons/friends.svg';
 import subicon from './../../assets/leftside_icons/sub.svg';
 import settingsicon from './../../assets/leftside_icons/settings.svg';
@@ -12,6 +11,7 @@ import helpicon from './../../assets/leftside_icons/help.svg';
 import limiticon from './../../assets/leftside_icons/limit.svg';
 import leaveicon from './../../assets/leftside_icons/leave.svg';
 import closeicon from './../../assets/leftside_icons/close.svg';
+
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../../contexts/UserContext/UserContext';
 import Modal from '../Modal/Modal';
@@ -65,30 +65,26 @@ const Navbar = ( { isOpen, onClose, handleLogout }: NavbarProps) => {
                     <img src={searchicon} alt="search" /><input type="text" placeholder="Search..."/>
                 </div>
                 <div className="navbar__nav">
-                    <div className="navbar__nav__item" onClick={() => navigate('/')}>
+                    <button className="navbar__nav__item" onClick={() => navigate('/')}>
                         <img src={feedicon} alt="Home" />
                         <p>Home</p>
-                    </div>
-                    <div className="navbar__nav__item">
-                        <img src={storiesicon} alt="Stories" />
-                        <p>Stories</p>
-                    </div>
-                    <div className="navbar__nav__item">
+                    </button>
+                    <button className="navbar__nav__item" onClick={() => navigate('/friends')}>
                         <img src={friendsicon} alt="Friends" />
                         <p>Friends</p>
-                    </div>
-                    <div className="navbar__nav__item">
+                    </button>
+                    <button className="navbar__nav__item" onClick={() => navigate('/subscription')}>
                         <img src={subicon} alt="Subscription" />
                         <p>Subscription</p>
-                    </div>
-                    <div className="navbar__nav__item" onClick={() => navigate('/settings')}>
+                    </button>
+                    <button className="navbar__nav__item" onClick={() => navigate('/settings')}>
                         <img src={settingsicon} alt="Settings" />
                         <p>Settings</p>
-                    </div>
-                    <div className="navbar__nav__item">
+                    </button>
+                    <button className="navbar__nav__item" onClick={() => navigate('/support')}>
                         <img src={helpicon} alt="Help & Support" />
                         <p>Help & Support</p>
-                    </div>
+                    </button>
                 </div>
 
                 {isProOpen && (

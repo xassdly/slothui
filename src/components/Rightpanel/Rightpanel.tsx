@@ -74,19 +74,19 @@ const Rightpanel = ( { isOpen, onClose }: RightpanelProps) => {
                         )}
                     </div>
                     <div className="rightpanel__header__buttons">
-                        <div className="header__icon__block"><img src={messicon} alt="messages" /></div>
-                        <div className="header__icon__block"><img src={notsdarkicon} alt="notifications" /></div>
-                        <div className="header__icon__block" onClick={() => navigate('/settings')}><img src={setticon} alt="settings" /></div>
+                        <button className="header__icon__block" onClick={() => navigate('/chats')}><img src={messicon} alt="messages" /></button>
+                        <button className="header__icon__block" onClick={() => navigate('/notifications')}><img src={notsdarkicon} alt="notifications" /></button>
+                        <button className="header__icon__block" onClick={() => navigate('/settings')}><img src={setticon} alt="settings" /></button>
                     </div>
                 </div>
 
                 <div className="rightpanel__friends">
                     <div className="friends__header">
                         <div className="friends__header__title">Friends Suggestions</div>
-                        <div className="friends__header__button">
+                        <button className="friends__header__button" onClick={() => navigate('/friends')}>
                             <p>See All</p>
                             <img src={seeallicon} alt="seeall" />
-                        </div>
+                        </button>
                     </div>
                     <div className="friends__content">
                         <Suggestion user={user3}/>

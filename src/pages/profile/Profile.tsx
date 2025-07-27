@@ -2,7 +2,9 @@ import './profile.css';
 
 const Profile = () => {
     return (
-        <>PROFILE</>
+        <div className='profile'>
+            Profile
+        </div>
     )
 }
 
