@@ -1,5 +1,6 @@
+import styles from './EmojiPicker.module.css';
 import React, { useRef, useEffect } from 'react';
-import './emojiPicker.css';
+
 
 type EmojiPickerProps = {
     onEmojiSelect: (emoji: string) => void;
@@ -30,8 +31,8 @@ const EmojiPicker = ({ onEmojiSelect, onClose, buttonRef }: EmojiPickerProps) =>
     }, [onClose, buttonRef]);
 
     return (
-        <div className="emoji__picker__popover" ref={pickerRef}>
-            <div className="emoji__grid">
+        <div className={styles.popover} ref={pickerRef}>
+            <div className={styles.grid}>
                 {emojis.map((emoji, index) => (
                     <span key={index} onClick={() => onEmojiSelect(emoji)}>
                         {emoji}

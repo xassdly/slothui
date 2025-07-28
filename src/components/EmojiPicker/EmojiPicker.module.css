@@ -1,5 +1,4 @@
-
-.emoji__picker__popover {
+.popover {
     position: absolute;
     bottom: calc(100% + 10px);
     left: 50%;
@@ -18,17 +17,17 @@
     user-select: none;
 }
 
-.emoji__picker__popover::-webkit-scrollbar {
+.popover::-webkit-scrollbar {
     display: none;
 }
 
-.emoji__grid {
+.grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
     gap: 5px;
 }
 
-.emoji__grid span {
+.grid span {
     font-size: 24px;
     cursor: pointer;
     padding: 0;
@@ -37,6 +36,6 @@
     transition: 0.2s ease;
 }
 
-.emoji__grid span:hover {
+.grid span:hover {
     transform: scale(108%);
 }

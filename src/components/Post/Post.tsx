@@ -1,10 +1,10 @@
-import './post.css';
+import styles from './Post.module.css';
 import { PostModel } from '../../models/PostModel';
 import { useRef, useState } from 'react';
 import parseHashtags from '../../utils/Hashtags/parseHashtags';
 
 
-import CommentsWindow from '../CommentsWindow/CommentsWindow';
+import CommentsWindow from '../CommentsWindow/CommentsModal';
 import EmojiPicker from '../EmojiPicker/EmojiPicker';
 import Modal from '../Modal/Modal';
 
@@ -102,37 +102,37 @@ const Post = ( {post}: PostProps ) => {
 
 
     return (
-        <div className="post">
+        <div className={styles.post}>
             <div className="container">
-                <div className="post__content">
+                <div className={styles.main}>
 
-                    <div className="post__header">
-                        <div className="user__info">
+                    <header className={styles.header}>
+                        <div className={styles.user}>
                             <img src={post.user.avatar} alt="avatar" />
-                            <div className="username__and__location">
+                            <div className={styles.userInfo}>
                                 <h3>{post.user.username}</h3>
                                 <p>{post.location}</p>
                             </div>
                         </div>
-                        <div className='button__more'><img src={more} alt="more" /></div>
-                    </div>
+                        <button className={styles.postOptions}><img src={more} alt="more" /></button>
+                    </header>
 
-                    <div className="post__face">
-                        <p className='post__face__p'>{parsedContent}</p>
-                        <div className="post__image__wrapper">
-                            {post.image && <img onDoubleClick={handleLikeClick} className='post__face__img' src={post.image} alt='img'/>}
+                    <div className={styles.content}>
+                        <p className={styles.postText}>{parsedContent}</p>
+                        <div className={styles.postImageWrapper}>
+                            {post.image && <img onDoubleClick={handleLikeClick} className={styles.postImage} src={post.image} alt='img'/>}
                             {showHeart && post.image &&(
-                                <img src={liked} alt="liked" className='like__animation' />
+                                <img src={liked} alt="liked" className={styles.likeAnimation} />
                             )}
                         </div>
-                        <div className="post__face__buttons">
+                        <div className={styles.postActions}>
 
-                            <button onClick={handleLikeClick} className="post__item"> 
+                            <button onClick={handleLikeClick} className={styles.actionsButton}> 
                                 <img src={isLiked ? liked : like} alt="like" />
                                 <p>{likes}</p>
                             </button>
 
-                            <button onClick={() => setIsCommWindowOpen(true)} className="post__item">
+                            <button onClick={() => setIsCommWindowOpen(true)} className={styles.actionsButton}>
                                 <img src={comment} alt="comment" />
                                 <p>{comments.length}</p>
                             </button>
@@ -143,25 +143,25 @@ const Post = ( {post}: PostProps ) => {
                                 </Modal>
                             )}
 
-                            <button className="post__item" onClick={handleShareClick}>
+                            <button className={styles.actionsButton} onClick={handleShareClick}>
                                 <img src={isShared ? share_active : share} alt="share" />
                                 <p>{shares}</p>
                             </button>
                             
-                            <button onClick={handleSaveClick} className="post__item">
+                            <button onClick={handleSaveClick} className={styles.actionsButton}>
                                 <img src={isSaved ? saved : save} alt="save" />
                             </button>
 
                         </div>
                     </div>
 
-                    <div className="post__footer">
-                        <div className="post__footer__left">
+                    <footer className={styles.footer}>
+                        <div className={styles.form}>
                             <img src={user?.avatar} alt="avatar" />
                             <input type="text" placeholder='Write your comment..' value={postFooterText} onChange={(e) => setPostFooterText(e.target.value)}/>
                         </div>
-                        <div className="post__footer__right">
-                            <div className='post__footer__right__button__emoji__wrapper'>
+                        <div className={styles.footerActions}>
+                            <div className={styles.emojiButtonWrapper}>
                                 <button  onClick={() => setIsPostFooterEmojiPickerOpen(prev => !prev)} ref={emojiButtonRef}><img src={smile} alt="smile" /></button>
                                 {isPostFooterEmojiPickerOpen && (
                                     <EmojiPicker onEmojiSelect={handlePostFooterEmojiSelect} onClose={() => setIsPostFooterEmojiPickerOpen(false)} buttonRef={emojiButtonRef} />
@@ -171,7 +171,7 @@ const Post = ( {post}: PostProps ) => {
                                 
                             </button>
                         </div>
-                    </div>
+                    </footer>
 
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import './navbar.css';
+import styles from './Navbar.module.css';
 import { useState, useEffect } from 'react';
 
 import logo from './../../assets/logo.svg';
@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router-dom';
 import { useUser } from '../../contexts/UserContext/UserContext';
 import Modal from '../Modal/Modal';
 
-
+ 
 type NavbarProps = {
     isOpen: boolean;
     onClose: () => void;
@@ -58,63 +58,63 @@ const Navbar = ( { isOpen, onClose, handleLogout }: NavbarProps) => {
             )}
             
             <div className={`navbar ${isOpen ? 'active' : ''}`}>
-                <div className="navbar__logo">
+                <div>
                     <img src={logo} alt="logo" />
                 </div>
-                <div className="navbar__search">
+                <div className={styles.search}>
                     <img src={searchicon} alt="search" /><input type="text" placeholder="Search..."/>
                 </div>
-                <div className="navbar__nav">
-                    <button className="navbar__nav__item" onClick={() => navigate('/')}>
+                <nav className={styles.nav}>
+                    <button className={styles.navItem} onClick={() => navigate('/')}>
                         <img src={feedicon} alt="Home" />
                         <p>Home</p>
                     </button>
-                    <button className="navbar__nav__item" onClick={() => navigate('/friends')}>
+                    <button className={styles.navItem} onClick={() => navigate('/friends')}>
                         <img src={friendsicon} alt="Friends" />
                         <p>Friends</p>
                     </button>
-                    <button className="navbar__nav__item" onClick={() => navigate('/subscription')}>
+                    <button className={styles.navItem} onClick={() => navigate('/subscription')}>
                         <img src={subicon} alt="Subscription" />
                         <p>Subscription</p>
                     </button>
-                    <button className="navbar__nav__item" onClick={() => navigate('/settings')}>
+                    <button className={styles.navItem} onClick={() => navigate('/settings')}>
                         <img src={settingsicon} alt="Settings" />
                         <p>Settings</p>
                     </button>
-                    <button className="navbar__nav__item" onClick={() => navigate('/support')}>
+                    <button className={styles.navItem} onClick={() => navigate('/support')}>
                         <img src={helpicon} alt="Help & Support" />
                         <p>Help & Support</p>
                     </button>
-                </div>
+                </nav>
 
                 {isProOpen && (
-                    <div className="navbar__pro">
-                        <img onClick={() => setIsProOpen(false)} className='navbar__pro__close' src={closeicon} alt="close" />
-                        <img className='navbar__pro__img' src={limiticon} alt="limit" />
+                    <div className={styles.proOffer}>
+                        <button onClick={() => setIsProOpen(false)} className={styles.closeProOffer}><img src={closeicon} alt="close" /></button>
+                        <img src={limiticon} alt="limit" />
                         <p>Enjoy unlimited access to our app with only a small price monthly.</p>
-                        <div className="dismiss__or__no">
+                        <div className={styles.actions}>
                             <button onClick={() => setIsProOpen(false)}>Dismiss</button>
                             <button>Go Pro</button>
                         </div>
                     </div>
                 )}
                 
-                <div className="navbar__account">
-                    <div className="navbar__account__info">
+                <div className={styles.user}>
+                    <div className={styles.userInfo}>
                         <img src={user?.avatar} alt="user" />
-                        <div className="username__and__userinfo">
+                        <div className={styles.username}>
                             <h3>{user?.username}</h3>
                             <p>@{user?.username.toLowerCase()}</p>
                         </div>
                     </div>
-                    <div className="navbar__account__logout" onClick={() => setIsLogoutOpen(true)}>
+                    <div className={styles.logout} onClick={() => setIsLogoutOpen(true)}>
                         <img src={leaveicon} alt="logout" />
                     </div>
 
                 </div>
                 {isLogoutOpen && (
                     <Modal onClose={() => setIsLogoutOpen(false)} isOpen={isLogoutOpen}>
-                        <div className="logout__content" onClick={e => e.stopPropagation()}>
+                        <div className={styles.logoutModal} onClick={e => e.stopPropagation()}>
                             <h3>You sure to logout?</h3>
                             <button onClick={handleLogout}>Yes</button>
                             <button onClick={() => setIsLogoutOpen(false)}>No</button>

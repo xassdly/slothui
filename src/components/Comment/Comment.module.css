@@ -1,35 +1,40 @@
-
-
-.comment__user__avatar>img{
-    width: 40px;
-    height: 40px;
-}
-
-.comment__item {
+.main {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 17px;
 }
 
-.comment__info {
+.comment {
     display: flex;
     gap: 12px;
     align-items: center;
 }
-.comment__topside {
+
+.userAvatar > img{
+    width: 40px;
+    height: 40px;
+}
+
+.content > p {
+    overflow-wrap: break-word;
+    font-weight: 400;
+    font-size: 0.875rem;
+}
+
+.topside {
     display: flex;
     align-items: center;
     gap: 15px;
 }
-.comment__topside>p {
+.topside > p {
     font-size: 11px;
 }
-.comment__topside>h3 {
+.topside > h3 {
     font-size: 1rem;
 }
 
-.comment__like {
+.like {
     cursor: pointer;
     margin-left: 50px;
     display: flex;
@@ -41,12 +46,3 @@
     background: none;
     padding: 0;
 }
-
-.comment__content>p {
-    overflow-wrap: break-word;
-    font-weight: 400;
-    font-size: 0.875rem;
-}
-
-
-

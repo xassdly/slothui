@@ -1,4 +1,5 @@
-import './commentsWindow.css';
+import styles from './CommentsModal.module.css';
+
 import sendnb from './../../assets/main_icons/send_notblue.svg';
 import close from './../../assets/addnewpost_icons/cancel.svg';
 import smile from './../../assets/main_icons/smile.svg';
@@ -6,7 +7,7 @@ import smile from './../../assets/main_icons/smile.svg';
 import EmojiPicker from '../EmojiPicker/EmojiPicker';
 import Comment from '../Comment/Comment';
 import { CommentModel } from '../../models/CommentModel';
-import { useUser } from './../../contexts/UserContext/UserContext';
+import { useUser } from '../../contexts/UserContext/UserContext';
 import { useState, useRef } from 'react';
 
 type CommentsWindowProps = {
@@ -37,33 +38,35 @@ const CommentsWindow = ( { comments, onClose, onAddComment }: CommentsWindowProp
         setText((prev) => prev + emoji);
     }
 
-
+ 
     return (
-        <div className="comments-modal-content" onClick={e => e.stopPropagation()}>
-            <div className="comments__header">
+        <div className={styles.modal} onClick={e => e.stopPropagation()}>
+            <header className={styles.header}>
                 <h3>Comments</h3>
-                <button onClick={onClose} className='close__comments__window'><img src={close} alt="close" /></button>
-            </div>
+                <button onClick={onClose} className={styles.closeButton}><img src={close} alt="close" /></button>
+            </header>
 
-            <div className="comments">
+            <div className={styles.comments}>
                 {comments.map((comment) => (
                     <Comment key={comment.id} comment={comment}/>
                 ))}
             </div>
 
-            <div className="comments__footer">
-                <img className='comments__footer__avatar' src={user?.avatar} alt="user" />
-                <div className="comments__footer__input">
+            <footer className={styles.footer}>
+                <img className={styles.footerAvatar} src={user?.avatar} alt="user" />
+                <div className={styles.footerForm}>
                     <input name='any' type="text" placeholder='Write your comment..' value={text} onChange={(e) => setText(e.target.value)} />
-                    <div className="comments__emoji__button__wrapper">
+                    <div className={styles.emojiButtonWrapper}>
                         <button ref={postFooterEmojiButtonRef} onClick={() => setIsEmojiPickerOpen(prev => !prev)}><img src={smile} alt="emoji" /></button>
                         {isEmojiPickerOpen && (
                             <EmojiPicker onEmojiSelect={handleLocalEmojiSelect} onClose={() => setIsEmojiPickerOpen(false)} buttonRef={postFooterEmojiButtonRef} />
                         )}
                     </div>
                 </div>
-                <button className='comments__footer__send' onClick={handleCommentSend}><img src={sendnb} alt="send" /></button>
-            </div>
+                <button className={styles.buttonSend} onClick={handleCommentSend}>
+                    <img src={sendnb} alt="send" />
+                </button>
+            </footer>
 
         </div>
     )

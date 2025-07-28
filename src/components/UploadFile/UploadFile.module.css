@@ -1,4 +1,4 @@
-.addpost__right__upload {
+.upload {
     position: relative;
     grid-row: span 2;
     border-radius: 30px;
@@ -9,13 +9,13 @@
     max-height: 343px;
 }
 
-.addpost__right__upload.active {
+.upload.active {
     border-color: #4a90e2;
     background-color: rgba(74, 144, 226, 0.05);
     transition: border-color 0.2s;
 }
 
-.addpost__upload__center {
+.center {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -24,7 +24,7 @@
     gap: 21px;
 }
 
-.upload__center__img {
+.uploadIcon {
     background-color: #EEF2FF;
     display: flex;
     padding: 13px;
@@ -35,12 +35,12 @@
     height: 48px;
 }
 
-.upload__center__text {
+.text {
     font-size: 0.75rem;
     color: #475569;
 }
 
-.upload__center__button {
+.button {
     font-size: 0.875rem;
     color: #4F46E5;
     font-weight: bold;
@@ -49,7 +49,7 @@
     background: none;
 }
 
-.addpost__upload__footer {
+.footer {
     position: absolute;
     font-size: 0.625rem;
     color: #94A3B8;
@@ -57,7 +57,7 @@
     bottom: 10px;
 }
 
-.addpost__upload__hint {
+.hint {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -65,20 +65,20 @@
     height: 72px;
     display: grid;
 }
-.addpost__upload__hint > * {
+.hint > * {
   grid-area: 1 / 1;
 }
 
-.icon__cursor {
+.iconCursor {
     justify-self: start;
     align-self: start;
 }
-.icon__file {
+.iconFile {
     justify-self: end;
     align-self: end;
 }
 
-.addpost__upload__preview {
+.preview {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,9 +87,15 @@
     overflow: hidden;
 }
 
-.addpost__upload__preview > img {
+.preview > img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
     
+}
+
+@media (max-width: 630px) {
+    .upload {
+        height: 200px;
+    }
 }

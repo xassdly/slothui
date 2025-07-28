@@ -47,7 +47,7 @@ const Reset = () => {
                     <div className={`signin__input__field__wrapper ${isResetError ? 'error' : ''}`}>
                         <img src={mail_icon} alt="mail" />
                         <input id='mail' type="email" placeholder='elementary221b@gmail.com' value={resetEmailText} onChange={(e) => setResetEmailText(e.target.value)}/>
-                    </div>
+                   </div>
                 </div>
 
                 <div className="auth__main__button reset__main__button" onClick={handleResetButton}>

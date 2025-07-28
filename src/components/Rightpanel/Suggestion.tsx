@@ -1,3 +1,5 @@
+import styles from './styles/Suggestion.module.css';
+
 import plusicon from './../../assets/rightside_icons/plusicon.svg';
 import { UserModel } from '../../models/UserModel';
 import { useState } from 'react';
@@ -15,17 +17,17 @@ const Suggestion = ( {user} : SuggestionProps) => {
     }
 
     return !isHidden && (
-        <div className={`suggestions__item ${isFriendAdded ? 'added' : ''}`}>
-            <div className="suggested__account">
+        <div className={`${styles.suggestion} ${isFriendAdded ? styles.added : ''}`}>
+            <div className={styles.user}>
                 <img src={user.avatar} alt="user" />
-                <div className="suggested__account__info">
+                <div className={styles.userInfo}>
                     <h3>{user.username}</h3>
                     <p>@{user.username.toLowerCase()}</p>
                 </div>
             </div>
-            <div className="add__suggested__account" onClick={handleAddFriend} >
+            <button className={styles.addUser} onClick={handleAddFriend} >
                 <img src={plusicon} alt="add"/>
-            </div>
+            </button>
         </div>
     )
 }

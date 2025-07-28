@@ -1,4 +1,4 @@
-.story__modal__content {
+.modal {
     position: relative;
     height: 80vh;
     width: 30%;
@@ -13,14 +13,7 @@
     user-select: none;
 }
 
-.story__modal__content>img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 30px;
-}
-
-.story__wrapper {
+.storyWrapper {
     position: absolute;
     top: 0;
     left: 0;
@@ -29,13 +22,13 @@
     z-index: 1;
 }
 
-.story__image {
+.image {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.story__header {
+.header {
     position: absolute;
     top: 0;
     left: 0;
@@ -52,25 +45,34 @@
     z-index: 10;
 }
 
-.story__header>div {
+.avatarWrapper {
+    position: relative;
+}
+
+.header > div {
     display: flex;
     align-items: center;
     gap: 13px;
 }
 
-.story__header__close {
+.closeButton {
+    border: none;
+    background: none;
+}
+
+.closeButton > img {
     width: 15px;
     height: 15px;
     cursor: pointer;
 }
 
-.story__header__avatar {
+.avatar {
     width: 45px;
     height: 45px;
     z-index: 2;
 }
 
-.story__footer {
+.footer {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -85,14 +87,14 @@
     z-index: 10;
 }
 
-.story__footer__input {
+.footerForm {
     padding: 10px;
     border: 1px solid #fff;
     border-radius: 30px;
     width: 60%;
     
 }
-.story__footer__input input {
+.footerForm input {
     background: none;
     width: 100%;
     height: 100%;
@@ -101,51 +103,39 @@
     outline: none;
     padding: 3px;
 }
-.story__footer__input input::placeholder {
+.footerForm input::placeholder {
     color: #fff;
 }
 
-.story__footer__button button {
+.footerButton {
     background: none;
     border: none;
-}
-
-.story__next__btn {
-    position: absolute;
-    top: 50%;
-    background-color: #fff;
-    padding: 3px;
-    border-radius: 123px;
-}
-
-.story__next__btn img{
-    width: 25px;
-    height: 25px;
+    cursor: pointer;
 }
 
 @media (max-width: 1200px){
-    .story__modal__content {
+    .modal {
         width: 50%;
     }
 }
 @media (max-width: 1000px){
-    .story__modal__content {
+    .modal {
         width: 60%;
     }
 }
 @media (max-width: 700px){
-    .story__modal__content {
+    .modal {
         width: 70%;
     }
 }
 @media (max-width: 600px){
-    .story__modal__content {
+    .modal {
         width: 80%;
         height: 70vh;
     }
 }
 @media (max-width: 500px){
-    .story__modal__content {
+    .modal {
         width: 85%;
     }
 }

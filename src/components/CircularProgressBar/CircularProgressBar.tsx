@@ -1,4 +1,4 @@
-import './circularProgressBar.css';
+import styles from './CirculsrProgressBar.module.css';
 
 type CircularProgressBarProps = {
     size: number;
@@ -14,7 +14,7 @@ const CircularProgressBar = ({ size, strokeWidth, progress, circleColor, trackCo
   const offset = circumference * (1 - progress / 100);
 
   return (
-    <svg className="circle__svg"  width={size} height={size}>
+    <svg className={styles.circleSvg}  width={size} height={size}>
       <circle
         stroke={trackColor}
         fill="none"

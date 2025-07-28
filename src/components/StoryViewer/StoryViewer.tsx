@@ -1,4 +1,4 @@
-import './storyViewer.css';
+import styles from './StoryViewer.module.css';
 import CircularProgressBar from '../CircularProgressBar/CircularProgressBar';
 import { useState, useCallback, useEffect } from 'react';
 
@@ -86,18 +86,17 @@ const StoryViewer = ({ stories, initialStoryIndex, onClose, setViewedStories }: 
     const currentStory = stories[currentStoryIndex];
 
     return (
-        <div className="story__modal__content" onClick={(e) => e.stopPropagation()}>
+        <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <div 
-                className="story__wrapper"
+                className={styles.storyWrapper}
                 onMouseDown={() => setPaused(true)}
-                onMouseUp={() => setPaused(false)}
-            >
-                <img src={currentStory.content} alt="story content" className='story__image' draggable="false"/>
+                onMouseUp={() => setPaused(false)}>
+                <img src={currentStory.content} alt="story content" className={styles.image} draggable="false"/>
             </div>
-            <div className="story__header">
-                <div className='circle__avatar__wrapper'>
+            <header className={styles.header}>
+                <div className={styles.avatarWrapper}>
                     <img
-                        className='story__header__avatar'
+                        className={styles.avatar}
                         src={currentStory.user.avatar}
                         alt="avatar"
                         draggable="false"
@@ -105,20 +104,18 @@ const StoryViewer = ({ stories, initialStoryIndex, onClose, setViewedStories }: 
                     <CircularProgressBar key={currentStoryIndex} size={51} strokeWidth={5} progress={progress} circleColor='#fff' trackColor='none'/> 
                     {currentStory.user.username}
                 </div>
-                <img className='story__header__close' src={close} alt="close" onClick={onClose} draggable="false"/>
-            </div>
+                <button className={styles.closeButton} onClick={onClose}><img src={close} alt="close" draggable="false"/></button>
+            </header>
 
-            <div className="story__footer">
-                <div className="story__footer__input">
+            <footer className={styles.footer}>
+                <div className={styles.footerForm}>
                     <input onFocus={() => setPaused(true)} onBlur={() => setPaused(false)} 
                         onMouseDown={(e) => e.stopPropagation()} type="text" placeholder="Type your comment..." />
                 </div>
-                <div className="story__footer__button">
-                    <button>
-                        <img src={send} alt="send" draggable="false"/>
-                    </button>
-                </div>
-            </div>
+                <button className={styles.footerButton}>
+                    <img src={send} alt="send" draggable="false"/>
+                </button>
+            </footer>
 
             {currentStoryIndex < stories.length - 1 && (
                 <div className="scroll__btn right" onClick={(e) => {e.stopPropagation(); goToNextStory()}}>

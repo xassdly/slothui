@@ -1,0 +1,200 @@
+
+.header {
+    height: 89px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    
+    border-bottom: 1px solid #d4ddeb;
+}
+
+.userAvatarWrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+.userAvatar {
+    width: 48px;
+    height: 48px;
+}
+
+.avatarIndicator {
+    position: absolute;
+    bottom: 1px;
+    right: -4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    
+}
+
+.headerActions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+.headerButton {
+    display: flex;
+    border: 1px solid #CBD5E1;
+    border-radius: 50%;
+    padding: 12px;
+    transition: .2s ease;
+    background: none;
+    cursor: pointer;
+}
+.headerButton:hover {
+    background-color: #ececec;
+}
+
+.events {
+    padding: 0 24px;
+
+}
+
+.events__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #d4ddeb;
+}
+
+.button {
+    cursor: pointer;
+    height: fit-content;
+    display: flex;
+    border: none;
+    background: none;
+}
+
+
+.friends {
+    padding: 0 24px;
+    margin-bottom: 10px;
+}
+
+.friends__header {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    border-bottom: 1px solid #d4ddeb;
+}
+
+.friendsTitle {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.friendsButton {
+    display: flex;
+    gap: 12px;
+    color: #4F46E5;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+
+
+
+
+.activity {
+    padding: 0 24px;
+    margin-bottom: 10px;
+}
+
+.activity__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.activity__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #EEF2FF;
+    height: 228px;
+    border-radius: 24px;
+    border: 1px solid #C7D2FE;
+    padding: 24px 16px;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.followersCount {
+    display: flex;
+    align-items:end;
+    gap: 6px;
+}
+.followersCount h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1E293B;
+}
+.followersCount p {
+    font-size: 16px;
+    color: #475569;
+    font-weight: 500;
+}
+
+.followersPercentage {
+    display: flex;
+    gap: 6px;
+}
+
+.followersPercentage h3 {
+    color: #15803D;
+    font-size: 14px;
+    font-weight: bold;
+}
+.followersPercentage p {
+    color: #475569;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.activityMessage {
+    color: #475569;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.activity__users img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin-left: -10px;
+    transition: all 0.2s;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+.activity__users img:first-child {
+    margin-left: 0;
+}
+
+.activity__users img:hover {
+    transform: scale(1.1);
+    z-index: 10;
+}
+
+.activity__users {
+    display: flex;
+    align-items: center;
+}

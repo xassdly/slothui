@@ -1,7 +1,4 @@
-import './styles/rightpanel.css';
-import './styles/rp_activity.css';
-import './styles/rp_events.css';
-import './styles/rp_suggestions.css';
+import styles from './styles/Rightpanel.module.css';
 
 import avatar_indicator from './../../assets/rightside_icons/avatar_indicator.svg';
 import messicon from './../../assets/rightside_icons/mess.svg';
@@ -66,29 +63,29 @@ const Rightpanel = ( { isOpen, onClose }: RightpanelProps) => {
         
             <div className={`rightpanel ${isOpen ? 'active' : ''}`}>
 
-                <div className="rightpanel__header">
-                    <div className="rightpanel__header__avatar__wrapper" onClick={() => navigate('/profile')}>
-                        <img className="rightpanel__header__avatar" src={user?.avatar} alt="avatar" />
+                <header className={styles.header}>
+                    <div className={styles.userAvatarWrapper} onClick={() => navigate('/profile')}>
+                        <img className={styles.userAvatar} src={user?.avatar} alt="avatar" />
                         {isUserActive && (
-                            <img className="avatar__indicator" src={avatar_indicator} alt="indicator" />
+                            <img className={styles.avatarIndicator} src={avatar_indicator} alt="indicator" />
                         )}
                     </div>
-                    <div className="rightpanel__header__buttons">
-                        <button className="header__icon__block" onClick={() => navigate('/chats')}><img src={messicon} alt="messages" /></button>
-                        <button className="header__icon__block" onClick={() => navigate('/notifications')}><img src={notsdarkicon} alt="notifications" /></button>
-                        <button className="header__icon__block" onClick={() => navigate('/settings')}><img src={setticon} alt="settings" /></button>
+                    <div className={styles.headerActions}>
+                        <button className={styles.headerButton} onClick={() => navigate('/chats')}><img src={messicon} alt="messages" /></button>
+                        <button className={styles.headerButton} onClick={() => navigate('/notifications')}><img src={notsdarkicon} alt="notifications" /></button>
+                        <button className={styles.headerButton} onClick={() => navigate('/settings')}><img src={setticon} alt="settings" /></button>
                     </div>
-                </div>
+                </header>
 
-                <div className="rightpanel__friends">
-                    <div className="friends__header">
-                        <div className="friends__header__title">Friends Suggestions</div>
-                        <button className="friends__header__button" onClick={() => navigate('/friends')}>
+                <div className={styles.friends}>
+                    <header className={styles.friends__header}>
+                        <div className={styles.friendsTitle}>Friends Suggestions</div>
+                        <button className={styles.friendsButton} onClick={() => navigate('/friends')}>
                             <p>See All</p>
                             <img src={seeallicon} alt="seeall" />
                         </button>
-                    </div>
-                    <div className="friends__content">
+                    </header>
+                    <div>
                         <Suggestion user={user3}/>
                         <Suggestion user={user5}/>
                         <Suggestion user={user6}/>
@@ -97,13 +94,13 @@ const Rightpanel = ( { isOpen, onClose }: RightpanelProps) => {
                     </div>
                 </div>
 
-                <div className="rightpanel__activity">
-                    <div className="activity__header">
-                        <div className="activity__header__title">Profile Activity</div>
-                        <div className="activity__header__button"><img src={moreicon} alt="more" /></div>
-                    </div>
-                    <div className="activity__content">
-                        <div className="activity__avatars">
+                <div className={styles.activity}>
+                    <header className={styles.activity__header}>
+                        <div>Profile Activity</div>
+                        <button className={styles.button}><img src={moreicon} alt="more" /></button>
+                    </header>
+                    <div className={styles.activity__content}>
+                        <div className={styles.activity__users}>
                             <img src={user7.avatar} alt="user" />
                             <img src={user4.avatar} alt="user" />
                             <img src={user9.avatar} alt="user" />
@@ -112,22 +109,22 @@ const Rightpanel = ( { isOpen, onClose }: RightpanelProps) => {
                             <img src={user8.avatar} alt="user" />
                             <img src={user2.avatar} alt="user" />
                         </div>
-                        <div className="activity__stats">
-                            <div className="followers__count"><h3>+1,158</h3><p>Followers</p></div>
-                            <div className="followers__percentage"><img src={trendicon} alt="trend" /><h3>23%</h3><p>vs last month</p></div>
+                        <div className={styles.stats}>
+                            <div className={styles.followersCount}><h3>+1,158</h3><p>Followers</p></div>
+                            <div className={styles.followersPercentage}><img src={trendicon} alt="trend" /><h3>23%</h3><p>vs last month</p></div>
                         </div>
-                        <div className="activity__text">
+                        <div className={styles.activityMessage}>
                             You gained a substantial amount of followers this month!
                         </div>
                     </div>
                 </div>
 
-                <div className="rightpanel__events">
-                    <div className="events__header">
-                        <div className="events__header__title">Upcoming Events</div>
-                        <div className="events__header__button"><img src={moreicon} alt="more" /></div>
-                    </div>
-                    <div className="events__content">
+                <div className={styles.events}>
+                    <header className={styles.events__header}>
+                        <div>Upcoming Events</div>
+                        <button className={styles.button}><img src={moreicon} alt="more" /></button>
+                    </header>
+                    <div>
                         {events.map((event) => (
                             <Event key={event.id} event={event} />
                         ))}

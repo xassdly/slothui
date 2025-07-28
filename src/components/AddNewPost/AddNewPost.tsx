@@ -1,4 +1,5 @@
-import './addNewPost.css';
+import styles from './AddNewPost.module.css';
+
 import cancel_icon from './../../assets/addnewpost_icons/cancel.svg';
 import publish_icon from './../../assets/addnewpost_icons/publish.svg';
 
@@ -34,32 +35,34 @@ const AddNewPost = ( {onClose}: AddNewPostProps ) => {
     }
 
     return (
-        <div className='addpost__window' onClick={stopProp}>
-            <div className="addpost__container">
-                <div className="addpost__content">
-                    <div className="addpost__header">
-                        <div className="addpost__header__user">
+        <div className={styles.modal} onClick={stopProp}>
+            <div className={styles.container}>
+                <div className={styles.content}>
+                    <header className={styles.header}>
+                        <div className={styles.userInfo}>
                             <img src={user?.avatar} alt="user avatar" />
-                            <div className="addpost__header__username">
+                            <div className={styles.username}>
                                 <p>{user?.username}</p>
                                 <p>@{user?.username.toLowerCase()}</p>
                             </div>
                         </div>
-                        <button onClick={onClose} className='addpost__close__window'><img src={cancel_icon} alt="close window" /></button>
-                    </div>
-                    <div className="addpost__main">
+                        <button onClick={onClose} className={styles.closeButton}><img src={cancel_icon} alt="close window" /></button>
+                    </header>
 
-
-                            <div className="addpost__left__item">
-                                <label htmlFor='addpost_location'>Location</label>
+                    <div className={styles.main}>
+                            <div className={styles.formGroup}>
+                                <label htmlFor='description'>Location</label>
                                 <div>
-                                    <input id='addpost_location' type="text" placeholder="King’s Landing..." value={textLocation} onChange={(e) => setTextLocation(e.target.value)} />
+                                    <input 
+                                        id='description' type="text" 
+                                        placeholder="King’s Landing..." value={textLocation} 
+                                        onChange={(e) => setTextLocation(e.target.value)} />
                                 </div>
                             </div>
 
                             <UploadFile setFile={setFile}/>
 
-                            <div className="addpost__left__item">
+                            <div className={styles.formGroup}>
                                 <label htmlFor='addpost__description'>Description</label>
                                 <div>
                                     <textarea 
@@ -69,13 +72,13 @@ const AddNewPost = ( {onClose}: AddNewPostProps ) => {
                                 </div>
                             </div>
 
-                            <div className="addpost__left__item">
+                            <div className={styles.formGroup}>
                                 <label htmlFor='addpost_visibility'>Visibility</label>
-                                <div className='dropdown'>
-                                    <div className="dropdown__header" onClick={() => setOpen(prev => !prev)}>
-                                        {selected} <span className="arrow">{open ? "▼" : "▲"}</span>
+                                <div className={styles.dropdown}>
+                                    <div className={styles.dropdownHeader} onClick={() => setOpen(prev => !prev)}>
+                                        {selected} <span className={styles.arrow}>{open ? "▼" : "▲"}</span>
                                     </div>
-                                        <ul className={`dropdown__list ${open ? "show" : ""}`}>
+                                        <ul className={`${styles.dropdownList} ${open ? styles.show : ''}`}>
                                             {options.map((option) => (
                                                 <li key={option} onClick={() => {setSelected(option); setOpen(false); }}>
                                                     {option}
@@ -85,12 +88,12 @@ const AddNewPost = ( {onClose}: AddNewPostProps ) => {
                                 </div>
                             </div>
 
-                            <div className="addpost___right__buttons">
-                                <button onClick={onClose} className="addpost__right__btn cancel">
+                            <div className={styles.actions}>
+                                <button onClick={onClose} className={`${styles.button} ${styles.cancel}`}>
                                     <p>Cancel</p>
                                     <img src={cancel_icon} alt="cancel" />
                                 </button>
-                                <button onClick={handlePublishButton} className="addpost__right__btn publish">
+                                <button onClick={handlePublishButton} className={`${styles.button} ${styles.publish}`}>
                                     <p>Publish</p>
                                     <img src={publish_icon} alt="publish post" />
                                 </button>

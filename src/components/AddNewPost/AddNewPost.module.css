@@ -1,4 +1,4 @@
-.addpost__window {
+.modal {
     position: relative;
     width: 100%;
     max-width: 935px;
@@ -9,13 +9,36 @@
     padding: 27px 0;
 }
 
-.addpost__container {
+.container {
     max-width: 745px;
     width: 100%;
     margin: 0 auto;
 }
 
-.addpost__close__window {
+.header {
+    margin-bottom: 46px;
+}
+
+.userInfo {
+    display: flex;
+    gap: 8px;
+    color: #475569;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+.userInfo > img {
+    width: 50px;
+    height: 50px;
+}
+
+.username {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+}
+
+.closeButton {
     position: absolute;
     display: flex;
     top: 27px;
@@ -26,43 +49,18 @@
     background: none;
     border: none;
 }
-.addpost__close__window:hover {
+
+.closeButton:hover {
     background-color: #d8d3d3;
 }
 
-.addpost__header {
-    margin-bottom: 46px;
-}
-
-.addpost__header__user {
-    display: flex;
-    gap: 8px;
-    color: #475569;
-    font-size: 0.875rem;
-    font-weight: 600;
-}
-
-.addpost__header__username {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2px;
-}
-
-.addpost__header__user > img {
-    width: 50px;
-    height: 50px;
-}
-
-.addpost__main {
+.main {
     display: grid;
     grid-template-columns: 1fr 1fr;
-
     gap: 59px;
 }
-
-.addpost__main input,
-.addpost__main textarea{
+.main input,
+.main textarea{
     border: none;
     background: none;
     outline: none;
@@ -71,18 +69,17 @@
     resize: none;
     padding: 16px 0;
 }
-
-.addpost__main textarea {
+.main textarea {
     height: 162px;
 }
 
-.addpost__left__item {
+.formGroup {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.addpost__left__item > div {
+.formGroup > div {
     width: 100%;
     border: 1.5px solid #CBD5E1;
     border-radius: 21px;
@@ -90,13 +87,13 @@
 
 }
 
-.addpost__left__item > label {
+.formGroup > label {
     color: #475569;
     font-size: 1.125rem;
     font-weight: bold;
 }
 
-.addpost__left__item:last-child > label{
+.formGroup:last-child > label{
     font-size: 1rem;
 }
 
@@ -106,7 +103,7 @@
     font-size: 0.875rem;
 }
 
-.dropdown__header {
+.dropdownHeader {
     padding: 15px 0;
     cursor: pointer;
     display: flex;
@@ -115,7 +112,7 @@
     background: none;
 }
 
-.dropdown__list {
+.dropdownList {
     position: absolute;
     bottom: 100%;
     left: 0;
@@ -131,13 +128,13 @@
     pointer-events: none;
 }
 
-.dropdown__list.show {
+.dropdownList.show {
     max-height: 240px;
     transform: translateY(0) scale(1);
     pointer-events: auto;
 }
 
-.dropdown__list li {
+.dropdownList li {
     padding: 10px;
     cursor: pointer;
     border-radius: 123px;
@@ -147,17 +144,17 @@
     transition: .1s ease;
 }
 
-.dropdown__list li:hover {
+.dropdownList li:hover {
     background: #e2e2e2;
 }
 
-.addpost___right__buttons {
+.actions {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 13px;
     align-items: end;
 }
-.addpost__right__btn {
+.button {
     height: 50px;
     padding: 10px;
     background: none;
@@ -174,55 +171,51 @@
     cursor: pointer;
     transition: .1s ease;
 }
-.addpost__right__btn.publish {
+.button.publish {
     background-color: #4F46E5;
     color: #fff;
 }
-.addpost__right__btn.publish:hover {
+.button.publish:hover {
     background-color: #443dc0;
 }
-.addpost__right__btn.cancel:hover {
+.button.cancel:hover {
     background-color: #dddddd;
 }
 
  
 @media (max-width: 1000px) {
-    .addpost__window {
+    .modal {
         margin: 0 20px;
     }
 }
 
 @media (max-width: 840px) {
-    .addpost__window {
+    .modal {
         padding: 27px;
         overflow-y: auto;
         overscroll-behavior: contain;
     }
-    .addpost__window::-webkit-scrollbar {
+    .modal::-webkit-scrollbar {
         display: none;
     }
 }
 
 @media (max-width: 730px) {
-    .addpost__main {
+    .main {
         gap: 30px;
     }
 }
 
 @media (max-width: 630px) {
-    .addpost__main {
+    .main {
         grid-template-columns: 1fr;
     }
 
-    .addpost__window {
+    .modal {
         max-height:max-content;
     }
 
-    .addpost__right__upload {
-        height: 200px;
-    }
-
-    .addpost__main textarea {
+    .main textarea {
         height: 130px;
     }
 }

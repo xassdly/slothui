@@ -1,7 +1,8 @@
+import styles from './UploadFile.module.css';
+
 import cursor_icon from './../../assets/addnewpost_icons/cursor.svg';
 import pngfile_icon from './../../assets/addnewpost_icons/pngfile.svg';
 import upload_icon from './../../assets/addnewpost_icons/uploadfile.svg';
-import './uploadFile.css';
 
 import { useRef, useState } from 'react';
 
@@ -84,36 +85,36 @@ const UploadFile = ( {setFile}: UploadFileProps ) => {
 
     return (
         <div 
-            className={`addpost__right__upload ${active ? "active" : ""}`}
+            className={`${styles.upload} ${active ? styles.active : ''}`}
             onDragOver={preventDefaults}
             onDragEnter={handleDragEnter}
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}>
             
             {preview ? (
-                <div className='addpost__upload__preview'>
+                <div className={styles.preview}>
                     <img src={preview} alt="preview" />
                 </div>
             ) : (
                 <>
                     <input type="file" ref={inputRef} accept='image/*' hidden onChange={onFileChange} />
-                    <div className="addpost__upload__center">
-                        <div className="upload__center__img">
+                    <div className={styles.center}>
+                        <div className={styles.uploadIcon}>
                             <img src={upload_icon} alt="upload image" />
                         </div>
-                        <div className="upload__center__text">
+                        <div className={styles.text}>
                             Drag & drop an image here to upload
                         </div>
-                        <button onClick={openFilePicker} className="upload__center__button">
+                        <button onClick={openFilePicker} className={styles.button}>
                             Or click here
                         </button>
                     </div>
-                    <div className="addpost__upload__footer">
+                    <footer className={styles.footer}>
                         Supported Format: SVG, JPG, PNG (10mb each)
-                    </div>
-                    <div className="addpost__upload__hint">
-                        <img src={cursor_icon} alt="cursor" className='icon__cursor'/>
-                        <img src={pngfile_icon} alt="pngfile" className='icon__file'/>
+                    </footer>
+                    <div className={styles.hint}>
+                        <img src={cursor_icon} alt="cursor" className={styles.iconCursor}/>
+                        <img src={pngfile_icon} alt="pngfile" className={styles.iconFile}/>
                     </div>
                 </>
             )}
