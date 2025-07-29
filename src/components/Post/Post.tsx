@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import parseHashtags from '../../utils/Hashtags/parseHashtags';
 
 
-import CommentsWindow from '../CommentsWindow/CommentsModal';
+import CommentsWindow from '../CommentsModal/CommentsModal';
 import EmojiPicker from '../EmojiPicker/EmojiPicker';
 import Modal from '../Modal/Modal';
 

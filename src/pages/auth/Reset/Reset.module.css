@@ -1,0 +1,15 @@
+.backButton {
+    display: flex;
+    align-items: center;
+    color: #4F46E5;
+    font-size: 0.875rem;
+    letter-spacing: -0.6%;
+    line-height: 20px;
+    font-weight: bold;
+    gap: 8px;
+    cursor: pointer;
+    margin-top: 24px;
+    border: none;
+    background: none;
+    padding: 0;
+}

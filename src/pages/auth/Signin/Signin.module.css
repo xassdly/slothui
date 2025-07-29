@@ -1,0 +1,105 @@
+.utils {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 12px 0 24px 0;
+}
+
+.remember {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 8px;
+    user-select: none;
+    color: #1E293B;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.remember input {
+    display: none;
+}
+
+.remember .checkmark {
+    width: 17px;
+    height: 17px;
+    border: 2px solid #1E293B;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    transition: 0.2s;
+}
+
+.remember input:checked + .checkmark {
+    background-color: #4F46E5;
+    border-color: #4F46E5;
+}
+
+.remember input:checked + .checkmark::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+
+
+
+.forgot {
+    color: #4F46E5;
+    font-size: 0.875rem;
+    font-weight: bold;
+    letter-spacing: -0.6%;
+    line-height: 20px;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.orLine {
+    margin: 0 0 32px 0;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #94A3B8;
+    font-size: 0.75rem;
+    font-weight: 800;
+    width: 100%;
+}
+
+.orLine::before,
+.orLine::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1.4px solid #CBD5E1;
+}
+
+.orLine::before {
+    margin-right: 12px;
+}
+.orLine::after {
+    margin-left: 12px;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    50% { transform: translateX(4px); }
+    75% { transform: translateX(-4px); }
+    100% { transform: translateX(0); }
+}
+
+.formWrapper.error {
+    border: 1px solid #f87171;
+    animation: shake 0.2s;
+}
+
+
+

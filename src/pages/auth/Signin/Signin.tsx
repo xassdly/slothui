@@ -1,4 +1,4 @@
-import './signin.css';
+import styles from './Signin.module.css';
 import { useState } from 'react';
 
 import logo from './../../../assets/logo.svg';
@@ -69,7 +69,7 @@ const Signin = ( {setIsLoggedIn}: SigninProps) => {
 
             <div className="auth__container">
 
-                <div className="signin__logo">
+                <div className="auth__logo">
                     <img src={logo} alt="logo" />
                 </div>
 
@@ -78,69 +78,69 @@ const Signin = ( {setIsLoggedIn}: SigninProps) => {
                     <p>Unleash your inner sloth 4.0 right now.</p>
                 </div>
 
-                <div className="signin__input__field">
-                    <label htmlFor="mail">Email Adress</label>
-                    <div className={`signin__input__field__wrapper ${isError ? 'error' : ''}`}>
-                        <img src={mail_icon} alt="mail" />
-                        <input id='mail' type="email" placeholder='elementary221b@gmail.com' value={emailText} onChange={(e) => setEmailText(e.target.value)}/>
+                <div className='auth__formGroup'>
+                    <label htmlFor="email">Email Adress</label>
+                    <div className={`auth__formWrapper ${isError ? 'error' : ''}`}>
+                        <img src={mail_icon} alt="email" />
+                        <input id='email' type="email" placeholder='elementary221b@gmail.com' value={emailText} onChange={(e) => setEmailText(e.target.value)}/>
                     </div>
                 </div>
 
-                <div className="signin__input__field">
+                <div className='auth__formGroup'>
                     <label htmlFor="password">Password</label>
-                    <div className={`signin__input__field__wrapper ${isError ? 'error' : ''}`}>
+                    <div className={`auth__formWrapper ${isError ? 'error' : ''}`}>
                         <img src={password_icon} alt="password" />
                         <input id='password' type={showPassword ? "text" : "password"} placeholder='*****************' value={passwordText} onChange={(e) => setPasswordText(e.target.value)}/>
                         
-                        <img className='signin__input__field__showhidepassword' 
-                            src={showPassword ? dontshowpassword : showpassword} alt="show/hide password" 
-                            onClick={() => setShowPassword(prev => !prev)}/>
+                        <button className='auth__showPasswordButton' onClick={() => setShowPassword(prev => !prev)}>
+                            <img src={showPassword ? dontshowpassword : showpassword} alt="show/hide password" />
+                        </button>
                     </div>
                 </div>
 
-                <div className="signin__utils">
-                    <label className="signin__remember">
+                <div className={styles.utils}>
+                    <label className={styles.remember}>
                         <input type="checkbox" />
-                        <span className='checkmark'></span>
+                        <span className={styles.checkmark}></span>
                         Remember For 30 Days
                     </label>
-                    <div className="signin__forgot" onClick={() => navigate('/reset')} >
+                    <button className={styles.forgot} onClick={() => navigate('/reset')} >
                         <p>Forgot Password</p>
-                    </div>
+                    </button>
                 </div>
 
                 <button className="auth__main__button" onClick={handleSigninButton}>
                     <p>Sign In</p><img src={signin_icon} alt="sign in" />
                 </button>
 
-                <div className="signin__button__signup">
+                <div className="auth__signInUpLink">
                     <p>Don't have an account? <span onClick={() => navigate('/signup')}>Sign Up</span></p>
                 </div>
 
-                <div className="signin__or">
+                <div className={styles.orLine}>
                     <span>OR</span>
                 </div>
 
-                <button className="signin__button__facetwitgoog">
+                <button className="auth__linkButton">
                     <img src={facebook_icon} alt="facebook" />
                     Sign In With Facebook
                 </button>
 
-                <button className="signin__button__facetwitgoog">
+                <button className="auth__linkButton">
                     <img src={twitter_icon} alt="twitter" />
                     Sign In With Twitter
                 </button>
 
             </div>
-            <div className="auth__footer">
-                <div className="signin__footer__title">
+            <footer className="auth__footer">
+                <div className="auth__footer__title">
                     Copyright 2025 slothUI ©
                 </div>
-                <div className="signin__footer__links">
+                <div className="auth__footer__links">
                     <p>Privacy Policy</p>
                     <p>Terms & Conditions</p>
                 </div>
-            </div>
+            </footer>
         </div>
     )
 }

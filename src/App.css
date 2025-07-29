@@ -54,6 +54,32 @@ button, input {
   
 }
 
+.scroll__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.scroll__btn.left {
+    left: 10px;
+}
+
+.scroll__btn.right {
+    right: 10px;
+}
+
 
 @media (max-width: 1000px) {
   .navbar {

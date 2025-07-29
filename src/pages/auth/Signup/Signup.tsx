@@ -1,4 +1,4 @@
-import './signup.css';
+import styles from './Signup.module.css';
 
 import logo from './../../../assets/logo.svg';
 import google_icon from './../../../assets/auth_icons/google_icon.svg';
@@ -98,7 +98,7 @@ const Signup = ( {setIsLoggedIn}: SingupProps) => {
                     </div>
                 )}
                 
-                <div className="signup__logo">
+                <div className="auth__logo">
                     <img src={logo} alt="logo" />
                 </div>
 
@@ -107,37 +107,38 @@ const Signup = ( {setIsLoggedIn}: SingupProps) => {
                     <p>Unleash your inner sloth 4.0 right now.</p>
                 </div>
 
-                <div className="signin__input__field">
+                <div className='auth__formGroup'>
                     <label htmlFor="signup_name">Full Name</label>
-                    <div className={`signin__input__field__wrapper ${isError ? 'error' : ''}`}>
+                    <div className={`auth__formWrapper ${isError ? 'error' : ''}`}>
                         <img src={name_icon} alt="full name" />
                         <input id='signup_name' type="text" placeholder='X_AE_A13b' value={nameText} onChange={(e) => setNameText(e.target.value)}/>
                     </div>
                 </div>
 
-                <div className="signin__input__field">
+                <div className='auth__formGroup'>
                     <label htmlFor="signup_mail">Email Adress</label>
-                    <div className={`signin__input__field__wrapper ${isError ? 'error' : ''}`}>
+                    <div className={`auth__formWrapper ${isError ? 'error' : ''}`}>
                         <img src={mail_icon} alt="mail" />
                         <input id='signup_mail' type="email" placeholder='elementary221b@gmail.com' value={emailText} onChange={(e) => setEmailText(e.target.value)}/>
                     </div>
                 </div>
 
-                <div className="signin__input__field">
+                <div className='auth__formGroup'>
                     <label htmlFor="signup_password">Password</label>
-                    <div className={`signin__input__field__wrapper ${isError ? 'error' : ''}`}>
+                    <div className={`auth__formWrapper ${isError ? 'error' : ''}`}>
                         <img src={password_icon} alt="password" />
                         <input id='signup_password' type={showPassword ? "text" : "password"} placeholder='*****************' value={passwordText} onChange={handlePasswordChange}/>
-                        <img className='signin__input__field__showhidepassword' 
-                            src={showPassword ? dontshowpassword : showpassword} alt="show/hide password" 
-                            onClick={() => setShowPassword(prev => !prev)}/>
+                        <button className='auth__showPasswordButton'>
+                            <img src={showPassword ? dontshowpassword : showpassword} alt="show/hide password" 
+                                 onClick={() => setShowPassword(prev => !prev)}/>
+                        </button>
                     </div>
                 </div>
 
-                <div className="signup__password__strength">
-                    <div className="password__strengthbar">
+                <div className={styles.passStrength}>
+                    <div className={styles.strengthBar}>
                         {[1,2,3,4].map((level) => (
-                            <div key={level} className={`strengthbar__div ${passwordStrength >= level ? 'active' : ''}`}></div>
+                            <div key={level} className={`${styles.strengthBarLine} ${passwordStrength >= level ? styles.active : ''}`}></div>
                         ))}
                     </div>
                     <p>Password strength: {strengthLabel}</p>
@@ -147,26 +148,26 @@ const Signup = ( {setIsLoggedIn}: SingupProps) => {
                     <p>Sign Up</p><img src={signup_icon} alt="sign up" />
                 </button>
 
-                <div className="signin__button__signup">
+                <div className="auth__signInUpLink">
                     <p>Already have an account? <span onClick={() => navigate('/signin')}>Sign In</span></p>
                 </div>
 
-                <button className="signin__button__facetwitgoog signup__google__button">
+                <button className="auth__linkButton">
                     <img src={google_icon} alt="google" />
                     Sign Up With Google
                 </button>
 
 
             </div>
-            <div className="auth__footer">
-                <div className="signin__footer__title">
+            <footer className="auth__footer">
+                <div className="auth__footer__title">
                     Copyright 2025 slothUI ©
                 </div>
-                <div className="signin__footer__links">
+                <div className="auth__footer__links">
                     <p>Privacy Policy</p>
                     <p>Terms & Conditions</p>
                 </div>
-            </div>
+            </footer>
         </div>
     )
 }

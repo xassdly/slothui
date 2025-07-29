@@ -1,4 +1,4 @@
-import './home.css';
+import styles from './Home.module.css';
 
 import plussvg from './../../assets/main_icons/plus.svg';
 import searchicon from './../../assets/main_icons/searchicon.svg';
@@ -83,23 +83,23 @@ const Home = ( { openRightPanel, openLeftMenu}: HomeProps) => {
 
 
     return (
-        <div className="home">
+        <div className={styles.home}>
 
-            <div className="home__header">
+            <header className={styles.header}>
                 <div className="container">
-                    <div className="home__header__content">
-                        <div className="home__header__leftmenu__button" onClick={openLeftMenu}>
+                    <div className={styles.headerContent}>
+                        <button className={styles.logoButton} onClick={openLeftMenu}>
                             <img src={logomark} alt="menu"/>
-                        </div>
-                        <div className="home__header__search">
+                        </button>
+                        <div className={styles.headerSearch}>
                             <input name="search" type="text" placeholder='Search for friends, groups, pages'/>
                             <img src={searchicon} alt='search'/>
                         </div>
-                        <div className="home__header__button" >
+                        <div className={styles.headerButton}>
                             <button onClick={() => setAddNewPostWindow(true)}>{showPostButtonText ? "" : "Add New Post"}<img src={plussvg} alt='+'/></button>
                         </div>
 
-                        <div className="home__header__menu__button" onClick={openRightPanel}>
+                        <div className={styles.menuButton} onClick={openRightPanel}>
                             <img src={header_menu} alt="menu" />
                         </div>
 
@@ -111,16 +111,16 @@ const Home = ( { openRightPanel, openLeftMenu}: HomeProps) => {
 
                     </div>
                 </div>
-            </div>
+            </header>
             
             <div className="container">
-                <div className="home__content">
-                    <div className="home__stories__wrapper">
+                <div className={styles.content}>
+                    <div className={styles.storiesWrapper}>
 
                         {showLeft && (
                             <button className="scroll__btn left" onClick={() => scrollStories(-200)}><img src={arrowleft} alt="<"/></button>
                         )}
-                        <div className="home__stories" ref={storiesRef}>
+                        <div className={styles.stories} ref={storiesRef}>
 
                             {story_array.map((story, index) => (
                                 <Story 

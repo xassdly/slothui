@@ -1,4 +1,5 @@
 import './App.css';
+import './pages/auth/GlobalAuthStyle.css';
 import { useState } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
