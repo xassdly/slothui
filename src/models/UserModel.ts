@@ -4,4 +4,5 @@ export type UserModel = {
     avatar: string;
     email: string;
     country: string;
+    plan: string | null;
 }

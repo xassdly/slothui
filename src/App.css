@@ -57,6 +57,9 @@ button, input {
 .friends__main {
   display: flex;
 }
+.subscription__main {
+    display: flex;
+}
 
 .scroll__btn {
     position: absolute;
