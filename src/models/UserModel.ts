@@ -1,12 +1,7 @@
-export class UserModel {
+export type UserModel = {
     id: number;
     username: string;
     avatar: string;
-    
-    
-    constructor (id:number, username: string, avatar: string) {
-        this.id = id;
-        this.username = username;
-        this.avatar = avatar;
-    }
+    email: string;
+    country: string;
 }

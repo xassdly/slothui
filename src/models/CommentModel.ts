@@ -1,4 +1,4 @@
-import { UserModel } from "./UserModel";
+import type { UserModel } from "./UserModel";
 
 export class CommentModel {
     id: number;

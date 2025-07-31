@@ -1,4 +1,4 @@
-import { UserModel } from '../../models/UserModel';
-import avatar from './../../assets/avatars/a10.png';
+import type { UserModel } from '../../models/UserModel';
+import avatar from "./../../assets/avatars/userAvatar.png";
 
-export const defaultUser = new UserModel(0, 'Anya', avatar);
+export const defaultUser: UserModel = { id: 0, username: 'Artur', avatar: avatar, email: "xassdly@gmail.com", country: "Ukraine" };

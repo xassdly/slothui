@@ -1,7 +1,7 @@
 import styles from './styles/Suggestion.module.css';
 
 import plusicon from './../../assets/rightside_icons/plusicon.svg';
-import { UserModel } from '../../models/UserModel';
+import type { UserModel } from '../../models/UserModel';
 import { useState } from 'react';
 
 type SuggestionProps = {
@@ -11,13 +11,20 @@ type SuggestionProps = {
 const Suggestion = ( {user} : SuggestionProps) => {
     const [isFriendAdded, setIsFriendAdded] = useState(false);
     const [isHidden, setIsHidden] = useState(false);
+    const [removeElement, setRemoveElement] = useState(false);
+
     const handleAddFriend = () => {
         setIsFriendAdded(true);
-        setTimeout(() => setIsHidden(true), 300);
+        setTimeout(() => {
+            setIsHidden(true);
+            setTimeout(() => setRemoveElement(true), 300);
+        } , 300);
     }
 
-    return !isHidden && (
-        <div className={`${styles.suggestion} ${isFriendAdded ? styles.added : ''}`}>
+    return !removeElement && (
+        <div className={`${styles.suggestion} 
+                        ${isFriendAdded ? styles.added : ''} 
+                        ${isHidden ? styles.hidden : ''}`}>
             <div className={styles.user}>
                 <img src={user.avatar} alt="user" />
                 <div className={styles.userInfo}>

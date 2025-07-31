@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import type { ReactNode } from "react";
-import { UserModel } from "./../../models/UserModel";
+import type { UserModel } from "./../../models/UserModel";
 import { defaultUser } from "./defaultUser";
 
 type UserContextType = {

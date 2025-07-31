@@ -57,7 +57,7 @@
     font-weight: bold;
     border-radius: 1234px;
     cursor: pointer;
-    transition: .2s ease;
+    transition: .1s ease;
 }
 
 .auth__main__button:hover {

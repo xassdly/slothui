@@ -78,7 +78,7 @@ function App() {
           </div>  
         }/>
         <Route path='/friends' element={
-          <div className='support__main'>
+          <div className='friends__main'>
             <Navbar isOpen={isLeftOpen} onClose={() => setIsLeftOpen(false)} handleLogout={handleLogout}/>
             <Friends />
           </div>  
