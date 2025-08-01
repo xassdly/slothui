@@ -60,37 +60,37 @@ function App() {
           </div>
         }/>
         <Route path='/settings' element={
-          <div className='settings__main'>
+          <div className='_main'>
             <Navbar isOpen={isLeftOpen} onClose={() => setIsLeftOpen(false)} handleLogout={handleLogout}/>
             <Settings />
           </div>  
         }/>
         <Route path='/subscription' element={
-          <div className='subscription__main'>
+          <div className='_main'>
             <Navbar isOpen={isLeftOpen} onClose={() => setIsLeftOpen(false)} handleLogout={handleLogout}/>
             <Subscription />
           </div>  
         }/>
         <Route path='/support' element={
-          <div className='support__main'>
+          <div className='_main'>
             <Navbar isOpen={isLeftOpen} onClose={() => setIsLeftOpen(false)} handleLogout={handleLogout}/>
             <Support />
           </div>  
         }/>
         <Route path='/friends' element={
-          <div className='friends__main'>
+          <div className='_main'>
             <Navbar isOpen={isLeftOpen} onClose={() => setIsLeftOpen(false)} handleLogout={handleLogout}/>
             <Friends />
           </div>  
         }/>
         <Route path='/notifications' element={
-          <div className='notifications__main'>
+          <div className='_main'>
             <Navbar isOpen={isLeftOpen} onClose={() => setIsLeftOpen(false)} handleLogout={handleLogout}/>
             <Notifications />
           </div>  
         }/>
         <Route path='/chats' element={
-          <div className='notifications__main'>
+          <div className='_main'>
             <Navbar isOpen={isLeftOpen} onClose={() => setIsLeftOpen(false)} handleLogout={handleLogout}/>
             <Chats />
           </div>  

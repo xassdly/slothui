@@ -15,6 +15,12 @@ input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;  
 }
 
+input:focus::placeholder,
+textarea:focus::placeholder {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -54,11 +60,8 @@ button, input {
   
 }
 
-.friends__main {
+._main {
   display: flex;
-}
-.subscription__main {
-    display: flex;
 }
 
 .scroll__btn {
