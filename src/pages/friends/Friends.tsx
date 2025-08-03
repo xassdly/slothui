@@ -1,12 +1,12 @@
 import styles from './Friends.module.css';
 import searchIcon from './../../assets/main_icons/searchicon.svg';
-import { friendsMock } from '../../mock/users';
+import { usersMock } from '../../mock/users';
 import FriendComponent from './FriendComponent';
 import { useState } from 'react';
 import type { UserModel } from '../../models/UserModel';
 
 const Friends = () => {
-    const [friends, setFriends] = useState<UserModel[]>(friendsMock);
+    const [friends, setFriends] = useState<UserModel[]>(usersMock);
     const [text, setText] = useState('');
 
     const removeFriend = (id: number) => {

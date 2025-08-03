@@ -60,10 +60,6 @@ button, input {
   
 }
 
-._main {
-  display: flex;
-}
-
 .scroll__btn {
     position: absolute;
     top: 50%;

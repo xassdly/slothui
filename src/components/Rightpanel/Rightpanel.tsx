@@ -15,7 +15,7 @@ import gifticon from './../../assets/rightside_icons/gifticon.svg';
 import gradicon from './../../assets/rightside_icons/gradicon.svg';
 import groupicon from './../../assets/rightside_icons/groupicon.svg';
 
-import { user1, user2, user3, user4, user5, user6, user7, user8, user9 } from '../../mock/users';
+import { usersMock } from '../../mock/users';
 import { EventModel } from '../../models/EventModel';
 import { useUser } from '../../contexts/UserContext/UserContext';
 import { useState, useEffect } from 'react';
@@ -64,7 +64,7 @@ const Rightpanel = ( { isOpen, onClose }: RightpanelProps) => {
             <div className={`rightpanel ${isOpen ? 'active' : ''}`}>
 
                 <header className={styles.header}>
-                    <div className={styles.userAvatarWrapper} onClick={() => navigate('/profile')}>
+                    <div className={styles.userAvatarWrapper} onClick={() => navigate(`/profile/${user?.id}`)}>
                         <img className={styles.userAvatar} src={user?.avatar} alt="avatar" />
                         {isUserActive && (
                             <img className={styles.avatarIndicator} src={avatar_indicator} alt="indicator" />
@@ -86,11 +86,11 @@ const Rightpanel = ( { isOpen, onClose }: RightpanelProps) => {
                         </button>
                     </header>
                     <div>
-                        <Suggestion user={user3}/>
-                        <Suggestion user={user5}/>
-                        <Suggestion user={user6}/>
-                        <Suggestion user={user9}/>
-                        <Suggestion user={user1}/>
+                        <Suggestion user={usersMock[3]}/>
+                        <Suggestion user={usersMock[5]}/>
+                        <Suggestion user={usersMock[6]}/>
+                        <Suggestion user={usersMock[8]}/>
+                        <Suggestion user={usersMock[1]}/>
                     </div>
                 </div>
 
@@ -101,13 +101,13 @@ const Rightpanel = ( { isOpen, onClose }: RightpanelProps) => {
                     </header>
                     <div className={styles.activity__content}>
                         <div className={styles.activity__users}>
-                            <img src={user7.avatar} alt="user" />
-                            <img src={user4.avatar} alt="user" />
-                            <img src={user9.avatar} alt="user" />
-                            <img src={user1.avatar} alt="user" />
-                            <img src={user4.avatar} alt="user" />
-                            <img src={user8.avatar} alt="user" />
-                            <img src={user2.avatar} alt="user" />
+                            <img src={usersMock[7].avatar} alt="user" />
+                            <img src={usersMock[4].avatar} alt="user" />
+                            <img src={usersMock[8].avatar} alt="user" />
+                            <img src={usersMock[1].avatar} alt="user" />
+                            <img src={usersMock[4].avatar} alt="user" />
+                            <img src={usersMock[8].avatar} alt="user" />
+                            <img src={usersMock[2].avatar} alt="user" />
                         </div>
                         <div className={styles.stats}>
                             <div className={styles.followersCount}><h3>+1,158</h3><p>Followers</p></div>

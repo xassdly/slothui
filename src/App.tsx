@@ -17,8 +17,6 @@ import Signup from './pages/auth/Signup/Signup';
 import Profile from './pages/profile/Profile';
 import Settings from './pages/settings/Settings';
 import { UserProvider } from './contexts/UserContext/UserContext';
-import Notifications from './pages/notifications/Notifications';
-import Chats from './pages/chats/Chats';
 
 
 function App() {
@@ -53,46 +51,34 @@ function App() {
         <Route path='/reset' element={<Reset />} />
         <Route path='/signup' element={<Signup setIsLoggedIn={setIsLoggedIn}/>} />
 
-        <Route path='/profile' element={
-          <div className='profile__main'>
+        <Route path='/profile/:id' element={
+          <div className='main'>
             <Navbar isOpen={isLeftOpen} onClose={() => setIsLeftOpen(false)} handleLogout={handleLogout}/>
             <Profile />
           </div>
         }/>
         <Route path='/settings' element={
-          <div className='_main'>
+          <div className='main'>
             <Navbar isOpen={isLeftOpen} onClose={() => setIsLeftOpen(false)} handleLogout={handleLogout}/>
             <Settings />
           </div>  
         }/>
         <Route path='/subscription' element={
-          <div className='_main'>
+          <div className='main'>
             <Navbar isOpen={isLeftOpen} onClose={() => setIsLeftOpen(false)} handleLogout={handleLogout}/>
             <Subscription />
           </div>  
         }/>
         <Route path='/support' element={
-          <div className='_main'>
+          <div className='main'>
             <Navbar isOpen={isLeftOpen} onClose={() => setIsLeftOpen(false)} handleLogout={handleLogout}/>
             <Support />
           </div>  
         }/>
         <Route path='/friends' element={
-          <div className='_main'>
+          <div className='main'>
             <Navbar isOpen={isLeftOpen} onClose={() => setIsLeftOpen(false)} handleLogout={handleLogout}/>
             <Friends />
-          </div>  
-        }/>
-        <Route path='/notifications' element={
-          <div className='_main'>
-            <Navbar isOpen={isLeftOpen} onClose={() => setIsLeftOpen(false)} handleLogout={handleLogout}/>
-            <Notifications />
-          </div>  
-        }/>
-        <Route path='/chats' element={
-          <div className='_main'>
-            <Navbar isOpen={isLeftOpen} onClose={() => setIsLeftOpen(false)} handleLogout={handleLogout}/>
-            <Chats />
           </div>  
         }/>
 

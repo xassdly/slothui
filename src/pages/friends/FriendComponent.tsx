@@ -3,6 +3,7 @@ import styles from './FriendComponent.module.css';
 import arrowRight from './../../assets/main_icons/arrowRight.svg';
 import { countries } from '../../mock/flags';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 type FriendComponentProps = {
     user: UserModel;
@@ -16,6 +17,8 @@ const FriendComponent = ( {user, onRemove }: FriendComponentProps) => {
     const [isHidden, setIsHidden] = useState(false);
     const [isRemoved, setIsRemoved] = useState(false);
 
+    const navigate = useNavigate();
+
     const handleButtonHide = () => {
         setIsHideClicked(true);
         setTimeout(() => {
@@ -25,6 +28,10 @@ const FriendComponent = ( {user, onRemove }: FriendComponentProps) => {
                 onRemove(user.id);
             }, 300);
         }, 300);
+    }
+
+    const handleButtonViewProfile = () => {
+        navigate(`/profile/${user.id}`);
     }
 
     return !isRemoved && (
@@ -40,7 +47,7 @@ const FriendComponent = ( {user, onRemove }: FriendComponentProps) => {
             </div>
             <div className={styles.actions}>
                 <button className={styles.buttonHide} onClick={handleButtonHide}>Hide</button>
-                <button className={styles.buttonView}>View Profile <img src={arrowRight} alt="view profile icon" /></button>
+                <button className={styles.buttonView} onClick={handleButtonViewProfile}>View Profile <img src={arrowRight} alt="view profile icon" /></button>
             </div>
         </div>
     )
