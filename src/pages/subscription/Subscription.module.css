@@ -104,10 +104,16 @@
     .plans {
         grid-template-columns: 1fr 1fr;
     }
+    .title {
+        margin: 31px 0 63px 0;
+    }
 }
 @media (max-width: 650px) {
     .plans {
         grid-template-columns: 1fr;
         align-items: center;
+    }
+    .title {
+        margin: 26px 0 43px 0;
     }
 }

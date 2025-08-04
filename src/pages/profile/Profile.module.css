@@ -211,4 +211,56 @@
     gap: 20px;
 }
 
+@media (max-width: 1400px) {
+    .container {
+        width: 90%;
+    }
+}
 
+@media (max-width: 860px) {
+    .mainContent {
+        padding-top: 52px;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .rightCol {
+        display: grid;
+        gap: 30px;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .postCards {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .item {
+        padding: 18px 15px;
+    }
+    .container {
+        width: 92%;
+    }
+    .actions {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .rightCol {
+        display: grid;
+        gap: 25px;
+        grid-template-columns: 1fr;
+    }
+    .postCards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 415px) {
+    .actions button {
+        padding: 7px 15px;
+    }
+}

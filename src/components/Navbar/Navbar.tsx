@@ -15,7 +15,7 @@ import closeicon from './../../assets/leftside_icons/close.svg';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../../contexts/UserContext/UserContext';
 import Modal from '../Modal/Modal';
-
+import { useSwipeable } from 'react-swipeable';
  
 type NavbarProps = {
     isOpen: boolean;
@@ -49,7 +49,12 @@ const Navbar = ( { isOpen, onClose, handleLogout }: NavbarProps) => {
 
     const [isLogoutOpen, setIsLogoutOpen] = useState(false);
 
-
+    const handlers = useSwipeable({
+        onSwipedLeft: () => {
+        onClose();
+        },
+        trackMouse: window.innerWidth < 1000
+    });
 
     return (
         <>
@@ -57,7 +62,7 @@ const Navbar = ( { isOpen, onClose, handleLogout }: NavbarProps) => {
                 <div className="overlay" onClick={onClose}></div>
             )}
             
-            <div className={`navbar ${isOpen ? 'active' : ''}`}>
+            <div {...handlers} className={`navbar ${isOpen ? 'active' : ''}`}>
                 <div>
                     <img src={logo} alt="logo" />
                 </div>

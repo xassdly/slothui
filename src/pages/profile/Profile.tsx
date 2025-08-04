@@ -8,9 +8,12 @@ import musicIcon from './../../assets/profile_icons/music.svg';
 import quoteIcon from './../../assets/profile_icons/quote.svg';
 import { useParams } from 'react-router-dom';
 import { usersMock } from '../../mock/users';
+import { useState } from 'react';
 import { useUser } from '../../contexts/UserContext/UserContext';
 import ProfilePost from './ProfilePost';
 import { posts_array } from '../../mock/posts';
+import Modal from '../../components/Modal/Modal';
+import Post from '../../components/Post/Post';
 
 const Profile = () => {
     const { id } = useParams();
@@ -20,6 +23,7 @@ const Profile = () => {
 
     const isOwnProfile = currentUser?.id === userId;
     const user = isOwnProfile ? currentUser : usersMock.find(u => u.id === Number(id));
+    
 
     if (!user) {
         return <div><h2>User not found</h2></div>
@@ -28,6 +32,15 @@ const Profile = () => {
     let flag = "";
     if (user) { 
         flag = countries[user.country.toLowerCase()];
+    }
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [postToOpen, setPostToOpen] = useState<Number | null>(null);
+    const currentPost = posts_array.find(post => post.id === postToOpen);
+
+    const handlePostClick = (postId: number) => {
+        setPostToOpen(postId);
+        setIsModalOpen(true);
     }
 
     return (
@@ -103,8 +116,8 @@ const Profile = () => {
                                 <h3 className={styles.title}>Skills</h3>
                                 <div className={styles.skillList}>   
                                     <div className={styles.skillsContainer}>
-                                    {user.skills.map(skill => (
-                                        <span key={skill} className={styles.skill}>
+                                    {user.skills.map((skill, index) => (
+                                        <span key={index} className={styles.skill}>
                                         {skill}
                                         </span>
                                     ))}
@@ -115,14 +128,23 @@ const Profile = () => {
                         </div>
 
                         <div className={`${styles.item} ${styles.posts}`}>
-                            <h3 className={styles.title}>Posts</h3>
+                            <h3 className={styles.title}>{userPosts.length > 0 ? 'Posts' : 'Looks empty here :('}</h3>
                             <div className={styles.postCards}>
                                 {userPosts.map((post) => (
-                                    <ProfilePost post={post} />
+                                    <ProfilePost key={post.id} 
+                                        post={post} 
+                                        onClick={() => handlePostClick(post.id)}/>
                                 ))}
                             </div>
                         </div>
                     </div>
+                    {isModalOpen && currentPost &&(
+                        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                            <div onClick={e => e.stopPropagation()}>
+                                <Post post={currentPost} />
+                            </div>
+                        </Modal>
+                    )}
                 </div>
 
             </div>

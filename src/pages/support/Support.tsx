@@ -1,8 +1,13 @@
 import './support.css';
+import type { SwipeableHandlers } from 'react-swipeable';
 
-const Support = () => {
+type SupportProps = {
+    handlers: SwipeableHandlers;
+}
+
+const Support = ( {handlers}: SupportProps) => {
     return (
-        <div className="support">
+        <div {...handlers} className="support">
             Support
         </div>
     )

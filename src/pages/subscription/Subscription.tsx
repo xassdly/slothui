@@ -2,14 +2,17 @@ import styles from './Subscription.module.css';
 import Plan from './Plan';
 import { useUser } from '../../contexts/UserContext/UserContext';
 import { plans } from '../../mock/plans';
+import type { SwipeableHandlers } from 'react-swipeable';
 
-const Subscription = () => {
+type SubscriptionProps = {
+    handlers: SwipeableHandlers;
+}
+
+const Subscription = ( { handlers }: SubscriptionProps) => {
     const { user } = useUser();
 
-    
-
     return (
-        <div className={styles.subscription}>
+        <div {...handlers} className={styles.subscription}>
             <div className={styles.container}>
                 <div className={styles.title}>
                     Subscription

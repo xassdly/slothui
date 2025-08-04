@@ -17,13 +17,15 @@ import Modal from '../../components/Modal/Modal';
 
 import AddNewPost from '../../components/AddNewPost/AddNewPost';
 import StoryViewer from '../../components/StoryViewer/StoryViewer';
+import type { SwipeableHandlers } from 'react-swipeable';
 
 type HomeProps = {
     openRightPanel: () => void;
     openLeftMenu: () => void;
+    handlers: SwipeableHandlers;
 };
 
-const Home = ( { openRightPanel, openLeftMenu}: HomeProps) => {
+const Home = ( { openRightPanel, openLeftMenu, handlers}: HomeProps) => {
     const storiesRef = useRef<HTMLDivElement>(null);
 
     const [showLeft, setShowLeft] = useState(false);
@@ -83,7 +85,7 @@ const Home = ( { openRightPanel, openLeftMenu}: HomeProps) => {
 
 
     return (
-        <div className={styles.home}>
+        <div {...handlers} className={styles.home}>
 
             <header className={styles.header}>
                 <div className="container">

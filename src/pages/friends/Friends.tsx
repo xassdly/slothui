@@ -4,8 +4,13 @@ import { usersMock } from '../../mock/users';
 import FriendComponent from './FriendComponent';
 import { useState } from 'react';
 import type { UserModel } from '../../models/UserModel';
+import type { SwipeableHandlers } from 'react-swipeable';
 
-const Friends = () => {
+type FriedsProps = {
+    handlers: SwipeableHandlers;
+}
+
+const Friends = ( { handlers }:FriedsProps ) => {
     const [friends, setFriends] = useState<UserModel[]>(usersMock);
     const [text, setText] = useState('');
 
@@ -18,7 +23,7 @@ const Friends = () => {
     );
 
     return (
-        <div className={styles.friends}>
+        <div {...handlers} className={styles.friends}>
             <div className={styles.container}>
                 <header className={styles.header}>
                     <h3 className={styles.title}>Friends</h3>

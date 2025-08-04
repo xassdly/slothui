@@ -8,13 +8,18 @@ import cancelIcon from './../../assets/addnewpost_icons/cancel.svg';
 
 import UploadFile from '../../components/UploadFile/UploadFile';
 import { useState } from 'react';
+import type { SwipeableHandlers } from 'react-swipeable';
 
-const Settings = () => {
+type SettingsProps = {
+    handlers: SwipeableHandlers;
+}
+
+const Settings = ( {handlers}: SettingsProps ) => {
     const [, setFile ] = useState<string>();
     const [descriptionText, setDescriptonText] = useState('');
     const descMaxLength = 250;
     return (
-        <div className={styles.settings}>
+        <div {...handlers} className={styles.settings}>
             <header className={styles.header}>
                 <div className={styles.container}>
                     <div className={styles.header__content}>

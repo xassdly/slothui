@@ -17,7 +17,7 @@ import Signup from './pages/auth/Signup/Signup';
 import Profile from './pages/profile/Profile';
 import Settings from './pages/settings/Settings';
 import { UserProvider } from './contexts/UserContext/UserContext';
-
+import { useSwipeable } from 'react-swipeable';
 
 function App() {
   const [isRightOpen, setIsRightOpen] = useState(false);
@@ -31,6 +31,11 @@ function App() {
     navigate('/signin');
   }
 
+  const handlers = useSwipeable({
+      onSwipedRight: () => setIsLeftOpen(true),
+      trackMouse: window.innerWidth < 1000
+  });
+
   return (
     <UserProvider>
       <Routes>
@@ -40,7 +45,7 @@ function App() {
           isLoggedIn ? (
             <div className='main'>
               <Navbar isOpen={isLeftOpen} onClose={() => setIsLeftOpen(false)} handleLogout={handleLogout}/>
-              <Home openRightPanel={() => setIsRightOpen(true)} openLeftMenu={() => setIsLeftOpen(true)}/>
+              <Home handlers={handlers} openRightPanel={() => setIsRightOpen(true)} openLeftMenu={() => setIsLeftOpen(true)}/>
               <Rightpanel isOpen={isRightOpen} onClose={() => setIsRightOpen(false)}/>
             </div>
           ) : (
@@ -60,25 +65,25 @@ function App() {
         <Route path='/settings' element={
           <div className='main'>
             <Navbar isOpen={isLeftOpen} onClose={() => setIsLeftOpen(false)} handleLogout={handleLogout}/>
-            <Settings />
+            <Settings handlers={handlers} />
           </div>  
         }/>
         <Route path='/subscription' element={
           <div className='main'>
             <Navbar isOpen={isLeftOpen} onClose={() => setIsLeftOpen(false)} handleLogout={handleLogout}/>
-            <Subscription />
+            <Subscription handlers={handlers}/>
           </div>  
         }/>
         <Route path='/support' element={
           <div className='main'>
             <Navbar isOpen={isLeftOpen} onClose={() => setIsLeftOpen(false)} handleLogout={handleLogout}/>
-            <Support />
+            <Support handlers={handlers} />
           </div>  
         }/>
         <Route path='/friends' element={
           <div className='main'>
             <Navbar isOpen={isLeftOpen} onClose={() => setIsLeftOpen(false)} handleLogout={handleLogout}/>
-            <Friends />
+            <Friends handlers={handlers} />
           </div>  
         }/>
 

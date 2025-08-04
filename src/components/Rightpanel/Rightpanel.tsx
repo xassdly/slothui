@@ -71,8 +71,8 @@ const Rightpanel = ( { isOpen, onClose }: RightpanelProps) => {
                         )}
                     </div>
                     <div className={styles.headerActions}>
-                        <button className={styles.headerButton} onClick={() => navigate('/chats')}><img src={messicon} alt="messages" /></button>
-                        <button className={styles.headerButton} onClick={() => navigate('/notifications')}><img src={notsdarkicon} alt="notifications" /></button>
+                        <button className={styles.headerButton} ><img src={messicon} alt="messages" /></button>
+                        <button className={styles.headerButton} ><img src={notsdarkicon} alt="notifications" /></button>
                         <button className={styles.headerButton} onClick={() => navigate('/settings')}><img src={setticon} alt="settings" /></button>
                     </div>
                 </header>
