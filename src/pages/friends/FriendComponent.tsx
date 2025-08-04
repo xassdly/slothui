@@ -11,7 +11,7 @@ type FriendComponentProps = {
 }
 
 const FriendComponent = ( {user, onRemove }: FriendComponentProps) => {
-    const flag = countries[user.country.toLowerCase()];
+    const flagSrc = `${import.meta.env.BASE_URL}${countries[user.country.toLowerCase()]}`;
 
     const [isHideClicked, setIsHideClicked] = useState(false);
     const [isHidden, setIsHidden] = useState(false);
@@ -41,7 +41,7 @@ const FriendComponent = ( {user, onRemove }: FriendComponentProps) => {
             <div className={styles.user}>
                 <img src={user.avatar} alt="user avatar" />
                 <div className={styles.userInfo}>
-                    <div className={styles.username}>{user.username} <img className={styles.flags} src={flag} alt="country flag icon" /></div>
+                    <div className={styles.username}>{user.username} <img className={styles.flags} src={flagSrc} alt="country flag icon" /></div>
                     <p className={styles.email}>{user.email}</p>
                 </div>
             </div>
