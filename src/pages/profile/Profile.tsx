@@ -31,7 +31,7 @@ const Profile = () => {
     
     let flag = "";
     if (user) { 
-        flag = countries[user.country.toLowerCase()];
+        flag = `${import.meta.env.BASE_URL}${countries[user.country.toLowerCase()]}`;
     }
 
     const [isModalOpen, setIsModalOpen] = useState(false);

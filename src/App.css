@@ -20,6 +20,9 @@ textarea:focus::placeholder {
   opacity: 0;
   transition: opacity 0.2s ease;
 }
+input, textarea {
+  font-size: 16px;
+}
 
 body {
   margin: 0;
@@ -76,6 +79,7 @@ button, input {
     align-items: center;
     justify-content: center;
     z-index: 10;
+    flex-shrink: 0;
 }
 
 .scroll__btn.left {

@@ -72,6 +72,8 @@
     padding: 13px 20px;
     cursor: pointer;
     transition: .2s ease;
+    will-change: transform;
+
 }
 .headerButton button:hover {
     opacity: 80%;
