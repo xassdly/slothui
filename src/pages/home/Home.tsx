@@ -83,6 +83,15 @@ const Home = ( { openRightPanel, openLeftMenu, handlers}: HomeProps) => {
         setActiveStoryIndex(null);
     }, []);
 
+    useEffect(() => {
+        const preloadStoryImages = () => {
+            story_array.forEach((story) => {
+                const img = new Image();
+                img.src = story.content;
+            });
+        };
+        preloadStoryImages();
+    }, []);
 
     return (
         <div {...handlers} className={styles.home}>
